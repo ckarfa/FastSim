@@ -1,0 +1,10 @@
+Testcase: DFADD
+
+Run the following command from "src" folder:
+There are 3 top level verilogs hence we have to run parser 3 times.
+
+1. python parser.py -x -f benchmark_examples/CHStone/dfadd/console_input/top_input.txt -t top benchmark_examples/CHStone/dfadd/verilog/top.v benchmark_examples/CHStone/dfadd/verilog/top_a_input.v benchmark_examples/CHStone/dfadd/verilog/top_b_input.v benchmark_examples/CHStone/dfadd/verilog/top_z_output.v
+2. python parser.py -f benchmark_examples/CHStone/dfadd/console_input/addfloatsigs_input.txt -t addFloat64Sigs benchmark_examples/CHStone/dfadd/verilog/addFloat64Sigs.v
+3. python parser.py -f benchmark_examples/CHStone/dfadd/console_input/roundAndPackFloat64_input.txt -t roundAndPackFloat64 benchmark_examples/CHStone/dfadd/verilog/roundAndPackFloat64.v
+
+Note: To input the RAM, ROM and Function Input from console remove -f and the text file path from above command.

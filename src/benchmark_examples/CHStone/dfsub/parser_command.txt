@@ -1,0 +1,10 @@
+Testcase: DFSUB
+
+Run the following command from "src" folder:
+There are 3 top level verilogs hence we have to run parser 3 times.
+
+1. python parser.py -x -f benchmark_examples/CHStone/dfsub/console_input/top_input.txt -t top_main benchmark_examples/CHStone/dfsub/verilog/top_main.v benchmark_examples/CHStone/dfsub/verilog/top_main_a_input.v benchmark_examples/CHStone/dfsub/verilog/top_main_b_input.v benchmark_examples/CHStone/dfsub/verilog/top_main_z_output.v
+2. python parser.py -f benchmark_examples/CHStone/dfsub/console_input/subFloat64Sigs_input.txt -t subFloat64Sigs benchmark_examples/CHStone/dfsub/verilog/subFloat64Sigs.v benchmark_examples/CHStone/dfsub/verilog/subFloat64Sigs_cobkb.v
+3. python parser.py -f benchmark_examples/CHStone/dfsub/console_input/roundAndPackFloat64_input.txt -t roundAndPackFloat64 benchmark_examples/CHStone/dfsub/verilog/roundAndPackFloat64.v
+
+Note: To input the RAM, ROM and Function Input from console remove -f and the text file path from above command.

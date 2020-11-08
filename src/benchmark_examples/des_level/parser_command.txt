@@ -1,0 +1,10 @@
+Testcase: DES
+
+Run the following command from "src" folder:
+There are 3 top level verilogs hence we have to run parser 3 times.
+
+1. python parser.py -x -f benchmark_examples/des_level/console_input/top_function_input.txt -t top_function benchmark_examples/des_level/verilog/top_function.v benchmark_examples/des_level/verilog/top_function_IP.v benchmark_examples/des_level/verilog/top_function_PC1.v
+2. python parser.py -f benchmark_examples/des_level/console_input/shiftincidi_input.txt -t shiftingcidi benchmark_examples/des_level/verilog/shiftingcidi.v benchmark_examples/des_level/verilog/shiftingcidi_itercud.v benchmark_examples/des_level/verilog/shiftingcidi_PC2.v benchmark_examples/des_level/verilog/shiftingcidi_sub_dEe.v
+3. python parser.py -f benchmark_examples/des_level/console_input/calculationofkeys_input.txt -t calculationofkeys benchmark_examples/des_level/verilog/calculationofkeys.v benchmark_examples/des_level/verilog/calculationofkeys_E.v benchmark_examples/des_level/verilog/calculationofkeys_P.v benchmark_examples/des_level/verilog/calculationofkeys_S.v benchmark_examples/des_level/verilog/calculationofkeysbkb.v
+
+Note: To input the RAM, ROM and Function Input from console remove -f and the text file path from above command.

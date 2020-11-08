@@ -1,0 +1,7 @@
+Testcase: MOTION
+
+Run the following command from "src" folder:
+
+python parser.py -x -f benchmark_examples/Bambu/Motion/console_input/hls_macc_input.txt -t hls_macc benchmark_examples/Bambu/Motion/verilog/motion_return.v
+
+Note: To input the RAM, ROM and Function Input from console remove -f and the text file path from above command.

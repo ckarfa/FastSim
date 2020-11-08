@@ -1,0 +1,6 @@
+Testcase: MIPS
+Run the following command from "src" folder:
+
+python parser.py -x -f benchmark_examples/CHStone/mips/console_input/check_input.txt -t check benchmark_examples/CHStone/mips/verilog/check_A.v benchmark_examples/CHStone/mips/verilog/check_dmem.v benchmark_examples/CHStone/mips/verilog/check_imem.v benchmark_examples/CHStone/mips/verilog/check_outData.v benchmark_examples/CHStone/mips/verilog/check_reg.v benchmark_examples/CHStone/mips/verilog/check.v
+
+Note: To input the RAM, ROM and Function Input from console remove -f and the text file path from above command.

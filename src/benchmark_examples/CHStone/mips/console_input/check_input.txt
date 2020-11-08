@@ -1,0 +1,16 @@
+2
+check_reg
+2
+check_dmem
+1
+3
+check_A
+1
+check_imem
+1
+check_outData
+1
+0
+
+
+
