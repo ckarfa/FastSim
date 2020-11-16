@@ -45,9 +45,9 @@ int main(){
 				a6=&ap_rst;
 				a7=&ap_start;
 				int dummy=0;
-
-			    hls_macc(a1,a2,a3,a4,a5,a6,a7,&input[0],&input[9],&input[1],&input[2],&input[3],&input[4],&input[5],&input[6],&input[7],&input[8],o11,o1_ap_vld1,o21,o2_ap_vld1,o31,o3_ap_vld1,dummy);				
-				printf("Test Case:%d/%d \t  Output: %d\n",i1++,INPUT_SIZE,*a5);
+			    
+				int ans=hls_macc(input[0],input[1],input[2],input[3],input[4],input[5],input[6],input[7],input[8],input[9], o11,o21,o31);
+				printf("Test Case:%d/%d \t  Output: %d\n",i1++,INPUT_SIZE,ans);
 			}
 		}
 	  t = clock() - t;

@@ -51,7 +51,7 @@ int hls_macc(int in1, int in2, int in3, int in4, int in5, int in6, int in7, int 
    return *out1+*out2+*out3;
 }
 
-int main(){
+/*int main(){
 	int out11=0;
 	int out21=0;
 	int out31=0;
@@ -59,6 +59,6 @@ int main(){
 	int result=hls_macc(1,2,3,4,5,6,7,8,9,10, out1,out2,out3);
 	printf("%d\n",result);
 	return 0;
-}
+}*/
 
 
