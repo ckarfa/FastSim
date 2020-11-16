@@ -1333,5 +1333,6 @@ grp_shiftingcidi_fu_161_ap_done=1;
 	*ap_ready1=ap_ready;
 	*ap_rst1=ap_rst;
 	*ap_start1=ap_start;
+	printf("%d\n",input_assign_reg_94);
        return;
 }

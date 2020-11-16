@@ -12,13 +12,11 @@ int main(){
 	  while ( fgets ( line, sizeof line, fp ) != NULL )
 	  {
 		//TAKING INPUT FROM INPUT FILE
-		int n=atoi(line);
-		int result;
+		int n=atoi(line);		
 		
+		printf("Test Case:%d/%d \t  Output: ",index,INPUT_SIZE);		
 		//CALLING THE FUNCTION	
-		result=testmain(n);
-
-		printf("Test Case:%d/%d \t  Output: %d\n",index,INPUT_SIZE,result);		
+		testmain(n);		
 
 		index++;
 	  }

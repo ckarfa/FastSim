@@ -14,6 +14,7 @@ uint64_t schedule_calculation(uint64_t key,uint32_t C, uint32_t D,uint32_t L,uin
 uint64_t shiftingcidi(uint32_t C, uint32_t D,uint32_t L,uint32_t R,char mode);
 uint64_t calculationofkeys(uint32_t C, uint32_t D,uint32_t L,uint32_t R,char mode);
 uint64_t inverse_intial_permuatation(uint32_t L,uint32_t R);
+int testmain(int);
 
 uint64_t initial_permuatation(uint64_t input,uint32_t L,uint32_t R,uint32_t C,uint32_t D,char mode)
 {
@@ -36,8 +37,7 @@ uint64_t initial_permuatation(uint64_t input,uint32_t L,uint32_t R,uint32_t C,ui
         
         init_perm_res <<= 1;
         init_perm_res |= (input >> (64-IP[i])) & LB64_MASK;        
-    }
-    printf("init_perm_res:%d \n",init_perm_res);
+    }    
     L1 = (uint32_t) (init_perm_res >> 32) & L64_MASK;
     R1 = (uint32_t) init_perm_res & L64_MASK;
     L=L1;
@@ -80,7 +80,6 @@ uint64_t schedule_calculation(uint64_t key,uint32_t C, uint32_t D,uint32_t L,uin
 
 uint64_t shiftingcidi(uint32_t C, uint32_t D,uint32_t L,uint32_t R,char mode)
 {
-printf("Inside shifting -->  C:%d D:%d L:%d R:%d\n",C,D,L,R);
 	static char iteration_shift[] = {
     1,  1,  2,  2,  2,  2,  2,  2,  1,  2,  2,  2,  2,  2,  2,  1
 	};
@@ -129,16 +128,11 @@ printf("Inside shifting -->  C:%d D:%d L:%d R:%d\n",C,D,L,R);
 	C=C1;
 	D=D1;
 
-	for(i=0;i<16;i++)
-	{
-		printf("subkey[%d] : %d\n",i,sub_key[i]);
-	}
 	return calculationofkeys(C, D,L,R,mode);
 }
 uint64_t calculationofkeys(uint32_t C, uint32_t D,uint32_t L,uint32_t R,char mode)
 {
     
-printf("Inside calculation -->  C:%d D:%d L:%d R:%d\n",C,D,L,R);
 static char E[] = {
     32,  1,  2,  3,  4,  5,  
      4,  5,  6,  7,  8,  9,  
@@ -237,18 +231,15 @@ static char P[] = {
             s_input <<= 1;
             s_input |= (uint64_t) ((R1 >> (32-E[j])) & LB32_MASK);
             
-        }
-      	printf("Before s_input %d ",s_input);
+        }      	
         if (mode == 'd') 
         {
             s_input = s_input ^ sub_key[15-i];
         } 
         else 
         {
-            s_input = s_input ^ sub_key[i];           
-        }
-
-      	printf("After s_input %d ",s_input);
+            s_input = s_input ^ sub_key[i];
+        }      	
         
         for (j = 0; j < 8; j++)
         {
@@ -262,8 +253,7 @@ static char P[] = {
             s_output |= (uint32_t) (S[j][16*row + column] & 0x0f);
 	    
             
-        }
-	printf("s_output %d\n",s_output);
+        }	
         f_function_res = 0;
         
         for (j = 0; j < 32; j++) {
@@ -274,12 +264,11 @@ static char P[] = {
        
         temp = R1;
         R1 = L1 ^ f_function_res;
-        L1 = temp;  
-        printf("f_function_res %d \n",f_function_res);
-	C=C1;
+        L1 = temp;         
+		C=C1;
         D=D1;
-	L=L1;
-	R=R1;
+		L=L1;
+		R=R1;
     }
     
 	return inverse_intial_permuatation(L,R);
@@ -302,8 +291,7 @@ uint64_t inverse_intial_permuatation(uint32_t L,uint32_t R)
     int i;
     uint32_t L1=L;
     uint32_t R1=R;
-    pre_output = (((uint64_t) R1) << 32) | (uint64_t) L1;
-    printf("pre output : %d ",pre_output);
+    pre_output = (((uint64_t) R1) << 32) | (uint64_t) L1;    
     uint64_t inv_init_perm_res  = 0;   
     for (i = 0; i < 64; i++) 
     {
@@ -311,18 +299,15 @@ uint64_t inverse_intial_permuatation(uint32_t L,uint32_t R)
         inv_init_perm_res <<= 1;
         inv_init_perm_res |= (pre_output >> (64-PI[i])) & LB64_MASK;
         
-    }   
-    printf("inv return : %d\n",inv_init_perm_res);
+    }      
     return inv_init_perm_res;
 }
 
 
-
-
-void top_function()
+void top_function(int inputdata)
 {  
     int i;   
-    uint64_t input = 0x9474B8E8C73BCA7D;
+    uint64_t input = inputdata;
     uint64_t key = 0x0000000000000000;
     uint64_t result = input;
     uint32_t C                  = 0;
@@ -336,20 +321,15 @@ void top_function()
          L=0;
          R=0;
          D=0;            
-        result=initial_permuatation(result,L,R,C,D,mode);
-	//printf("result:%d\n",result);
-        if(mode=='e')
-        {
-		printf ("E: %016llx\n", result);
-	}
+        result=initial_permuatation(result,L,R,C,D,mode);		
     }
+	printf("%d\n",result);
 }
 
 
- int main(int argc, const char * argv[])  
+int testmain(int inputdata)
 {
-    
-    top_function();
+    top_function(inputdata);
     return 0;
 }
 

@@ -23,10 +23,8 @@ void shiftingcidi(int *C1,int *D1,int *L1,int *R1,int *ap_clk1,int *ap_done1,int
 int C=*C1;
 int D=*D1;
 int L=*L1;
-int R=*R1;
-
-	//printf("Inside shifting -->  C:%d D:%d L:%d R:%d\n",C,D,L,R)
-;int ap_clk=*ap_clk1;
+int R=*R1;	
+int ap_clk=*ap_clk1;
 int ap_done=*ap_done1;
 int ap_idle=*ap_idle1;
 int ap_ready=*ap_ready1;
@@ -385,9 +383,8 @@ int ap_start=*ap_start1;
        }
           PC2_address0 =  j_1_reg_182__temp ;
           iteration_shift_address0 =  i_reg_148__temp ;
-       if(ap_done==1){
-	//printf("goto end called\n");
-       goto end;
+       if(ap_done==1){	
+		goto end;
        }
        goto ap_ST_fsm_state2;
    }
@@ -558,10 +555,6 @@ int ap_start=*ap_start1;
        if(iteration_shift_ce0){
           iteration_shift_q0=iteration_shift_rom[iteration_shift_address0];
        }
-/*for(int m=0;m<16;m++)
-{
-	printf("sub key %d\n",sub_key_ram[m]);
-}*/
 
 if (grp_calculationofkeys_fu_193_ap_start_reg==1){
 grp_calculationofkeys_fu_193_ap_start=1;
@@ -1503,8 +1496,7 @@ grp_calculationofkeys_fu_193_ap_done=1;
        }
        if((1 == ap_CS_fsm_state8) && (grp_calculationofkeys_fu_193_ap_done == 1))
        {
-           ap_return =  grp_calculationofkeys_fu_193_ap_return__temp ;
-	   //printf("ap return:%d\n",ap_return);
+           ap_return =  grp_calculationofkeys_fu_193_ap_return__temp ;	   
        }
        if(1 == ap_CS_fsm_state8)
        {

@@ -377,7 +377,6 @@ int out31=*out311;
 	*in91=in9;
 	*out131=out13;
 	*out301=out30;
-	*out311=out31;	
-	//printf("%d\n",ap_return);
+	*out311=out31;		
        return;
 }

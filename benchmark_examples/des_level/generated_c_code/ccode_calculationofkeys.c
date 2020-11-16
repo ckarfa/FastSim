@@ -37,8 +37,7 @@ int ap_start=*ap_start1;
 int sub_key_address0=*sub_key_address01;
 int sub_key_ce0=*sub_key_ce01;
 long long int sub_key_q0=*sub_key_q01;
-
-	//printf("Inside calculation --> L:%d R:%d\n",L,R);
+	
    int E_address0=0;
    int E_address0__temp=0;
    int E_ce0=0;
@@ -1103,10 +1102,8 @@ long long int sub_key_q0=*sub_key_q01;
        }
 	if(sub_key_ce0)
 	{
-		sub_key_q0=sub_key_ram[sub_key_address0];
-		////printf("sub_key_q0 %llu\n",sub_key_q0);
-	}
-	//printf(" s_input_reg_219 %d ", s_input_reg_219);
+		sub_key_q0=sub_key_ram[sub_key_address0];		
+	}	
        goto ap_ST_fsm_state6;
    }
    if(((exitcond3_fu_315_p2 == 1) && (1 == ap_CS_fsm_state3)) == 0){
@@ -1131,8 +1128,7 @@ long long int sub_key_q0=*sub_key_q01;
        }
 	if(sub_key_ce0)
 	{
-		sub_key_q0=sub_key_ram[sub_key_address0];
-		////printf("sub_key_q0 %llu\n",sub_key_q0);
+		sub_key_q0=sub_key_ram[sub_key_address0];		
 	}
        goto ap_ST_fsm_state4;
    }
@@ -1738,8 +1734,7 @@ long long int sub_key_q0=*sub_key_q01;
        {
            s_input_1_cast_reg_782 =   (  ( sub_key_q0 & 281474976710655 )  ^  ( s_input_reg_219__temp  & 281474976710655 )  ) ;
            s_input_1_cast6_reg_777 =   (  ( sub_key_q0 & 140737488355327 )  ^  ( s_input_reg_219__temp  & 140737488355327 )  ) ;
-       }
-	  //printf("s_input_1_cast6_reg_777: %d \n",s_input_1_cast6_reg_777);
+       }	  
           PI_address0 =  i_i_reg_265__temp ;
           E_address0 =  j_reg_208__temp ;
           P_address0 =  j_2_reg_243__temp ;
@@ -1959,7 +1954,6 @@ long long int sub_key_q0=*sub_key_q01;
           E_address0 =  j_reg_208__temp ;
           P_address0 =  j_2_reg_243__temp ;
           S_address0 =   ( tmp_30_reg_810__temp  +  ( j_1_reg_231__temp  << 6 )  ) ; 	  sub_key_address0 = i_reg_175;
-//printf("s_output_fu_94 %d\n",s_output_fu_94);
        goto ap_ST_fsm_state11;
    }
    if(((exitcond2_fu_395_p2 == 1) && (1 == ap_CS_fsm_state7)) == 0){
@@ -2813,8 +2807,7 @@ long long int sub_key_q0=*sub_key_q01;
           S_address0 =   ( tmp_30_reg_810__temp  +  ( j_1_reg_231__temp  << 6 )  ) ; 	  sub_key_address0 = i_reg_175;
        if(P_ce0){
           P_q0=P_rom[P_address0];
-       }
-	//printf("f_function_res_reg_254 %d\n",f_function_res_reg_254);
+       }	
        goto ap_ST_fsm_state2;
    }
    if(((exitcond_fu_615_p2 == 1) && (1 == ap_CS_fsm_state11)) == 0){

@@ -31,14 +31,3 @@ int in22, int in24, int in27, int in28, int in29, int in32, int *out13, int *out
 	return *out13+*out30+*out31;
 
 }
-/*int main()
-{
-int out13;
-int out30;
-int out31;
-
-int ans=hls_macc(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,&out13,&out30,&out31);
-printf("%d",ans);
-return 0;
-}*/
-

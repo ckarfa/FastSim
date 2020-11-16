@@ -721,8 +721,7 @@ int out3_ap_vld=*out3_ap_vld1;
        if(1 == ap_CS_fsm_state5)
        {
            ap_done =  1;
-          ap_return =   ( tmp_2_reg_424__temp  +  ( tmp_1_reg_418__temp  + add6_reg_412__temp  )  ) ;
-		  //printf("ap_return:%u  - %d\n",ap_return,ap_return);
+           ap_return =   ( tmp_2_reg_424__temp  +  ( tmp_1_reg_418__temp  + add6_reg_412__temp  )  ) ;		  
        }
        if(1 == ap_CS_fsm_state5)
        {
