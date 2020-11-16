@@ -537,7 +537,10 @@ int ap_start=*ap_start1;
        iteration_shift_ce0 = 1;
                exitcond2_fu_233_p2 =   ( i_reg_148__temp  == 16 ? 1 :  0 ) ;
    if(((exitcond2_fu_233_p2 == 1) && (1 == ap_CS_fsm_state2)) == 1){
-       
+       if((exitcond2_fu_233_p2 == 1) && (1 == ap_CS_fsm_state2))
+       {
+           grp_calculationofkeys_fu_193_ap_start_reg =  1;
+       }
        if(1 == ap_CS_fsm_state2)
        {
            i_2_reg_422 =   ( i_reg_148__temp  + 1 ) ;
@@ -555,15 +558,16 @@ int ap_start=*ap_start1;
        if(iteration_shift_ce0){
           iteration_shift_q0=iteration_shift_rom[iteration_shift_address0];
        }
-	   if((exitcond2_fu_233_p2 == 1) && (1 == ap_CS_fsm_state2))
-       {
-           grp_calculationofkeys_fu_193_ap_start_reg =  1;
-       }
-		if (grp_calculationofkeys_fu_193_ap_start_reg==1){
-			grp_calculationofkeys_fu_193_ap_start=1;
-			calculationofkeys(&L,&R,&ap_clk,&grp_calculationofkeys_fu_193_ap_done,&grp_calculationofkeys_fu_193_ap_idle,&grp_calculationofkeys_fu_193_ap_ready,&grp_calculationofkeys_fu_193_ap_return,&ap_rst,&grp_calculationofkeys_fu_193_ap_start,&grp_calculationofkeys_fu_193_sub_key_address0,&grp_calculationofkeys_fu_193_sub_key_ce0,&sub_key_q0,dummy,sub_key_ram);
-			grp_calculationofkeys_fu_193_ap_done=1;
-		}
+/*for(int m=0;m<16;m++)
+{
+	printf("sub key %d\n",sub_key_ram[m]);
+}*/
+
+if (grp_calculationofkeys_fu_193_ap_start_reg==1){
+grp_calculationofkeys_fu_193_ap_start=1;
+calculationofkeys(&L,&R,&ap_clk,&grp_calculationofkeys_fu_193_ap_done,&grp_calculationofkeys_fu_193_ap_idle,&grp_calculationofkeys_fu_193_ap_ready,&grp_calculationofkeys_fu_193_ap_return,&ap_rst,&grp_calculationofkeys_fu_193_ap_start,&grp_calculationofkeys_fu_193_sub_key_address0,&grp_calculationofkeys_fu_193_sub_key_ce0,&sub_key_q0,dummy,sub_key_ram);
+grp_calculationofkeys_fu_193_ap_done=1;
+}
        goto ap_ST_fsm_state8;
    }
    if(((exitcond2_fu_233_p2 == 1) && (1 == ap_CS_fsm_state2)) == 0){
@@ -1042,11 +1046,6 @@ grp_calculationofkeys_fu_193_ap_done=1;
        {
            PC2_ce0 =  1;
        }
-	   PC2_address0 =  j_1_reg_182__temp ;
-       iteration_shift_address0 =  i_reg_148__temp ;
-       if(PC2_ce0){
-          PC2_q0=PC2_rom[PC2_address0];
-       }
        if(1 == ap_CS_fsm_state5)
        {
            sub_key_address0 =  sub_key_addr_reg_455__temp ;
@@ -1064,7 +1063,12 @@ grp_calculationofkeys_fu_193_ap_done=1;
            if(sub_key_we0){
               sub_key_ram[sub_key_address0]=sub_key_load_reg_170;
            }
-       }          
+       }
+          PC2_address0 =  j_1_reg_182__temp ;
+          iteration_shift_address0 =  i_reg_148__temp ;
+       if(PC2_ce0){
+          PC2_q0=PC2_rom[PC2_address0];
+       }
        goto ap_ST_fsm_state2;
    }
    if(((exitcond1_fu_349_p2 == 1) && (1 == ap_CS_fsm_state5)) == 0){

@@ -1,6 +1,6 @@
 #include<stdio.h>
-void top_function(int *,int *,int *,int *,int *,int *,int);
-int main(){
+void top_function(int *,int *,int *,int *,int *,int *,int,int);
+int testmain(int inputdata){
 	int ap_clk=1;
 	int ap_done=0;
 	int ap_idle=0;
@@ -15,6 +15,6 @@ int main(){
 	int *ap_rst1=&ap_rst;
 	int *ap_start1=&ap_start;
 	int dummy=0;
-	top_function(ap_clk1,ap_done1,ap_idle1,ap_ready1,ap_rst1,ap_start1,dummy);
+	top_function(ap_clk1,ap_done1,ap_idle1,ap_ready1,ap_rst1,ap_start1,dummy,inputdata);
 	return 0;
 }

@@ -12,7 +12,7 @@
 #define PC1_AWIDTH 6
 #define PC1_MEM_SIZE 56
 void shiftingcidi(int * ,int * ,int * ,int * ,int * ,int * ,int * ,int * ,long long int * ,int * ,int * ,int dummy);
-void top_function(int *ap_clk1,int *ap_done1,int *ap_idle1,int *ap_ready1,int *ap_rst1,int *ap_start1,int dummy){
+void top_function(int *ap_clk1,int *ap_done1,int *ap_idle1,int *ap_ready1,int *ap_rst1,int *ap_start1,int dummy, int inputdata){
 int ap_clk=*ap_clk1;
 int ap_done=*ap_done1;
 int ap_idle=*ap_idle1;
@@ -286,7 +286,7 @@ int ap_start=*ap_start1;
        }
        if((1 == ap_CS_fsm_state1) && (ap_start == 1))
        {
-           input_assign_reg_94 =  10697378324826278525;
+           input_assign_reg_94 =  inputdata;
        }
        if((ap_start == 0) && (1 == ap_CS_fsm_state1))
        {
@@ -303,7 +303,7 @@ int ap_start=*ap_start1;
        }
        if((1 == ap_CS_fsm_state1) && (ap_start == 1))
        {
-               input_assign_reg_94 =  10697378324826278525;
+               input_assign_reg_94 =  inputdata;
        }
        if((ap_start == 0) && (1 == ap_CS_fsm_state1))
        {
@@ -1308,10 +1308,9 @@ grp_shiftingcidi_fu_161_ap_done=1;
        if((1 == ap_CS_fsm_state9) && (grp_shiftingcidi_fu_161_ap_done == 1))
        {
            input_assign_reg_94 =  grp_shiftingcidi_fu_161_ap_return__temp ;
-		   printf("E: %016llx\n",input_assign_reg_94);
        }
           IP_address0 =  i_i_reg_117__temp ;
-          PC1_address0 =  i_i_i_reg_139__temp ;
+          PC1_address0 =  i_i_i_reg_139__temp ;		  
        goto ap_ST_fsm_state2;
    }
    if(((1 == ap_CS_fsm_state9) && (grp_shiftingcidi_fu_161_ap_done == 1)) == 0){
