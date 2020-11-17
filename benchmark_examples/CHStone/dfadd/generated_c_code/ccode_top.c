@@ -17,9 +17,12 @@
 #define z_output_DWIDTH 64
 #define z_output_AWIDTH 5
 #define z_output_MEM_SIZE 24
-
+/*do_twos_complement( long long unsigned int a ){
+ long long int temp = (long long int) a;
+ return temp; 
+}*/
 void addFloat64Sigs(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int dummy);
-void top(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,int dummy){
+void top(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,int dummy,unsigned long long a_input_rom[],unsigned long long b_input_rom[],unsigned long long z_output_rom[]){	
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -97,12 +100,12 @@ unsigned long long int ap_start=*ap_start__1;
    unsigned long long int z_output_q0__temp=0;
 	ap_done=0;
 	ap_start=1;
-   unsigned long long int a_input_rom[a_input_MEM_SIZE]={
-9221120237041090560,9218868437227405312,4611686018427387904,4611686018427387904,4607182418800017408,4607182418800017408,0,4609434218613702656,9221120237041090560,9218868437227405312,0,4609434218613702656,18444492273895866368,18442240474082181120,13835058055282163712,13835058055282163712,13830554455654793216,13830554455654793216,9223372036854775808,13832806255468478464,18444492273895866368,18442240474082181120,9223372036854775808,13832806255468478464};
-   unsigned long long int b_input_rom[b_input_MEM_SIZE]={
-4607182418800017408,4607182418800017408,0,4609434218613702656,9221120237041090560,9218868437227405312,4611686018427387904,4611686018427387904,9218868437227405312,9218868437227405312,0,4607182418800017408,13830554455654793216,13830554455654793216,9223372036854775808,13832806255468478464,18444492273895866368,18442240474082181120,13835058055282163712,13835058055282163712,18442240474082181120,18442240474082181120,9223372036854775808,13830554455654793216};
-   unsigned long long int z_output_rom[z_output_MEM_SIZE]={
-9221120237041090560,9218868437227405312,4611686018427387904,4615063718147915776,9221120237041090560,9218868437227405312,4611686018427387904,4615063718147915776,9221120237041090560,9218868437227405312,0,4612811918334230528,18444492273895866368,18442240474082181120,13835058055282163712,13838435755002691584,18444492273895866368,18442240474082181120,13835058055282163712,13838435755002691584,18444492273895866368,18442240474082181120,9223372036854775808,13836183955189006336};
+//   unsigned long long int a_input_rom[a_input_MEM_SIZE]={
+//9221120237041090560,9218868437227405312,4611686018427387904,4611686018427387904,4607182418800017408,4607182418800017408,0,4609434218613702656,9221120237041090560,9218868437227405312,0,4609434218613702656,18444492273895866368,18442240474082181120,13835058055282163712,13835058055282163712,13830554455654793216,13830554455654793216,9223372036854775808,13832806255468478464,18444492273895866368,18442240474082181120,9223372036854775808,13832806255468478464};
+//   unsigned long long int b_input_rom[b_input_MEM_SIZE]={
+//4607182418800017408,4607182418800017408,0,4609434218613702656,9221120237041090560,9218868437227405312,4611686018427387904,4611686018427387904,9218868437227405312,9218868437227405312,0,4607182418800017408,13830554455654793216,13830554455654793216,9223372036854775808,13832806255468478464,18444492273895866368,18442240474082181120,13835058055282163712,13835058055282163712,18442240474082181120,18442240474082181120,9223372036854775808,13830554455654793216};
+//   unsigned long long int z_output_rom[z_output_MEM_SIZE]={
+//9221120237041090560,9218868437227405312,4611686018427387904,4615063718147915776,9221120237041090560,9218868437227405312,4611686018427387904,4615063718147915776,9221120237041090560,9218868437227405312,0,4612811918334230528,18444492273895866368,18442240474082181120,13835058055282163712,13838435755002691584,18444492273895866368,18442240474082181120,13835058055282163712,13838435755002691584,18444492273895866368,18442240474082181120,9223372036854775808,13836183955189006336};
 
    ap_ST_fsm_state1:
 
@@ -227,7 +230,7 @@ unsigned long long int ap_start=*ap_start__1;
        a_input_ce0 = 1;
        b_input_ce0 = 1;
        z_output_ce0 = 0;
-               exitcond_fu_105_p2 =   ( i_reg_73__temp  == 24 ? 1 :  0 ) ;
+               exitcond_fu_105_p2 =   ( i_reg_73__temp  == 1000 ? 1 :  0 ) ;
    if(((exitcond_fu_105_p2 == 1) && (1 == ap_CS_fsm_state2)) == 1){
        if(1 == ap_CS_fsm_state2)
        {
@@ -259,7 +262,7 @@ unsigned long long int ap_start=*ap_start__1;
           a_input_address0 =  i_reg_73__temp ;
           b_input_address0 =  i_reg_73__temp ;
           z_output_address0 =  tmp_reg_159__temp ;
-       if(a_input_ce0){
+       if(a_input_ce0){		   
           a_input_q0=a_input_rom[a_input_address0];
        }
        if(b_input_ce0){
@@ -272,7 +275,7 @@ unsigned long long int ap_start=*ap_start__1;
    }
    if(((exitcond_fu_105_p2 == 1) && (1 == ap_CS_fsm_state2)) == 0){
        if(1 == ap_CS_fsm_state2)
-       {       printf("case %d\n", i_1_reg_154);
+       {
                i_1_reg_154 =   ( i_reg_73__temp  + 1 ) ;
        }
        if((exitcond_fu_105_p2 == 0) && (1 == ap_CS_fsm_state2))
@@ -301,7 +304,7 @@ unsigned long long int ap_start=*ap_start__1;
           a_input_address0 =  i_reg_73__temp ;
           b_input_address0 =  i_reg_73__temp ;
           z_output_address0 =  tmp_reg_159__temp ;
-       if(a_input_ce0){
+       if(a_input_ce0){		   
           a_input_q0=a_input_rom[a_input_address0];
        }
        if(b_input_ce0){
@@ -479,8 +482,8 @@ grp_addFloat64Sigs_fu_96_ap_done=1;
        if((grp_addFloat64Sigs_fu_96_ap_done == 1) && (1 == ap_CS_fsm_state5))
        {
            main_result_reg_84 =   ( main_result_reg_84__temp  +  ( grp_addFloat64Sigs_fu_96_ap_return__temp  != z_output_q0__temp  ? 1 : 0 )  ) ;
-		   printf(" ------------------------- > %llu : %llu\n",grp_addFloat64Sigs_fu_96_ap_return__temp,z_output_q0__temp);
-		   //printf("main_result_reg_84:%d\n",main_result_reg_84);
+		   printf(" ------------------------- > %llu : (O)%llu\n",grp_addFloat64Sigs_fu_96_ap_return__temp,z_output_q0__temp);
+		   printf("main_result_reg_84:%d\n",main_result_reg_84);
        }
           a_input_address0 =  i_reg_73__temp ;
           b_input_address0 =  i_reg_73__temp ;

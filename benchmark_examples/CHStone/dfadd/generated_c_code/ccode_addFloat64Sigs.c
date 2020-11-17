@@ -401,8 +401,6 @@ unsigned long long int zSign=*zSign__1;
    unsigned long long int z_fu_1030_p3__temp=0;
 	ap_done=0;
 	ap_start=1;
-   printf("a=%llu\n",a);
-   printf("b=%llu\n",b);
 
    ap_ST_fsm_state1:	
 	ap_CS_fsm_state1 = 1;
@@ -2665,12 +2663,10 @@ grp_roundAndPackFloat64_fu_204_ap_done=1;
        }
        if((1 == ap_CS_fsm_state8) && (((((tmp_16_reg_1202 == 0) && (tmp_34_reg_1164 == 1)) && (tmp_reg_1160 == 0)) || ((tmp_s_reg_1227 == 0) && (tmp_reg_1160 == 1))) || ((((tmp_25_reg_1172 == 0) && (tmp_17_reg_1168 == 0)) && (tmp_34_reg_1164 == 0)) && (tmp_reg_1160 == 0))))
        {
-		   printf("HERE 1\n");
            ap_phi_mux_p_0_phi_fu_180_p22 =  tmp_31_reg_1319__temp ;
        }
        if(((1 == ap_CS_fsm_state8) && (((((tmp_16_reg_1202 == 0) && (tmp_34_reg_1164 == 1)) && (tmp_reg_1160 == 0)) || ((tmp_s_reg_1227 == 0) && (tmp_reg_1160 == 1))) || ((((tmp_25_reg_1172 == 0) && (tmp_17_reg_1168 == 0)) && (tmp_34_reg_1164 == 0)) && (tmp_reg_1160 == 0)))) == 0)
        {
-		   printf("HERE 2\n");
 	       ap_phi_mux_p_0_phi_fu_180_p22 =  p_0_reg_177__temp ;
        }
        if(1 == ap_CS_fsm_state8)
@@ -2696,6 +2692,6 @@ grp_roundAndPackFloat64_fu_204_ap_done=1;
 	*ap_start__1=ap_start;
 	*b__1=b;
 	*zSign__1=zSign;
-	printf("%llu\n",ap_return);
+
        return;
 }

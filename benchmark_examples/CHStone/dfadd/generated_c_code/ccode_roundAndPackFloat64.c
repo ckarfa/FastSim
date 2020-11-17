@@ -19,6 +19,7 @@ unsigned long long int float_exception_flag_o_ap_vld=*float_exception_flag_o_ap_
 unsigned long long int zExp=*zExp__1;
 unsigned long long int zSig=*zSig__1;
 unsigned long long int zSign=*zSign__1;
+
    long long int ap_CS_fsm_state1=1;
    long long int ap_CS_fsm_state2=1;
    long long int ap_CS_fsm_state3=1;
@@ -714,7 +715,6 @@ unsigned long long int zSign=*zSign__1;
        if(1 == ap_CS_fsm_state4)
        {
            ap_return = ap_phi_mux_p_0_phi_fu_129_p4;
-		   printf("ap_return %llu\n",ap_return);
        }
        if(ap_done==1){
        	goto end;

@@ -58,7 +58,7 @@ int main(){
 		for(i11=0;i11<INPUT;i11++){
 			
 			result=top(a_input_rom[i11],b_input_rom[i11],z_output_rom[i11]);
-			
+			printf("Test Case:%d/%d \t  Output: %d\n",i11+1,INPUT,result);
 			//fprintf(fp1,"%lld\n",result);			
 		}
 

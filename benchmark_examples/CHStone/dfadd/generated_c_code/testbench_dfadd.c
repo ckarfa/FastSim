@@ -5,11 +5,12 @@
 #define COL 2
 #define INPUT 1000
 int main(){
-		clock_t t;
-		t = clock();
-		FILE *fp,*fp1;
-		fp=fopen("input_data.txt","r");
-		fp1=fopen("output_data.txt","r");	  
+	  clock_t t;
+	  t = clock();
+	  FILE *fp,*fp1;
+	  fp=fopen("input_data.txt","r");
+	  fp1=fopen("output_data.txt","r");
+	  
 	
 		int index=0;
 		unsigned long long input[COL];	  
@@ -52,14 +53,14 @@ int main(){
 		int *ap_rst1=&ap_rst;
 		int *ap_start1=&ap_start;
 		int dummy=0;
-		//top(ap_clk1,ap_done1,ap_idle1,ap_ready1,ap_return1,ap_rst1,ap_start1,dummy,a_input_rom,b_input_rom,z_output_rom);
+		top(ap_clk1,ap_done1,ap_idle1,ap_ready1,ap_return1,ap_rst1,ap_start1,dummy,a_input_rom,b_input_rom,z_output_rom);
 		unsigned long long result;
 		int i11;
 		for(i11=0;i11<INPUT;i11++){
-			
-			result=top(a_input_rom[i11],b_input_rom[i11],z_output_rom[i11]);
-			
-			//fprintf(fp1,"%lld\n",result);			
+			//result=top(a_input_rom[i11],b_input_rom[i11],z_output_rom[i11]);
+			//fprintf(fp1,"%lld\n",result);
+			//top1(a_input_rom[i11],b_input_rom[i11],z_output_rom[i11]);
+			//top(ap_clk1,ap_done1,ap_idle1,ap_ready1,ap_return1,ap_rst1,ap_start1,dummy,a_input_rom,b_input_rom,z_output_rom);
 		}
 
 
