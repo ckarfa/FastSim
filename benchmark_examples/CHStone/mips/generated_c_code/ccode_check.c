@@ -29,7 +29,7 @@
 #define outData_DWIDTH 7
 #define outData_AWIDTH 3
 #define outData_MEM_SIZE 8
-int check(int ap_clk,int ap_rst,int ap_start,int dummy){
+int check(int ap_clk,int ap_rst,int ap_start,int dummy,int A_rom[],int outData_rom[]){
    int A_address0=0;
    int A_address0__temp=0;
    int A_ce0=0;
@@ -608,11 +608,7 @@ int check(int ap_clk,int ap_rst,int ap_start,int dummy){
    int dmem_ram[dmem_MEM_SIZE];
    int imem_rom[imem_MEM_SIZE]={
 2409889792,665124868,614858756,266368,12726305,202375190,0,872546314,12,1006702593,875036672,280704,17385505,2368339968,350336,17520673,2372665344,25847850,295698435,2905341952,2909405184,65011720,666763252,2948530184,2947612676,2947547136,605028352,705167368,285212683,638648321,707264520,285212678,637796352,639959040,202375177,640745473,135266334,638582785,135266331,2411659272,2410741764,2410676224,666697740,65011720};
-   int A_rom[A_MEM_SIZE]={
-22,5,-9,3,-17,38,0,11};
-   int outData_rom[outData_MEM_SIZE]={
--17,-9,0,3,5,11,22,38};
-
+   
    ap_ST_fsm_state1:
 
 	ap_CS_fsm_state1 = 1;
@@ -1790,10 +1786,8 @@ int check(int ap_clk,int ap_rst,int ap_start,int dummy){
           imem_address0 =   (  ( pc_fu_162__temp  >> 2 )  & 63 ) ;
           A_address0 =  i_1_reg_720__temp ;
           outData_address0 =  j_reg_752__temp ;
-       if(A_ce0){
-		   printf("%d\n",A_rom[50]);
-          A_q0=A_rom[A_address0];
-		  
+       if(A_ce0){		   
+          A_q0=A_rom[A_address0];	  
        }
        goto ap_ST_fsm_state4;
    }
@@ -2138,8 +2132,7 @@ int check(int ap_clk,int ap_rst,int ap_start,int dummy){
        }
        if(1 == ap_CS_fsm_state4)
        {
-           dmem_d0 =  A_q0__temp ;
-		   printf("%d\n",dmem_d0);
+           dmem_d0 =  A_q0__temp ;		   
        }
        if((1 == ap_CS_fsm_state19) || (1 == ap_CS_fsm_state4))
        {
@@ -13470,12 +13463,4 @@ int check(int ap_clk,int ap_rst,int ap_start,int dummy){
    end:
        return ap_return;
 }
-int main(){
 
-	int ap_clk=1;
-	int ap_rst=0;
-	int ap_start=1;
-	int dummy=1;
-	printf("%d\n",check(ap_clk,ap_rst,ap_start,dummy));
-	return 0;
-}
