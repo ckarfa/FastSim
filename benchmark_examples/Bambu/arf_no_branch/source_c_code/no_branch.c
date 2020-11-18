@@ -1,6 +1,4 @@
-
 #include<stdio.h>
-
 void hls_macc(int i1,int i2,int i3,int i4,int i5,int i6,int *o1,int *o2,int *o3,int *o4,int G1,int G2, int G3, int G4, int GG1, int GG2,int *ap_return1){
 
   int op1,op2,op3,op4,op5,op6,op7,op8;
@@ -46,15 +44,4 @@ void hls_macc(int i1,int i2,int i3,int i4,int i5,int i6,int *o1,int *o2,int *o3,
   *ap_return1=*o1+*o2+*o3+*o4;   
 }
 
-/*int main(){
-	int o1=0;
-	int o2=0;
-	int o3=0;
-	int o4=0;
- 	hls_macc(1,2,3,4,5,6,&o1,&o2,&o3,&o4,10,11,12,13,14,15);
-	printf("%d\n",o1);
-	printf("%d\n",o2);
-	printf("%d\n",o3);
-	printf("%d\n",o4);
-}*/
 
