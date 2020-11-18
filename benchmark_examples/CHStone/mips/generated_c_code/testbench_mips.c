@@ -15,9 +15,9 @@ int main(){
 	  char line[1000];
 	  char line1[1000];
 	
-	  int index=0;
-	  int input[COL],output[COL];
-	  int i1=1,i;	  
+	  unsigned long long int index=0;
+	  unsigned long long int input[COL],output[COL];
+	  unsigned long long int i1=1,i,ans=0;	  
 	  while(!feof(fp))
 		{
 			fscanf(fp,"%s",line);
@@ -27,19 +27,22 @@ int main(){
 			index = (index+1)%COL;
 			if(index==0){	
 								
-				int ap_clk=1;
-				int ap_done=0;
-				int ap_idle=0;
-				int ap_ready=1;
-				int ap_return=0;
-				int ap_rst=1;
-				int ap_start=1;
-				int dummy=0;
+				unsigned long long int ap_clk=1;
+				unsigned long long int ap_done=0;
+				unsigned long long int ap_idle=0;
+				unsigned long long int ap_ready=1;
+				unsigned long long int ap_return=0;
+				unsigned long long int ap_rst=1;
+				unsigned long long int ap_start=1;
+				unsigned long long int dummy=0;
 					
-				int result=check(ap_clk,ap_rst,ap_start,dummy,input,output);				
-				printf("Test Case:%d/%d \t  Output: %d\n",index,INPUT_SIZE,result);
+				unsigned long long int result=check(ap_clk,ap_rst,ap_start,dummy,input,output);				
+				printf("Test Case:%d/%d \t  Output: %d\n",i1,INPUT_SIZE,result);
+				ans+=result;
+				i1++;
 			}
 		}
+		printf("ans = %d ",ans);
 	  t = clock() - t;
 	  double time_taken = ((double)t)/CLOCKS_PER_SEC;
 	  printf("Time taken: %f seconds \n", time_taken);

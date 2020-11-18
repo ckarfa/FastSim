@@ -17,7 +17,7 @@ int main(){
 	
 	  int index=0;
 	  int input[COL],output[COL];
-	  int i1=1,i;	  
+	  int i1=1,i,ans=0;	  
 	  while(!feof(fp))
 		{
 			fscanf(fp,"%s",line);
@@ -37,9 +37,12 @@ int main(){
 				int dummy=0;
 					
 				int result=check(input,output);				
-				printf("Test Case:%d/%d \t  Output: %d\n",index,INPUT_SIZE,result);
+				printf("Test Case:%d/%d \t  Output: %d\n",i1,INPUT_SIZE,result);
+				ans+=result;
+				i1++;
 			}
 		}
+		printf("ans= %d",ans);
 	  t = clock() - t;
 	  double time_taken = ((double)t)/CLOCKS_PER_SEC;
 	  printf("Time taken: %f seconds \n", time_taken);
