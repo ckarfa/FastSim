@@ -17,12 +17,13 @@
 #define z_output_DWIDTH 64
 #define z_output_AWIDTH 5
 #define z_output_MEM_SIZE 22
-long long int do_twos_complement( unsigned long long int a ){
+do_twos_complement( long long unsigned int a ){
  long long int temp = (long long int) a;
  return temp; 
 }
-void subFloat64Sigs(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int dummy);
-void top_main(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,int dummy){
+void subFloat64Sigs(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int* dummy);
+void top_main(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,int* dummy,unsigned long long int * a_input_rom[],unsigned long long int * b_input_rom[],unsigned long long int * z_output_rom[]){
+int clock=*dummy;
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -113,15 +114,7 @@ unsigned long long int ap_start=*ap_start__1;
    unsigned long long int z_output_q0__temp=0;
 	ap_done=0;
 	ap_start=1;
-   unsigned long long int a_input_rom[a_input_MEM_SIZE]={
-9221120237041090560,9218868437227405312,4607182418800017408,4607182418800017408,4607182418800017408,0,4609434218613702656,9221120237041090560,9218868437227405312,4607182418800017408,4611686018427387904,18442240474082181120,18442240474082181120,13830554455654793216,13830554455654793216,13830554455654793216,9223372036854775808,13832806255468478464,18444492273895866368,18442240474082181120,13830554455654793216,13835058055282163712};
-   unsigned long long int b_input_rom[b_input_MEM_SIZE]={
-18442240474082181120,18442240474082181120,13830554455654793216,18444492273895866368,18442240474082181120,13830554455654793216,13835058055282163712,13830554455654793216,13830554455654793216,9223372036854775808,13832806255468478464,9221120237041090560,9218868437227405312,4607182418800017408,9221120237041090560,9218868437227405312,4607182418800017408,4611686018427387904,4607182418800017408,4607182418800017408,0,4609434218613702656};
-   unsigned long long int z_output_rom[z_output_MEM_SIZE]={
-9221120237041090560,9223372036854775807,0,18444492273895866368,18442240474082181120,13830554455654793216,13826050856027422720,9221120237041090560,9218868437227405312,4607182418800017408,4602678819172646912,9221120237041090560,9223372036854775807,0,9221120237041090560,9218868437227405312,4607182418800017408,4602678819172646912,18444492273895866368,18442240474082181120,13830554455654793216,13826050856027422720};
-
    ap_ST_fsm_state1:
-
 	ap_CS_fsm_state1 = 1;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -167,7 +160,7 @@ unsigned long long int ap_start=*ap_start__1;
 
        grp_subFloat64Sigs_fu_111_ap_start_reg = 0 ;
        
-       tmp_reg_190 = tmp_reg_190 & 31 ;
+       tmp_reg_190 = tmp_reg_190 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 0;
@@ -208,8 +201,8 @@ unsigned long long int ap_start=*ap_start__1;
        goto ap_ST_fsm_state1;
    }
 
-   ap_ST_fsm_state2:
-
+   ap_ST_fsm_state2:       
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 1;
 	ap_CS_fsm_state3 = 0;
@@ -255,19 +248,19 @@ unsigned long long int ap_start=*ap_start__1;
 
        grp_subFloat64Sigs_fu_111_ap_start_reg = 0 ;
        
-       tmp_reg_190 = tmp_reg_190 & 31 ;
+       tmp_reg_190 = tmp_reg_190 & 32767 ;
        a_input_ce0 = 1;
        b_input_ce0 = 1;
        z_output_ce0 = 0;
-               exitcond_fu_122_p2 =   ( i_reg_77__temp  == 22 ? 1 :  0 ) ;
+               exitcond_fu_122_p2 =   ( i_reg_77__temp  == 30000 ? 1 :  0 ) ;
    if(((exitcond_fu_122_p2 == 1) && (1 == ap_CS_fsm_state2)) == 1){
        if(1 == ap_CS_fsm_state2)
-       {   printf("case %llu\n",i_1_reg_185);
+       {
            i_1_reg_185 =   ( i_reg_77__temp  + 1 ) ;
        }
        if((exitcond_fu_122_p2 == 0) && (1 == ap_CS_fsm_state2))
        {
-           tmp_reg_190 =   (  ( tmp_reg_190__temp  & 18446744073709551584 )  |  ( i_reg_77__temp  & 31 )  ) ;
+           tmp_reg_190 =   (  ( tmp_reg_190__temp  & 18446744073709518848/*18446744073709551584*/ )  | ( i_reg_77__temp  & 32767 )  ) ;
        }
        if(1 == ap_CS_fsm_state2)
        {
@@ -304,12 +297,12 @@ unsigned long long int ap_start=*ap_start__1;
    }
    if(((exitcond_fu_122_p2 == 1) && (1 == ap_CS_fsm_state2)) == 0){
        if(1 == ap_CS_fsm_state2)
-       {       printf("case %llu\n",i_1_reg_185);
+       {
                i_1_reg_185 =   ( i_reg_77__temp  + 1 ) ;
        }
        if((exitcond_fu_122_p2 == 0) && (1 == ap_CS_fsm_state2))
        {
-               tmp_reg_190 =   (  ( tmp_reg_190__temp  & 18446744073709551584 )  |  ( i_reg_77__temp  & 31 )  ) ;
+               tmp_reg_190 =   (  ( tmp_reg_190__temp  & 18446744073709518848/*18446744073709551584*/ )  |  ( i_reg_77__temp  & 32767 )  ) ;
        }
        if(1 == ap_CS_fsm_state2)
        {
@@ -343,7 +336,7 @@ unsigned long long int ap_start=*ap_start__1;
    }
 
    ap_ST_fsm_state3:
-
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
@@ -389,7 +382,7 @@ unsigned long long int ap_start=*ap_start__1;
 
        grp_subFloat64Sigs_fu_111_ap_start_reg = 0 ;
        
-       tmp_reg_190 = tmp_reg_190 & 31 ;
+       tmp_reg_190 = tmp_reg_190 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 0;
@@ -422,7 +415,7 @@ unsigned long long int ap_start=*ap_start__1;
    }
 
    ap_ST_fsm_state4:
-
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -468,7 +461,7 @@ unsigned long long int ap_start=*ap_start__1;
 
        grp_subFloat64Sigs_fu_111_ap_start_reg = 0 ;
        
-       tmp_reg_190 = tmp_reg_190 & 31 ;
+       tmp_reg_190 = tmp_reg_190 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 0;
@@ -481,13 +474,13 @@ unsigned long long int ap_start=*ap_start__1;
           z_output_address0 =  tmp_reg_190__temp ;
 if (grp_subFloat64Sigs_fu_111_ap_start_reg==1){
 grp_subFloat64Sigs_fu_111_ap_start=1;
-subFloat64Sigs(&x1_reg_205,&ap_clk,&grp_subFloat64Sigs_fu_111_ap_done,&grp_subFloat64Sigs_fu_111_ap_idle,&grp_subFloat64Sigs_fu_111_ap_ready,&grp_subFloat64Sigs_fu_111_ap_return,&ap_rst,&grp_subFloat64Sigs_fu_111_ap_start,&x2_reg_210,&tmp_2_reg_215,dummy);
+subFloat64Sigs(&x1_reg_205,&ap_clk,&grp_subFloat64Sigs_fu_111_ap_done,&grp_subFloat64Sigs_fu_111_ap_idle,&grp_subFloat64Sigs_fu_111_ap_ready,&grp_subFloat64Sigs_fu_111_ap_return,&ap_rst,&grp_subFloat64Sigs_fu_111_ap_start,&x2_reg_210,&tmp_2_reg_215,&clock);
 grp_subFloat64Sigs_fu_111_ap_done=1;
 }
        goto ap_ST_fsm_state5;
 
    ap_ST_fsm_state5:
-
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -533,7 +526,7 @@ grp_subFloat64Sigs_fu_111_ap_done=1;
 
        grp_subFloat64Sigs_fu_111_ap_start_reg = 0 ;
        
-       tmp_reg_190 = tmp_reg_190 & 31 ;
+       tmp_reg_190 = tmp_reg_190 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 1;
@@ -574,7 +567,7 @@ grp_subFloat64Sigs_fu_111_ap_done=1;
    }
 
    ap_ST_fsm_state6:
-
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -620,7 +613,7 @@ grp_subFloat64Sigs_fu_111_ap_done=1;
 
        grp_subFloat64Sigs_fu_111_ap_start_reg = 0 ;
        
-       tmp_reg_190 = tmp_reg_190 & 31 ;
+       tmp_reg_190 = tmp_reg_190 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 0;
@@ -630,11 +623,9 @@ grp_subFloat64Sigs_fu_111_ap_done=1;
        }
        if(1 == ap_CS_fsm_state6)
        {
-           main_result_reg_88 =   (  ( result_reg_100__temp  != z_output_q0__temp  ? 1 : 0 )  + main_result_reg_88__temp  ) ;
-		   printf("%llu : %llu\n",result_reg_100__temp,z_output_q0__temp);
-		  printf("\n");
+           main_result_reg_88 =   (  ( result_reg_100__temp  != z_output_q0__temp  ? 1 : 0 )  + main_result_reg_88__temp  ) ;		  
        }
-			 //printf("ERRORL%d\n",main_result_reg_88);
+			
 			
           a_input_address0 =  i_reg_77__temp ;
           b_input_address0 =  i_reg_77__temp ;
@@ -646,8 +637,11 @@ grp_subFloat64Sigs_fu_111_ap_done=1;
 	*ap_idle__1=ap_idle;
 	*ap_ready__1=ap_ready;
 	*ap_return__1=ap_return;
-	printf("Error %llu\n",ap_return);
+	 printf("Total Errors: %d\n",main_result_reg_88);
+	
 	*ap_rst__1=ap_rst;
 	*ap_start__1=ap_start;
+	*dummy=clock;
+
        return;
 }

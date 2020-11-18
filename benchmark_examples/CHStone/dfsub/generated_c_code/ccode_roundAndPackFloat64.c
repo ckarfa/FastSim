@@ -1,6 +1,6 @@
 #include<stdio.h>
-void roundAndPackFloat64(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *float_exception_flag_i__1,unsigned long long int *float_exception_flag_o__1,unsigned long long int *float_exception_flag_o_ap_vld__1,unsigned long long int *zExp__1,unsigned long long int *zSig__1,unsigned long long int *zSign__1,int dummy){
-printf("inside round and pack\n");
+void roundAndPackFloat64(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *float_exception_flag_i__1,unsigned long long int *float_exception_flag_o__1,unsigned long long int *float_exception_flag_o_ap_vld__1,unsigned long long int *zExp__1,unsigned long long int *zSig__1,unsigned long long int *zSign__1,int* dummy){
+int clock=*dummy;
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -14,9 +14,6 @@ unsigned long long int float_exception_flag_o_ap_vld=*float_exception_flag_o_ap_
 unsigned long long int zExp=*zExp__1;
 unsigned long long int zSig=*zSig__1;
 unsigned long long int zSign=*zSign__1;
-/*printf("zExp %llu\n",zExp);
-printf("zSig %llu\n",zSig);
-printf("zSign %llu\n",zSign);*/
    long long int ap_CS_fsm_state1=1;
    long long int ap_CS_fsm_state2=1;
    long long int ap_CS_fsm_state3=1;
@@ -144,14 +141,11 @@ printf("zSign %llu\n",zSign);*/
    unsigned long long int z_6_fu_298_p3__temp=0;
    unsigned long long int z_fu_281_p3=0;
    unsigned long long int z_fu_281_p3__temp=0;
-	printf("zExp %llu\n",zExp);
-	printf("zSig %llu\n",zSig);
-	printf("zSign %llu\n",zSign);
 	ap_done=0;
 	ap_start=1;
 
    ap_ST_fsm_state1:
-	printf("state 1\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 1;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -163,9 +157,9 @@ printf("zSign %llu\n",zSign);*/
    zSig_assign_2_fu_381_p2__temp = zSig_assign_2_fu_381_p2 ;
    roundBits_2_fu_305_p1__temp = roundBits_2_fu_305_p1 ;
    ap_CS_fsm__temp = ap_CS_fsm ;
-    zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+    zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    tmp_33_fu_361_p2__temp = tmp_33_fu_361_p2 ;
    tmp_74_i8_fu_416_p2__temp = tmp_74_i8_fu_416_p2 ;
    tmp_42_i_fu_250_p2__temp = tmp_42_i_fu_250_p2 ;
@@ -465,7 +459,7 @@ printf("zSign %llu\n",zSign);*/
        goto ap_ST_fsm_state1;
 
    ap_ST_fsm_state2:
-	printf("state 2\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 1;
 	ap_CS_fsm_state3 = 0;
@@ -482,9 +476,9 @@ printf("zSign %llu\n",zSign);*/
    tmp_42_i_fu_250_p2__temp = tmp_42_i_fu_250_p2 ;
    tmp_34_fu_367_p1__temp = tmp_34_fu_367_p1 ;
    tmp_2_i_fu_265_p2__temp = tmp_2_i_fu_265_p2 ;
-    zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+    zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    float_exception_flag_1_fu_315_p2__temp = float_exception_flag_1_fu_315_p2 ;
    z_6_fu_298_p3__temp = z_6_fu_298_p3 ;
    tmp_fu_392_p3__temp = tmp_fu_392_p3 ;
@@ -563,7 +557,7 @@ printf("zSign %llu\n",zSign);*/
        goto ap_ST_fsm_state3;
 
    ap_ST_fsm_state3:
-	printf("state 3\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
@@ -595,9 +589,9 @@ printf("zSign %llu\n",zSign);*/
    tmp_59_fu_243_p1__temp = tmp_59_fu_243_p1 ;
    roundBits_1_reg_119__temp = roundBits_1_reg_119 ;
    tmp_26_fu_165_p2__temp = tmp_26_fu_165_p2 ;
-    zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+    zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    zSig_assign_1_cast_fu_351_p4__temp = zSig_assign_1_cast_fu_351_p4 ;
    tmp_30_fu_327_p2__temp = tmp_30_fu_327_p2 ;
    zExp_assign_1_reg_105__temp = zExp_assign_1_reg_105 ;
@@ -639,7 +633,7 @@ printf("zSign %llu\n",zSign);*/
                tmp_24_fu_153_p2 =   ( do_twos_complement(zExp )  > do_twos_complement(2045 )  ? 1 :  0 ) ;
        if(1 == ap_CS_fsm_state3)
        {
-           zSig_assign_2_reg_500 =   (  (  (  ( zSig_assign1_reg_94__temp  + 512 )  & 18446744073709550592 )  >> 10 )  &  (  ( roundBits_1_reg_119__temp  == 512 ? 1 :  0 )  ^ -1/*4294967295*/ )  ) ;
+           zSig_assign_2_reg_500 =   (  (  (  ( zSig_assign1_reg_94__temp  + 512 )  & 18446744073709550592 )  >> 10 )  &  (  ( roundBits_1_reg_119__temp  == 512 ? 1 :  0 )  ^ -1 )  ) ;
        }
        if((tmp_30_fu_327_p2 == 0) && (1 == ap_CS_fsm_state3))
        {
@@ -652,7 +646,7 @@ printf("zSign %llu\n",zSign);*/
        goto ap_ST_fsm_state4;
 
    ap_ST_fsm_state4:
-	printf("state 4\n");
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -679,9 +673,9 @@ printf("zSign %llu\n",zSign);*/
    z_fu_281_p3__temp = z_fu_281_p3 ;
    tmp_i_fu_221_p3__temp = tmp_i_fu_221_p3 ;
    tmp_24_reg_454__temp = tmp_24_reg_454 ;
-    zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+    zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    tmp_s_reg_450__temp = tmp_s_reg_450 ;
    ap_return_preg__temp = ap_return_preg ;
    tmp_59_fu_243_p1__temp = tmp_59_fu_243_p1 ;
@@ -768,5 +762,6 @@ printf("zSign %llu\n",zSign);*/
 	*zExp__1=zExp;
 	*zSig__1=zSig;
 	*zSign__1=zSign;
+	*dummy=clock;
        return;
 }

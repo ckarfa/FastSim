@@ -18,7 +18,7 @@
 #define z_output_AWIDTH 5
 #define z_output_MEM_SIZE 20
 void float64_mul(long long int * ,int * ,int * ,int * ,int * ,long long int * ,int * ,int * ,long long int * ,int dummy);
-void top(int *ap_clk__1,int *ap_done__1,int *ap_idle__1,int *ap_ready__1,int *ap_return__1,int *ap_rst__1,int *ap_start__1,int dummy){
+void top(int *ap_clk__1,int *ap_done__1,int *ap_idle__1,int *ap_ready__1,int *ap_return__1,int *ap_rst__1,int *ap_start__1,int *dummy,unsigned long long int * a_input_rom[],unsigned long long int * b_input_rom[],unsigned long long int * z_output_rom[]){
 int ap_clk=*ap_clk__1;
 int ap_done=*ap_done__1;
 int ap_idle=*ap_idle__1;
@@ -46,6 +46,7 @@ int ap_start=*ap_start__1;
    int ap_NS_fsm__temp=0;
    int ap_clk__temp=0;
    int ap_rst__temp=0;
+   int index=0;
    int ap_start__temp=0;
    int b_input_address0=0;
    int b_input_address0__temp=0;
@@ -105,13 +106,14 @@ int ap_start=*ap_start__1;
    long long int z_output_q0__temp=0;
 	ap_done=0;
 	ap_start=1;
+ /*
    unsigned long long int a_input_rom[a_input_MEM_SIZE]={
 9218868437227405312,9223090561878065152,9218868437227405312,9218868437227405312,4607182418800017408,0,4607182418800017408,0,9223372036854775808,4607182418800017408,4607182418800017408,4611686018427387904,4598175219545276416,13835058055282163712,13821547256400052224,4611686018427387904,13821547256400052224,13835058055282163712,4598175219545276416,0};
    unsigned long long int b_input_rom[b_input_MEM_SIZE]={
 18446744073709551615,18442240474082181120,0,4607182418800017408,18446462598732840960,9218868437227405312,9218868437227405312,4607182418800017408,4607182418800017408,0,9223372036854775808,4598175219545276416,4611686018427387904,13821547256400052224,13835058055282163712,13821547256400052224,4611686018427387904,4598175219545276416,13835058055282163712,0};
    unsigned long long int z_output_rom[z_output_MEM_SIZE]={
 18446744073709551615,9223090561878065152,9223372036854775807,9218868437227405312,18446462598732840960,9223372036854775807,9218868437227405312,0,9223372036854775808,0,9223372036854775808,4602678819172646912,4602678819172646912,4602678819172646912,4602678819172646912,13826050856027422720,13826050856027422720,13826050856027422720,13826050856027422720,0};
-
+*/
    ap_ST_fsm_state1:
 
 	ap_CS_fsm_state1 = 1;
@@ -245,20 +247,19 @@ int ap_start=*ap_start__1;
    grp_float64_mul_fu_94_ap_return__temp = grp_float64_mul_fu_94_ap_return ;
 
        grp_float64_mul_fu_94_ap_start_reg = 0 ;
-       tmp_reg_150 = tmp_reg_150 & 31 ;
+       tmp_reg_150 = tmp_reg_150 & 32767 ;
        a_input_ce0 = 1;
        b_input_ce0 = 1;
        z_output_ce0 = 0;
-               exitcond_fu_104_p2 =   ( i_reg_71__temp  == 20 ? 1 :  0 ) ;
+               exitcond_fu_104_p2 =   ( i_reg_71__temp  == 30000 ? 1 :  0 ) ;
    if(((exitcond_fu_104_p2 == 1) && (1 == ap_CS_fsm_state2)) == 1){
        if(1 == ap_CS_fsm_state2)
        {
-           i_1_reg_145 =   ( i_reg_71__temp  + 1 ) ;
-	   //printf("case no %d\n",i_1_reg_145);
+           i_1_reg_145 =   ( i_reg_71__temp  + 1 ) ;	   
        }
        if((exitcond_fu_104_p2 == 0) && (1 == ap_CS_fsm_state2))
        {
-           tmp_reg_150 =   (  ( tmp_reg_150__temp  & 18446744073709551584 )  |  ( i_reg_71__temp  & 31 )  ) ;
+           tmp_reg_150 =   (  ( tmp_reg_150__temp  & 18446744073709518848 )  |  ( i_reg_71__temp  & 32767 )  ) ;
        }
        if(1 == ap_CS_fsm_state2)
        {
@@ -283,12 +284,10 @@ int ap_start=*ap_start__1;
           b_input_address0 =  i_reg_71__temp ;
           z_output_address0 =  tmp_reg_150__temp ;
        if(a_input_ce0){
-          a_input_q0=a_input_rom[a_input_address0];
-	  printf("a=%llu\n",a_input_q0);
+          a_input_q0=a_input_rom[a_input_address0];	  
        }
        if(b_input_ce0){
-          b_input_q0=b_input_rom[b_input_address0];
-	   printf("b=%llu\n",b_input_q0);
+          b_input_q0=b_input_rom[b_input_address0];	  
        }
        if(ap_done==1){
        	goto end;
@@ -297,16 +296,17 @@ int ap_start=*ap_start__1;
    }
    if(((exitcond_fu_104_p2 == 1) && (1 == ap_CS_fsm_state2)) == 0){
        if(1 == ap_CS_fsm_state2)
-       {	printf("case no %d\n",i_1_reg_145);
+       {	
                i_1_reg_145 =   ( i_reg_71__temp  + 1 ) ;
-		//printf("case no %d\n",i_1_reg_145);
+		
        }
        if((exitcond_fu_104_p2 == 0) && (1 == ap_CS_fsm_state2))
-       {
-               tmp_reg_150 =   (  ( tmp_reg_150__temp  & 18446744073709551584 )  |  ( i_reg_71__temp  & 31 )  ) ;
+       {		
+               tmp_reg_150 =   (  ( tmp_reg_150__temp  & 18446744073709518848 )  | ( i_reg_71__temp  & 32767 )  ) ;		
        }
        if(1 == ap_CS_fsm_state2)
        {
+		
                a_input_ce0 =  1;
        }
        if((exitcond_fu_104_p2 == 1) && (1 == ap_CS_fsm_state2))
@@ -322,24 +322,25 @@ int ap_start=*ap_start__1;
        }
        if(1 == ap_CS_fsm_state2)
        {
+		
                b_input_ce0 =  1;
        }
+	
           a_input_address0 =  i_reg_71__temp ;
           b_input_address0 =  i_reg_71__temp ;
           z_output_address0 =  tmp_reg_150__temp ;
+	
        if(a_input_ce0){
-          a_input_q0=a_input_rom[a_input_address0];
-	  //printf("a=%llu\n",a_input_q0);
+          a_input_q0=a_input_rom[a_input_address0];	  
        }
        if(b_input_ce0){
-          b_input_q0=b_input_rom[b_input_address0];
-	  //printf("b=%llu\n",b_input_q0);
+          b_input_q0=b_input_rom[b_input_address0];	  
        }
        goto ap_ST_fsm_state3;
    }
 
    ap_ST_fsm_state3:
-
+	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
@@ -384,7 +385,7 @@ int ap_start=*ap_start__1;
    grp_float64_mul_fu_94_ap_return__temp = grp_float64_mul_fu_94_ap_return ;
 
        grp_float64_mul_fu_94_ap_start_reg = 0 ;
-       tmp_reg_150 = tmp_reg_150 & 31 ;
+       tmp_reg_150 = tmp_reg_150 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 0;
@@ -444,7 +445,7 @@ int ap_start=*ap_start__1;
    grp_float64_mul_fu_94_ap_return__temp = grp_float64_mul_fu_94_ap_return ;
 
        grp_float64_mul_fu_94_ap_start_reg = 0 ;
-       tmp_reg_150 = tmp_reg_150 & 31 ;
+       tmp_reg_150 = tmp_reg_150 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 1;
@@ -460,8 +461,7 @@ int ap_start=*ap_start__1;
           b_input_address0 =  i_reg_71__temp ;
           z_output_address0 =  tmp_reg_150__temp ;
        if(z_output_ce0){
-          z_output_q0=z_output_rom[z_output_address0];
-	printf("z=%llu\n",z_output_q0);
+          z_output_q0=z_output_rom[z_output_address0];	
        }
 if (grp_float64_mul_fu_94_ap_start_reg==1){
 grp_float64_mul_fu_94_ap_start=1;
@@ -516,7 +516,7 @@ grp_float64_mul_fu_94_ap_done=1;
    grp_float64_mul_fu_94_ap_return__temp = grp_float64_mul_fu_94_ap_return ;
 
        grp_float64_mul_fu_94_ap_start_reg = 0 ;
-       tmp_reg_150 = tmp_reg_150 & 31 ;
+       tmp_reg_150 = tmp_reg_150 & 32767 ;
        a_input_ce0 = 0;
        b_input_ce0 = 0;
        z_output_ce0 = 0;
@@ -529,6 +529,7 @@ grp_float64_mul_fu_94_ap_done=1;
        {
            main_result_reg_82 =   (  ( grp_float64_mul_fu_94_ap_return__temp  != z_output_q0__temp  ? 1 : 0 )  + main_result_reg_82__temp  ) ;
        }
+	   	   
           a_input_address0 =  i_reg_71__temp ;
           b_input_address0 =  i_reg_71__temp ;
           z_output_address0 =  tmp_reg_150__temp ;
@@ -541,8 +542,9 @@ grp_float64_mul_fu_94_ap_done=1;
        }
        if((grp_float64_mul_fu_94_ap_done == 1) && (1 == ap_CS_fsm_state5))
        {
-               main_result_reg_82 =   (  ( grp_float64_mul_fu_94_ap_return__temp  != z_output_q0__temp  ? 1 : 0 )  + main_result_reg_82__temp  ) ;
+               main_result_reg_82 =   (  ( grp_float64_mul_fu_94_ap_return__temp  != z_output_q0__temp  ? 1 : 0 )  + main_result_reg_82__temp  ) ;		
        }
+	   
           a_input_address0 =  i_reg_71__temp ;
           b_input_address0 =  i_reg_71__temp ;
           z_output_address0 =  tmp_reg_150__temp ;
@@ -556,6 +558,6 @@ grp_float64_mul_fu_94_ap_done=1;
 	*ap_return__1=ap_return;
 	*ap_rst__1=ap_rst;
 	*ap_start__1=ap_start;
-	printf("%d\n",*ap_return__1);
+	printf("total_errors: %d\n",main_result_reg_82);	
        return;
 }

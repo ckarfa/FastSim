@@ -5,8 +5,9 @@
 #define countLeadingZerosHig_DWIDTH 4
 #define countLeadingZerosHig_AWIDTH 8
 #define countLeadingZerosHig_MEM_SIZE 256
-void roundAndPackFloat64(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int dummy);
-void subFloat64Sigs(unsigned long long int *a__1,unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *b__1,unsigned long long int *zSign__1,int dummy){
+void roundAndPackFloat64(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int* dummy);
+void subFloat64Sigs(unsigned long long int *a__1,unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_return__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *b__1,unsigned long long int *zSign__1,int* dummy){
+int clock=*dummy;
 unsigned long long int a=*a__1;
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
@@ -489,7 +490,7 @@ unsigned long long int zSign=*zSign__1;
 8,7,6,6,5,5,5,5,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
    ap_ST_fsm_state1:
-	printf("state 1\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 1;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -734,13 +735,11 @@ unsigned long long int zSign=*zSign__1;
        tmp_23_reg_168 = tmp_23_reg_168 & 9223372036854774784 ;
        tmp_20_reg_196 = tmp_20_reg_196 & 9223372036854774784 ;
        aSig_cast1_cast_reg_1378 = aSig_cast1_cast_reg_1378 & 4611686018427386880 ;
-       countLeadingZerosHig_ce0 = 0;
-               tmp_fu_424_p2 =   ( do_twos_complement( (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  )  )  > do_twos_complement(0 )  ? 1 :  0 ) ;
-		/*int a1=(a>>52)&2047;
+       countLeadingZerosHig_ce0 = 0;               
+		int a1=(a>>52)&2047;
 		int b1=(b>>52)&2047;
 		int t1=a1-b1 > 0 ? 1:0;
-		tmp_fu_424_p2=t1;*/
-		//printf("t1 %d\n",t1);
+		tmp_fu_424_p2=t1;		
 		 if(1 == ap_CS_fsm_state1)
        		{
            		grp_fu_293_p0 =   (  ( a >> 52 )  & 4095 ) ;
@@ -812,37 +811,28 @@ unsigned long long int zSign=*zSign__1;
        if((((((tmp_13_fu_454_p2 == 1) && (grp_fu_288_p2 == 0)) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
            tmp_20_reg_196 =   (  ( tmp_20_reg_196__temp  & 1023 )  |  (  (  ( a & 4503599627370495 )  << 10 )  & 9223372036854774784 )  ) ;
-	 printf("tmp_20_reg_196 %llu\n",tmp_20_reg_196);
-       }
+	   }
        if(((((((tmp_21_fu_460_p2 == 1) && (tmp_13_fu_454_p2 == 0)) && (grp_fu_288_p2 == 0)) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
            tmp_23_reg_168 =   (  ( tmp_23_reg_168__temp  & 1023 )  |  (  (  ( b & 4503599627370495 )  << 10 )  & 9223372036854774784 )  ) ;
-
-	   printf("tmp_23_reg_168 %llu\n",tmp_23_reg_168);
-       }
+	   }
        if(((((((tmp_21_fu_460_p2 == 1) && (tmp_13_fu_454_p2 == 0)) && (grp_fu_288_p2 == 0)) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           zExp_1_reg_177 =   (  (  ( grp_fu_293_p0  == 0 ? 1 :  0 )  & 1 )  == 1 ? 1 :   (  ( b >> 52 )  & 2047 )  ) ;
-	   printf("zExp_1_reg_177 %llu\n",zExp_1_reg_177);
+           zExp_1_reg_177 =   (  (  ( grp_fu_293_p0  == 0 ? 1 :  0 )  & 1 )  == 1 ? 1 :   (  ( b >> 52 )  & 2047 )  ) ;	   
        }
        if((((((tmp_13_fu_454_p2 == 1) && (grp_fu_288_p2 == 0)) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           zExp_reg_205 =   (  (  ( grp_fu_293_p0  == 0 ? 1 :  0 )  & 1 )  == 1 ? 1 :   (  ( a >> 52 )  & 2047 )  ) ;
-	   printf("zExp_reg_205 %llu\n",zExp_reg_205);
+           zExp_reg_205 =   (  (  ( grp_fu_293_p0  == 0 ? 1 :  0 )  & 1 )  == 1 ? 1 :   (  ( a >> 52 )  & 2047 )  ) ;	   
        }
        if((1 == ap_CS_fsm_state1) && (ap_start == 1))
        {
-           tmp_reg_1396 =   ( do_twos_complement( (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  )  )  > do_twos_complement(0 )  ? 1 :  0 ) ;
-	
-	   //tmp_reg_1396=t1;
+		   tmp_reg_1396=t1;
            tmp_18_reg_1385 =   ( b & 4503599627370495 ) ;
-           tmp_14_reg_1372 =   ( a & 4503599627370495 ) ;
-	   printf("tmp_14_reg_1372 %llu\n",tmp_14_reg_1372);
+           tmp_14_reg_1372 =   ( a & 4503599627370495 ) ;	  
            expDiff_reg_1366 =   (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  ) ;
            bExp_reg_1361 =   (  ( b >> 52 )  & 4095 ) ;
            aSig_cast1_cast_reg_1378 =   (  ( aSig_cast1_cast_reg_1378__temp  & 4611686018427388927 )  |  (  (  ( a & 4503599627370495 )  << 10 )  & 4611686018427386880 )  ) ;
-           aExp_reg_1355 =   (  ( a >> 52 )  & 2047 /*4095*/ ) ;
-	   printf("aExp_reg_1355 %llu\n",aExp_reg_1355);
+           aExp_reg_1355 =   (  ( a >> 52 )  & 2047  ) ;	  
        }
        if((((grp_fu_288_p2 == 0) && (tmp_fu_424_p2 == 1)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
@@ -852,9 +842,8 @@ unsigned long long int zSign=*zSign__1;
 
            expDiff_1_reg_1479 =   (  (  (  (  ( b >> 52 )  & 2047 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  ( do_twos_complement( 2047 )  + do_twos_complement(  (  (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  )  & 2047 )  )  )  :   (  (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  )  & 2047 )  ) ;
 
-           bSig_2_reg_1471 =   (  ( bSig_2_reg_1471__temp  & 1023 )  |  (  (  (  (  (  ( b >> 52 )  & 2047 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  (  ( b & 4503599627370495 )  << 10 )  :   (  (  ( 1 << 52 )  |  ( b & 4503599627370495 )  )  << 10 )  )  & 9223372036854774784 )  ) ;
-	   printf("bSig_2_reg_1471 %llu\n",bSig_2_reg_1471);
-	   bSig_2_reg_1471=bSig_2_reg_1471|4611686018427387904;
+           bSig_2_reg_1471 =   (  ( bSig_2_reg_1471__temp  & 1023 )  |  (  (  (  (  (  ( b >> 52 )  & 2047 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  (  ( b & 4503599627370495 )  << 10 )  :   (  (  ( 1 << 52 )  |  ( b & 4503599627370495 )  )  << 10 )  )  & 9223372036854774784 )  ) ;	   
+	   bSig_2_reg_1471=bSig_2_reg_1471|4611686018427387904;   
        }
        if(((((grp_fu_288_p2 == 0) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
@@ -960,9 +949,7 @@ unsigned long long int zSign=*zSign__1;
        if(((((((tmp_21_fu_460_p2 == 1) && (tmp_13_fu_454_p2 == 0)) && (grp_fu_288_p2 == 0)) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
                tmp_23_reg_168 =   (  ( tmp_23_reg_168__temp  & 1023 )  |  (  (  ( b & 4503599627370495 )  << 10 )  & 9223372036854774784 )  ) ;
-		tmp_23_reg_168=tmp_23_reg_168|4611686018427387904;
-
-		printf("tmp_23_reg_168 %llu\n",tmp_23_reg_168);
+		tmp_23_reg_168=tmp_23_reg_168|4611686018427387904;	
        }
        if(((((((tmp_21_fu_460_p2 == 1) && (tmp_13_fu_454_p2 == 0)) && (grp_fu_288_p2 == 0)) && (tmp_24_fu_430_p3 == 0)) && (tmp_fu_424_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
@@ -974,18 +961,13 @@ unsigned long long int zSign=*zSign__1;
        }
        if((1 == ap_CS_fsm_state1) && (ap_start == 1))
        {
-               tmp_reg_1396 =   ( do_twos_complement( (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  )  )  > do_twos_complement(0 )  ? 1 :  0 ) ;
-		//tmp_reg_1396=t1;
+			   tmp_reg_1396=t1;
                tmp_18_reg_1385 =   ( b & 4503599627370495 ) ;
                tmp_14_reg_1372 =   ( a & 4503599627370495 ) ;
                expDiff_reg_1366 =   (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  ) ;
-               bExp_reg_1361 =   (  ( b >> 52 )  & 2047/*4095*/ ) ;
-		printf("bExp_reg_1361 %llu\n",bExp_reg_1361);
-
-               aSig_cast1_cast_reg_1378 =   (  ( aSig_cast1_cast_reg_1378__temp  & 4611686018427388927 )  |  (  (  ( a & 4503599627370495 )  << 10 )  & 4611686018427386880 )  ) ;
-		printf(" aSig_cast1_cast_reg_1378 %llu\n", aSig_cast1_cast_reg_1378);
-		aSig_cast1_cast_reg_1378=aSig_cast1_cast_reg_1378|4611686018427387904;
-		printf(" aSig_cast1_cast_reg_1378 %llu\n", aSig_cast1_cast_reg_1378);
+               bExp_reg_1361 =   (  ( b >> 52 )  & 2047) ;
+		       aSig_cast1_cast_reg_1378 =   (  ( aSig_cast1_cast_reg_1378__temp  & 4611686018427388927 )  |  (  (  ( a & 4503599627370495 )  << 10 )  & 4611686018427386880 )  ) ;
+			   aSig_cast1_cast_reg_1378=aSig_cast1_cast_reg_1378|4611686018427387904; 
                aExp_reg_1355 =   (  ( a >> 52 )  & 4095 ) ;
        }
        if((((grp_fu_288_p2 == 0) && (tmp_fu_424_p2 == 1)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
@@ -1546,7 +1528,7 @@ unsigned long long int zSign=*zSign__1;
        goto ap_ST_fsm_state1;
 
    ap_ST_fsm_state2:
-	printf("state 2\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 1;
 	ap_CS_fsm_state3 = 0;
@@ -1803,8 +1785,8 @@ unsigned long long int zSign=*zSign__1;
            count_assign_1_reg_1518 =   ( 0 -  (  (  ( grp_fu_293_p0__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ?  ( 1 + expDiff_reg_1366__temp  )  :  expDiff_reg_1366__temp  )  ) ;
 
            aSig_3_reg_1511 =   (  ( aSig_3_reg_1511__temp  & 1023 )  |  (  (  (  ( grp_fu_293_p0__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? aSig_cast1_cast_reg_1378__temp  :   (  (  ( 1 << 52 )  | tmp_14_reg_1372__temp  )  << 10 )  )  & 9223372036854774784 )  ) ;
-	  aSig_3_reg_1511=aSig_3_reg_1511|4611686018427387904;
-	   printf("aSig_3_reg_1511 %llu\n",aSig_3_reg_1511);
+		   aSig_3_reg_1511=aSig_3_reg_1511|4611686018427387904;	
+	   
        }
        if(1 == ap_CS_fsm_state2)
        {
@@ -1814,7 +1796,7 @@ unsigned long long int zSign=*zSign__1;
        goto ap_ST_fsm_state3;
 
    ap_ST_fsm_state3:
-	printf("state 3\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
@@ -2072,18 +2054,17 @@ unsigned long long int zSign=*zSign__1;
        if(1 == ap_CS_fsm_state3)
        {
            tmp_23_reg_168 =   (  ( tmp_23_reg_168__temp  & 1023 )  |  (  (  (  ( 1 << 52 )  | tmp_18_reg_1385__temp  )  << 10 )  & 9223372036854774784 )  ) ;
-	tmp_23_reg_168=tmp_23_reg_168|4611686018427387904;
+	tmp_23_reg_168=tmp_23_reg_168|4611686018427387904;    
        }
        if(1 == ap_CS_fsm_state3)
        {
-           zExp_1_reg_177 =  bExp_reg_1361__temp ;
-	    printf("zExp_1_reg_177 %llu\n",zExp_1_reg_177);
+           zExp_1_reg_177 =  bExp_reg_1361__temp ;	   
        }
           countLeadingZerosHig_address0 =   (  (  ( tmp_54_reg_1585__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? tmp_39_reg_1590__temp  :  tmp_40_reg_1595__temp  ) ;
        goto ap_ST_fsm_state4;
 
    ap_ST_fsm_state4:
-	printf("state 4\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2336,10 +2317,7 @@ unsigned long long int zSign=*zSign__1;
        if(1 == ap_CS_fsm_state4)
        {
            zSig_assign_reg_215 =   ( tmp_23_reg_168__temp  - aSig_s_reg_159__temp  ) ;
-	   printf("zSig_assign_reg_215 %llu\n",zSig_assign_reg_215);
-	   printf("tmp_23_reg_168__temp %llu\n",tmp_23_reg_168__temp);
-	   printf("aSig_s_reg_159__temp %llu\n",aSig_s_reg_159__temp);
-       }
+	   }
        if(1 == ap_CS_fsm_state4)
        {
            zSign_assign_1_reg_237 =   ( zSign ^ 1 ) ;
@@ -2348,7 +2326,7 @@ unsigned long long int zSign=*zSign__1;
        goto ap_ST_fsm_state7;
 
    ap_ST_fsm_state5:
-	printf("state 5\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2606,21 +2584,16 @@ unsigned long long int zSign=*zSign__1;
        if(1 == ap_CS_fsm_state5)
        {
            tmp_20_reg_196 =   (  ( tmp_20_reg_196__temp  & 1023 )  |  (  (  (  ( 1 << 52 )  | tmp_14_reg_1372__temp  )  << 10 )  & 9223372036854774784 )  ) ;
-	   
-	   
-	   printf("tmp_20_reg_196 %llu\n",tmp_20_reg_196);
-	   printf("tmp_14_reg_1372__temp %llu\n",tmp_14_reg_1372__temp);
        }
        if(1 == ap_CS_fsm_state5)
        {
            zExp_reg_205 =  aExp_reg_1355__temp ;
-	   printf("zExp_reg_205 %llu\n",zExp_reg_205);
        }
           countLeadingZerosHig_address0 =   (  (  ( tmp_54_reg_1585__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? tmp_39_reg_1590__temp  :  tmp_40_reg_1595__temp  ) ;
        goto ap_ST_fsm_state6;
 
    ap_ST_fsm_state6:
-	printf("state 6\n");
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2874,9 +2847,6 @@ unsigned long long int zSign=*zSign__1;
        {  
 	   tmp_20_reg_196__temp = tmp_20_reg_196__temp|4611686018427387904;
            zSig_assign_reg_215 =   ( tmp_20_reg_196__temp  - bSig_s_reg_187__temp  ) ;
-	   printf("tmp_20_reg_196__temp %llu\n", tmp_20_reg_196__temp);
-	   printf("bSig_s_reg_187__temp %llu\n",bSig_s_reg_187__temp);
-	   printf("zSig_assign_reg_215 %llu\n",zSig_assign_reg_215);
        }
        if(1 == ap_CS_fsm_state6)
        {
@@ -2886,7 +2856,7 @@ unsigned long long int zSign=*zSign__1;
        goto ap_ST_fsm_state7;
 
    ap_ST_fsm_state7:
-	printf("state 7\n");
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -3147,7 +3117,7 @@ unsigned long long int zSign=*zSign__1;
        goto ap_ST_fsm_state8;
 
    ap_ST_fsm_state8:
-	printf("state 8\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -3402,15 +3372,13 @@ unsigned long long int zSign=*zSign__1;
            countLeadingZerosHig_ce0 =  1;
        }
           countLeadingZerosHig_address0 =   (  (  ( tmp_54_reg_1585__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? tmp_39_reg_1590__temp  :  tmp_40_reg_1595__temp  ) ;
-       if(countLeadingZerosHig_ce0){
-	 printf("countLeadingZerosHig_address0 %llu\n",countLeadingZerosHig_address0);
-          countLeadingZerosHig_q0=countLeadingZerosHig_rom[countLeadingZerosHig_address0];
-	  printf("countLeadingZerosHig_q0 %llu\n",countLeadingZerosHig_q0);
+       if(countLeadingZerosHig_ce0){	 
+          countLeadingZerosHig_q0=countLeadingZerosHig_rom[countLeadingZerosHig_address0];	  
        }
        goto ap_ST_fsm_state9;
 
    ap_ST_fsm_state9:
-	printf("state 9\n");
+	clock=clock+1;	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -3658,18 +3626,13 @@ unsigned long long int zSign=*zSign__1;
        countLeadingZerosHig_ce0 = 0;
        if(1 == ap_CS_fsm_state9)
        {
-	    printf("countLeadingZerosHig_q0__temp %llu\n",countLeadingZerosHig_q0__temp);
-	    printf("icmp3_reg_1600__temp %llu\n",icmp3_reg_1600__temp);
-            printf("icmp2_reg_1579__temp %llu\n",icmp2_reg_1579__temp);
-	    printf("icmp1_reg_1574__temp %llu\n",icmp1_reg_1574__temp);
-
-           shiftCount_1_reg_1610 =   (  (  (  ( icmp3_reg_1600__temp  & 1 )  == 1 ?  (  ( icmp2_reg_1579__temp  & 1 )  == 1 ? 24 :  8 )  :   (  ( icmp2_reg_1579__temp  & 1 )  == 1 ? 16 :  0 )  )  + countLeadingZerosHig_q0__temp  )  +  (  ( icmp1_reg_1574__temp  & 1 )  == 1 ? -1/*31*/ :-1  /*127*/ )  ) ;
+           shiftCount_1_reg_1610 =   (  (  (  ( icmp3_reg_1600__temp  & 1 )  == 1 ?  (  ( icmp2_reg_1579__temp  & 1 )  == 1 ? 24 :  8 )  :   (  ( icmp2_reg_1579__temp  & 1 )  == 1 ? 16 :  0 )  )  + countLeadingZerosHig_q0__temp  )  +  (  ( icmp1_reg_1574__temp  & 1 )  == 1 ? -1 :-1  )  ) ;
        }
           countLeadingZerosHig_address0 =   (  (  ( tmp_54_reg_1585__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? tmp_39_reg_1590__temp  :  tmp_40_reg_1595__temp  ) ;
        goto ap_ST_fsm_state10;
 
    ap_ST_fsm_state10:
-	printf("state 10\n");
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -3921,24 +3884,19 @@ unsigned long long int zSign=*zSign__1;
        }
        if(1 == ap_CS_fsm_state10)
        {
-	  printf("shiftCount_1_reg_1610__temp %llu\n",shiftCount_1_reg_1610__temp);
-           tmp_i5_21_reg_1616 =   ( do_twos_complement( ( /*do_twos_complement( 4095 )*/ -1  + do_twos_complement( zExp2_reg_225__temp  )  )  )  - do_twos_complement( shiftCount_1_reg_1610__temp  )  ) ;
-
-           tmp_76_i_reg_1621 =   ( zSig_assign_reg_215__temp  << shiftCount_1_reg_1610__temp  ) ;
-
-	   printf("tmp_i5_21_reg_1616 %llu\n",tmp_i5_21_reg_1616);
-	   printf("zSig_assign_reg_215__temp %llu\n",zSig_assign_reg_215__temp);
+	       tmp_i5_21_reg_1616 =   ( do_twos_complement( (  -1  + do_twos_complement( zExp2_reg_225__temp  )  )  )  - do_twos_complement( shiftCount_1_reg_1610__temp  )  ) ;
+		   tmp_76_i_reg_1621 =   ( zSig_assign_reg_215__temp  << shiftCount_1_reg_1610__temp  ) ;
        }
           countLeadingZerosHig_address0 =   (  (  ( tmp_54_reg_1585__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? tmp_39_reg_1590__temp  :  tmp_40_reg_1595__temp  ) ;
 if (grp_roundAndPackFloat64_fu_278_ap_start_reg==1){
 grp_roundAndPackFloat64_fu_278_ap_start=1;
-roundAndPackFloat64(&ap_clk,&grp_roundAndPackFloat64_fu_278_ap_done,&grp_roundAndPackFloat64_fu_278_ap_idle,&grp_roundAndPackFloat64_fu_278_ap_ready,&grp_roundAndPackFloat64_fu_278_ap_return,&ap_rst,&grp_roundAndPackFloat64_fu_278_ap_start,&float_exception_flag,&grp_roundAndPackFloat64_fu_278_float_exception_flag_o,&grp_roundAndPackFloat64_fu_278_float_exception_flag_o_ap_vld,&tmp_i5_21_reg_1616,&tmp_76_i_reg_1621,&zSign_assign_1_reg_237,dummy);
+roundAndPackFloat64(&ap_clk,&grp_roundAndPackFloat64_fu_278_ap_done,&grp_roundAndPackFloat64_fu_278_ap_idle,&grp_roundAndPackFloat64_fu_278_ap_ready,&grp_roundAndPackFloat64_fu_278_ap_return,&ap_rst,&grp_roundAndPackFloat64_fu_278_ap_start,&float_exception_flag,&grp_roundAndPackFloat64_fu_278_float_exception_flag_o,&grp_roundAndPackFloat64_fu_278_float_exception_flag_o_ap_vld,&tmp_i5_21_reg_1616,&tmp_76_i_reg_1621,&zSign_assign_1_reg_237,&clock);
 grp_roundAndPackFloat64_fu_278_ap_done=1;
 }
        goto ap_ST_fsm_state11;
 
    ap_ST_fsm_state11:
-	printf("state 11\n");
+	clock=clock+1;
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -4176,18 +4134,15 @@ grp_roundAndPackFloat64_fu_278_ap_done=1;
    icmp_fu_914_p2__temp = icmp_fu_914_p2 ;
    tmp_2_i1_fu_1062_p2__temp = tmp_2_i1_fu_1062_p2 ;
 
-       ap_return_preg = 0 ;
-       grp_roundAndPackFloat64_fu_278_ap_start_reg = 0 ;
-       bSig_2_reg_1471 = bSig_2_reg_1471 & 9223372036854774784 ;
-       aSig_3_reg_1511 = aSig_3_reg_1511 & 9223372036854774784 ;
-       tmp_23_reg_168 = tmp_23_reg_168 & 9223372036854774784 ;
-       tmp_20_reg_196 = tmp_20_reg_196 & 9223372036854774784 ;
-       aSig_cast1_cast_reg_1378 = aSig_cast1_cast_reg_1378 & 4611686018427386880 ;
-       countLeadingZerosHig_ce0 = 0;
-               tmp_fu_424_p2 =   ( do_twos_complement( (  (  ( a >> 52 )  & 2047 )  -  (  ( b >> 52 )  & 2047 )  )  )  > do_twos_complement(0 )  ? 1 :  0 ) ;
-		
-		//tmp_fu_424_p2=t1;
-		//printf("t1 %d\n",t1);
+			   ap_return_preg = 0 ;
+			   grp_roundAndPackFloat64_fu_278_ap_start_reg = 0 ;
+			   bSig_2_reg_1471 = bSig_2_reg_1471 & 9223372036854774784 ;
+			   aSig_3_reg_1511 = aSig_3_reg_1511 & 9223372036854774784 ;
+			   tmp_23_reg_168 = tmp_23_reg_168 & 9223372036854774784 ;
+			   tmp_20_reg_196 = tmp_20_reg_196 & 9223372036854774784 ;
+			   aSig_cast1_cast_reg_1378 = aSig_cast1_cast_reg_1378 & 4611686018427386880 ;
+			   countLeadingZerosHig_ce0 = 0;              		
+			   tmp_fu_424_p2=t1;		
                tmp_15_fu_834_p2 =   (  (  (  ( grp_fu_308_p4__temp  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  |  (  (  (  (  ( a >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( a & 2251799813685247 )  != 0 ? 1 :  0 )  )  ) ;
                tmp_19_fu_656_p2 =   (  (  (  ( grp_fu_308_p4__temp  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  |  (  (  (  (  ( a >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( a & 2251799813685247 )  != 0 ? 1 :  0 )  )  ) ;
                tmp_3_fu_578_p2 =   (  (  ( b & 4503599627370495 )  << 10 )  == 0 ? 1 :  0 ) ;
@@ -4223,7 +4178,8 @@ grp_roundAndPackFloat64_fu_278_ap_done=1;
    }
 
    ap_ST_fsm_state12:
-	printf("state 12\n");
+	clock=clock+1;
+	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -4534,5 +4490,6 @@ grp_roundAndPackFloat64_fu_278_ap_done=1;
 	*ap_start__1=ap_start;
 	*b__1=b;
 	*zSign__1=zSign;
+	*dummy=clock;
        return;
 }

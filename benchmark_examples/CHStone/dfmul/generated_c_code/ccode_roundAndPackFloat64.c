@@ -1,11 +1,6 @@
 #include<stdio.h>
 void roundAndPackFloat64(int *ap_clk__1,int *ap_done__1,int *ap_idle__1,int *ap_ready__1,long long int *ap_return__1,int *ap_rst__1,int *ap_start__1,int *float_exception_flag_i__1,int *float_exception_flag_o__1,int *float_exception_flag_o_ap_vld__1,int *zExp__1,unsigned long long int *zSig__1,int *zSign__1,int dummy)
 {
-printf("inside round and pack\n");
-printf("zExp__1 %d\n",*zExp__1);
-printf("zSig__1 %llu\n",*zSig__1);
-printf("zSign__1 %d\n",*zSign__1);
-
 int ap_clk=*ap_clk__1;
 int ap_done=*ap_done__1;
 int ap_idle=*ap_idle__1;
@@ -19,7 +14,7 @@ int float_exception_flag_o_ap_vld=*float_exception_flag_o_ap_vld__1;
 int zExp=*zExp__1;
 unsigned long long int zSig=*zSig__1;
 
-int zSign=*zSign__1;
+   int zSign=*zSign__1;
    int ap_CS_fsm=1;
    int ap_CS_fsm__temp=1;
    int ap_CS_fsm_state1=1;
@@ -181,8 +176,7 @@ int zSign=*zSign__1;
 	ap_done=0;
 	ap_start=1;
 
-   ap_ST_fsm_state1:
-        printf("round state1\n");
+   ap_ST_fsm_state1:        
 	ap_CS_fsm_state1 = 1;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -192,9 +186,9 @@ int zSign=*zSign__1;
    tmp_4_fu_167_p2_temp522__temp = tmp_4_fu_167_p2_temp522 ;
    roundBits_2_fu_307_p1__temp = roundBits_2_fu_307_p1 ;
    ap_NS_fsm__temp = ap_NS_fsm ;
-   zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+   zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    zSign_temp59__temp = zSign_temp59 ;
    count_assign_fu_189_p2__temp = count_assign_fu_189_p2 ;
    tmp_10_fu_363_p2__temp = tmp_10_fu_363_p2 ;
@@ -278,14 +272,11 @@ int zSign=*zSign__1;
                tmp_1_fu_155_p2 =   ( zExp__temp  > 2045 ? 1 :  0 ) ;
                tmp_1_reg_460 =  tmp_1_reg_460__temp ;
                tmp_fu_173_p3 =   (  (  ( zSig__temp  + 512 )  >> 63 )  & 1 ) ;
-               tmp_6_fu_181_p3 =   (  ( zExp__temp  >> 12 )  & 1 ) ;
-
-		//printf("ans= %llu",(( zSign << 63 )  | 9218868437227405312 ));
-
+               tmp_6_fu_181_p3 =   (  ( zExp__temp  >> 12 )  & 1 ) ;		
    if((((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((tmp_1_fu_155_p2 == 1) && (tmp_s_fu_149_p2 == 1)) || (((tmp_fu_173_p3 == 1) && (tmp_2_fu_161_p2 == 1)) && (tmp_s_fu_149_p2 == 1)))) == 1)
 {
        if(((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((tmp_1_fu_155_p2 == 1) && (tmp_s_fu_149_p2 == 1)) || (((tmp_fu_173_p3 == 1) && (tmp_2_fu_161_p2 == 1)) && (tmp_s_fu_149_p2 == 1))))
-       {   printf("round p_0_reg_132 %llu\n",p_0_reg_132);
+       {
            p_0_reg_132 =   (  ( zSign << 63 )  | 9218868437227405312 ) ;
        }
        if((((ap_start == 1) && (tmp_s_fu_149_p2 == 0)) && (1 == ap_CS_fsm_state1)) || (((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_6_fu_181_p3 == 0) && (tmp_2_fu_161_p2 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_6_fu_181_p3 == 0) && (tmp_fu_173_p3 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)))))
@@ -351,8 +342,7 @@ int zSign=*zSign__1;
        }
        if((((ap_start == 1) && (tmp_s_fu_149_p2 == 0)) && (1 == ap_CS_fsm_state1)) || (((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_6_fu_181_p3 == 0) && (tmp_2_fu_161_p2 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_6_fu_181_p3 == 0) && (tmp_fu_173_p3 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)))))
        {
-               roundBits_1_reg_121 =   ( zSig__temp  & 1023 ) ;
-		printf("roundBits_1_reg_121 %d",roundBits_1_reg_121);
+               roundBits_1_reg_121 =   ( zSig__temp  & 1023 ) ;		
        }
        if((((ap_start == 1) && (tmp_s_fu_149_p2 == 0)) && (1 == ap_CS_fsm_state1)) || (((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_6_fu_181_p3 == 0) && (tmp_2_fu_161_p2 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_6_fu_181_p3 == 0) && (tmp_fu_173_p3 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)))))
        {
@@ -410,8 +400,7 @@ int zSign=*zSign__1;
        }
        if((((ap_start == 1) && (tmp_s_fu_149_p2 == 0)) && (1 == ap_CS_fsm_state1)) || (((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_6_fu_181_p3 == 0) && (tmp_2_fu_161_p2 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_6_fu_181_p3 == 0) && (tmp_fu_173_p3 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)))))
        {
-               roundBits_1_reg_121 =   ( zSig__temp  & 1023 ) ;
-		printf("state 1 roundBits_1_reg_121 %d\n",roundBits_1_reg_121);
+               roundBits_1_reg_121 =   ( zSig__temp  & 1023 ) ;	
        }
        if((((ap_start == 1) && (tmp_s_fu_149_p2 == 0)) && (1 == ap_CS_fsm_state1)) || (((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_6_fu_181_p3 == 0) && (tmp_2_fu_161_p2 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_6_fu_181_p3 == 0) && (tmp_fu_173_p3 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)))))
        {
@@ -419,8 +408,7 @@ int zSign=*zSign__1;
        }
        if((((ap_start == 1) && (tmp_s_fu_149_p2 == 0)) && (1 == ap_CS_fsm_state1)) || (((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_6_fu_181_p3 == 0) && (tmp_2_fu_161_p2 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_6_fu_181_p3 == 0) && (tmp_fu_173_p3 == 0)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)))))
        {
-               zSig_assign1_reg_96 =  zSig__temp ;
-		printf("state1 zSig_assign1_reg_96 %llu\n",zSig_assign1_reg_96);
+               zSig_assign1_reg_96 =  zSig__temp ;		
        }
        if(((ap_start == 1) && (1 == ap_CS_fsm_state1)) && (((((tmp_2_fu_161_p2 == 0) && (tmp_6_fu_181_p3 == 1)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1)) || ((((tmp_fu_173_p3 == 0) && (tmp_6_fu_181_p3 == 1)) && (tmp_1_fu_155_p2 == 0)) && (tmp_s_fu_149_p2 == 1))))
        {
@@ -520,16 +508,15 @@ int zSign=*zSign__1;
        }
        goto ap_ST_fsm_state1;
 
-   ap_ST_fsm_state2:
-	printf("round state 2\n");
+   ap_ST_fsm_state2:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 1;
 	ap_CS_fsm_state3 = 0;
 	ap_CS_fsm_state4 = 0;
    tmp_fu_173_p3__temp = tmp_fu_173_p3 ;
-   zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+   zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    tmp_2_fu_161_p2__temp = tmp_2_fu_161_p2 ;
    tmp_4_fu_167_p2_temp522__temp = tmp_4_fu_167_p2_temp522 ;
    roundBits_2_fu_307_p1__temp = roundBits_2_fu_307_p1 ;
@@ -635,17 +622,16 @@ int zSign=*zSign__1;
        }
        goto ap_ST_fsm_state3;
 
-   ap_ST_fsm_state3:
-	printf("round state 3\n");
+   ap_ST_fsm_state3:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
 	ap_CS_fsm_state4 = 0;
    tmp_fu_173_p3__temp = tmp_fu_173_p3 ;
    tmp_2_fu_161_p2__temp = tmp_2_fu_161_p2 ;
-   zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+   zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    tmp_4_fu_167_p2_temp522__temp = tmp_4_fu_167_p2_temp522 ;
    roundBits_2_fu_307_p1__temp = roundBits_2_fu_307_p1 ;
    ap_NS_fsm__temp = ap_NS_fsm ;
@@ -729,18 +715,8 @@ int zSign=*zSign__1;
                tmp_fu_173_p3 =   (  (  ( zSig__temp  + 512 )  >> 63 )  & 1 ) ;
        if(1 == ap_CS_fsm_state3)
        {
-	   signed int a=4294967295;   // anathor issue because of that signed variable
-	   //zSig_assign_2_reg_506 =   (  (  (  ( 512 + zSig_assign1_reg_96__temp  )  >> 10 )  & 18014398509481983 )  &  (  ( roundBits_1_reg_121__temp  == 512 ? 1 :  0 )  ^ 4294967295 )  ) ;	 //actual equation incorrect output  
-
-           zSig_assign_2_reg_506 =   (  (  (  ( 512 + zSig_assign1_reg_96__temp  )  >> 10 )  & 18014398509481983 )  &  (  ( roundBits_1_reg_121__temp  == 512 ? 1 :  0 )  ^ a )  ) ;
-
-	  
-	  
-	  printf("a=%d\n",a);
-	  printf("(  ( 512 + zSig_assign1_reg_96__temp  )  >> 10 ) %llu\n",(  ( 512 + zSig_assign1_reg_96__temp  )  >> 10 ));
-	  printf("zSig_assign1_reg_96__temp %llu\n",zSig_assign1_reg_96__temp);
-	  printf("roundBits_1_reg_121__temp %d\n",roundBits_1_reg_121__temp);
-	  printf("zSig_assign_2_reg_506 %llu\n",zSig_assign_2_reg_506);
+		   signed int a=4294967295;
+	       zSig_assign_2_reg_506 =   (  (  (  ( 512 + zSig_assign1_reg_96__temp  )  >> 10 )  & 18014398509481983 )  &  (  ( roundBits_1_reg_121__temp  == 512 ? 1 :  0 )  ^ a )  ) ;
        }
        if((tmp_5_fu_329_p2 == 0) && (1 == ap_CS_fsm_state3))
        {
@@ -752,17 +728,16 @@ int zSign=*zSign__1;
        }
        goto ap_ST_fsm_state4;
 
-   ap_ST_fsm_state4:
-	printf("round state 4\n");
+   ap_ST_fsm_state4:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
 	ap_CS_fsm_state4 = 1;
    tmp_fu_173_p3__temp = tmp_fu_173_p3 ;
    tmp_2_fu_161_p2__temp = tmp_2_fu_161_p2 ;
-   zExp__temp=zExp;//missing in code
-   zSig__temp=zSig;//missing in code
-   zSign__temp=zSign;//missing in code
+   zExp__temp=zExp;
+   zSig__temp=zSig;
+   zSign__temp=zSign;
    tmp_4_fu_167_p2_temp522__temp = tmp_4_fu_167_p2_temp522 ;
    roundBits_2_fu_307_p1__temp = roundBits_2_fu_307_p1 ;
    ap_NS_fsm__temp = ap_NS_fsm ;
@@ -847,7 +822,7 @@ int zSign=*zSign__1;
            ap_return_preg =  ap_phi_mux_p_0_phi_fu_135_p4__temp ;
        }
        if((1 == ap_CS_fsm_state4) && ((tmp_s_reg_456 == 0) || (((tmp_2_reg_464 == 0) && (tmp_1_reg_460 == 0)) || ((tmp_reg_468 == 0) && (tmp_1_reg_460 == 0)))))
-       {   printf("here1\n");
+       {  
            p_0_reg_132 =   (  (  (  ( zSign << 9 )  << 54 )  | zSig_assign_2_reg_506__temp  )  +  (  (  (  ( zSig_assign_2_reg_506__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? 0 :   ( zExp_assign_1_reg_107__temp  & 4095 )  )  << 52 )  ) ;
        }
        if((1 == ap_CS_fsm_state4) || ((ap_start == 0) && (1 == ap_CS_fsm_state1)))
@@ -857,26 +832,19 @@ int zSign=*zSign__1;
 			}
        }
        if((1 == ap_CS_fsm_state4) && ((tmp_s_reg_456 == 0) || (((tmp_2_reg_464 == 0) && (tmp_1_reg_460 == 0)) || ((tmp_reg_468 == 0) && (tmp_1_reg_460 == 0)))))
-       {   printf("here2\n");
-	   unsigned long long int temp4=zSign;
-	   unsigned long long int temp1=(  ( temp4 << 9 )  << 54 );
-	   printf("temp1 =%llu\n",temp1);
-	   unsigned long long int temp2;
+       {
+	       unsigned long long int temp4=zSign;
+	       unsigned long long int temp1=(  ( temp4 << 9 )  << 54 );	   
+		   unsigned long long int temp2;
            unsigned long long int temp3=zExp_assign_1_reg_107__temp;
-	   temp2=( temp3 & 4095)<<52;
-	   printf("%d\n",(zExp_assign_1_reg_107__temp & 4095));
-	   printf("temp 2 %llu\n",temp2);
-           
-           ap_phi_mux_p_0_phi_fu_135_p4 =   (  (  (  (unsigned long long int)( zSign << 9 )  << 54 )  | zSig_assign_2_reg_506__temp  )  +  (((( zSig_assign_2_reg_506__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? 0 : temp2))) ;
-	 
-	  printf("(  ( zSig_assign_2_reg_506__temp  == 0 ? 1 :  0 )  & 1 )  == 1   %d",(  ( zSig_assign_2_reg_506__temp  == 0 ? 1 :  0 )  & 1 )  == 1);
-	  printf("ap_phi_mux_p_0_phi_fu_135_p4 %llu\n",ap_phi_mux_p_0_phi_fu_135_p4);
+	       temp2=( temp3 & 4095)<<52;
+	       ap_phi_mux_p_0_phi_fu_135_p4 =   (  (  (  (unsigned long long int)( zSign << 9 )  << 54 )  | zSig_assign_2_reg_506__temp  )  +  (((( zSig_assign_2_reg_506__temp  == 0 ? 1 :  0 )  & 1 )  == 1 ? 0 : temp2))) ;
        }
 	
 	if(((1 == ap_CS_fsm_state4) && ((tmp_s_reg_456 == 0) || (((tmp_2_reg_464 == 0) && (tmp_1_reg_460 == 0)) || ((tmp_reg_468 == 0) && (tmp_1_reg_460 == 0)))))==0)
-       {   printf("here3\n");
-           ap_phi_mux_p_0_phi_fu_135_p4 = p_0_reg_132__temp ;
-       }
+	{
+       ap_phi_mux_p_0_phi_fu_135_p4 = p_0_reg_132__temp ;
+    }
 
        if(1 == ap_CS_fsm_state4)
        {
@@ -894,8 +862,7 @@ int zSign=*zSign__1;
 	*ap_clk__1=ap_clk;
 	*ap_done__1=ap_done;
 	*ap_idle__1=ap_idle;
-	*ap_ready__1=ap_ready;
-	printf("ap_return %llu\n",ap_return);
+	*ap_ready__1=ap_ready;	
 	*ap_return__1=ap_return;
 	*ap_rst__1=ap_rst;
 	*ap_start__1=ap_start;

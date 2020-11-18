@@ -10,12 +10,7 @@
 
 void roundAndPackFloat64(int * ,int * ,int * ,int * ,long long int * ,int * ,int * ,int * ,int * ,int * ,int * ,long long int * ,int * ,int dummy);
 void float64_mul(unsigned long long int *a__1,int *ap_clk__1,int *ap_done__1,int *ap_idle__1,int *ap_ready__1, long long int *ap_return__1,int *ap_rst__1,int *ap_start__1,unsigned long long int *b__1,int dummy)
-{
-	printf("a inside float %llu\n",*a__1);
-	printf("b insode float %llu\n",*b__1);
-	printf("a %016llx\n",*a__1);
-	printf("b %016llx\n",*b__1);
-	printf("start %d\n",*ap_start__1);
+{	
 unsigned long long int a=*a__1;
 int ap_clk=*ap_clk__1;
 int ap_done=*ap_done__1;
@@ -703,8 +698,7 @@ unsigned long long int b=*b__1;
    int countLeadingZerosHig_rom[countLeadingZerosHig_MEM_SIZE]={
 8,7,6,6,5,5,5,5,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
-   ap_ST_fsm_state1:
-	printf("state1\n");
+   ap_ST_fsm_state1:	
 	ap_CS_fsm_state1 = 1;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -1090,11 +1084,10 @@ unsigned long long int b=*b__1;
                tmp_19_fu_379_p2 =   (  (  ( a >> 52 )  & 2047 )  == 0 ? 1 :  0 ) ;
                tmp_reg_1404 =  tmp_reg_1404__temp ;
 
-		if((((grp_fu_241_p2 == 1) && (tmp_fu_367_p2 == 1)) && (1 == ap_CS_fsm_state1)) || (((tmp_15_fu_373_p2 == 1) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)))
+	   if((((grp_fu_241_p2 == 1) && (tmp_fu_367_p2 == 1)) && (1 == ap_CS_fsm_state1)) || (((tmp_15_fu_373_p2 == 1) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)))
        {
            grp_fu_246_p0 =   ( b & 4503599627370495 ) ;
-	   grp_fu_246_p2 =   ( grp_fu_246_p0  == 0 ? 1 :  0 ) ;
-	   printf("grp_fu_246_p0 \n");
+		   grp_fu_246_p2 =   ( grp_fu_246_p0  == 0 ? 1 :  0 ) ;	  
        }
 
 		
@@ -1102,63 +1095,49 @@ unsigned long long int b=*b__1;
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
            aExp2_reg_179 =   (  ( a >> 52 )  & 2047 ) ;
-	   printf("aExp2_reg_179 %d\n",aExp2_reg_179);
+	   
        }
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           aSig2_reg_169 =   ( a & 4503599627370495 ) ;
-	   printf("aSig2_reg_169 %d\n",aSig2_reg_169);
+           aSig2_reg_169 =   ( a & 4503599627370495 ) ;	   
        }
        if(((((((((tmp_20_fu_787_p2 == 1) && (or_cond_fu_651_p2 == 1)) && (grp_fu_241_p2 == 1)) && (tmp_fu_367_p2 == 1)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1)) || ((((((tmp_24_fu_625_p2 == 1) && (grp_fu_246_p2 == 1)) && (tmp_15_fu_373_p2 == 1)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))) || ((((((tmp_i2_fu_567_p2 == 1) && (grp_fu_246_p2 == 0)) && (tmp_15_fu_373_p2 == 1)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))) || (((1 == ap_CS_fsm_state1) && (ap_start == 1)) && ((((tmp_i9_fu_729_p2 == 1) && (grp_fu_241_p2 == 0)) && (tmp_fu_367_p2 == 1)) || (((tmp_i9_fu_729_p2 == 1) && (or_cond_fu_651_p2 == 0)) && (tmp_fu_367_p2 == 1)))))
        {
-           float_exception_flag =   ( float_exception_flag__temp  | 16 ) ;
-	   printf("float_exception_flag\n");
+           float_exception_flag =   ( float_exception_flag__temp  | 16 ) ;	   
        }
        if((((((grp_fu_241_p2 == 1) && (tmp_19_fu_379_p2 == 1)) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           p_0_reg_206 =   (  (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  )  << 63 ) ;
-	   printf("p_0_reg_206 1\n");
+           p_0_reg_206 =   (  (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  )  << 63 ) ;	   
        }
        if((((((grp_fu_246_p2 == 1) && (tmp_24_fu_625_p2 == 0)) && (tmp_15_fu_373_p2 == 1)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           p_0_reg_206 =   (  (  (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  )  << 63 )  | 9218868437227405312 ) ;
-	    printf("p_0_reg_206 2\n");
+           p_0_reg_206 =   (  (  (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  )  << 63 )  | 9218868437227405312 ) ;	    
        }
        if(((((grp_fu_246_p2 == 0) && (tmp_15_fu_373_p2 == 1)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           p_0_reg_206 =   (  (  (  (  (  (  (  ( a >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( a & 2251799813685247 )  != 0 ? 1 :  0 )  )  |  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  )  & 1 )  == 1 ?  (  (  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  :   (  (  (  ( b << 1 )  > 18437736874454810624 ? 1 :  0 )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  ) ;
-	    printf("p_0_reg_206 3\n");
+           p_0_reg_206 =   (  (  (  (  (  (  (  ( a >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( a & 2251799813685247 )  != 0 ? 1 :  0 )  )  |  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  )  & 1 )  == 1 ?  (  (  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  :   (  (  (  ( b << 1 )  > 18437736874454810624 ? 1 :  0 )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  ) ;	   
        }
        if((((((or_cond_fu_651_p2 == 1) && (grp_fu_241_p2 == 1)) && (tmp_20_fu_787_p2 == 0)) && (tmp_fu_367_p2 == 1)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           p_0_reg_206 =   (  (  (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  )  << 63 )  | 9218868437227405312 ) ;
-		 printf("p_0_reg_206 %016llu\n",p_0_reg_206);
+           p_0_reg_206 =   (  (  (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  )  << 63 )  | 9218868437227405312 ) ;		 
        }
        if(((((((tmp_20_fu_787_p2 == 1) && (or_cond_fu_651_p2 == 1)) && (grp_fu_241_p2 == 1)) && (tmp_fu_367_p2 == 1)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1)) || ((((((tmp_24_fu_625_p2 == 1) && (grp_fu_246_p2 == 1)) && (tmp_15_fu_373_p2 == 1)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1)))
        {
-               p_0_reg_206 =  9223372036854775807;
-		 printf("p_0_reg_206 5\n");
+               p_0_reg_206 =  9223372036854775807;		 
        }
        if(((1 == ap_CS_fsm_state1) && (ap_start == 1)) && (((grp_fu_241_p2 == 0) && (tmp_fu_367_p2 == 1)) || ((or_cond_fu_651_p2 == 0) && (tmp_fu_367_p2 == 1))))
        {
-           p_0_reg_206 =   (  (  (  (  (  (  (  ( a >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( a & 2251799813685247 )  != 0 ? 1 :  0 )  )  |  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  )  & 1 )  == 1 ?  (  (  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  :   (  (  (  ( b << 1 )  > 18437736874454810624 ? 1 :  0 )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  ) ;
-		 printf("p_0_reg_206 6\n");
+           p_0_reg_206 =   (  (  (  (  (  (  (  ( a >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( a & 2251799813685247 )  != 0 ? 1 :  0 )  )  |  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  )  & 1 )  == 1 ?  (  (  (  (  (  (  ( b >> 51 )  & 4095 )  << 51 )  == 9218868437227405312 ? 1 :  0 )  &  (  ( b & 2251799813685247 )  != 0 ? 1 :  0 )  )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  :   (  (  (  ( b << 1 )  > 18437736874454810624 ? 1 :  0 )  & 1 )  == 1 ?  ( b | 2251799813685248 )  :   ( 2251799813685248 | a )  )  ) ;		 
        }
        if((1 == ap_CS_fsm_state1) && (ap_start == 1))
        {
-           zSign_reg_1398 =   (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  ) ;
-	   printf("zSign_reg_1398 %d\n",zSign_reg_1398); //zsig
+           zSign_reg_1398 =   (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  ) ;	   
            tmp_reg_1404 =   (  (  ( a >> 52 )  & 2047 )  == 2047 ? 1 :  0 ) ;
-           bSig_reg_1377 =   ( b & 4503599627370495 ) ; //bsig
-	   printf("bSig_reg_1377 %llu\n",bSig_reg_1377);
-
-           bSig_1_cast_reg_1382 =   (  ( bSig_1_cast_reg_1382__temp  & 18442240474082181120 )  |  (  ( b & 4503599627370495 )  & 4503599627370495 )  ) ;  //(bSig | LIT64 (0x0010000000000000)) << 11;
-
-           bExp_reg_1388 =   (  ( b >> 52 )  & 2047 ) ; //bexp
-	  printf("bExp_reg_1388 %lld\n",bExp_reg_1388);
-	   
+           bSig_reg_1377 =   ( b & 4503599627370495 ) ; 
+           bSig_1_cast_reg_1382 =   (  ( bSig_1_cast_reg_1382__temp  & 18442240474082181120 )  |  (  ( b & 4503599627370495 )  & 4503599627370495 )  ) ; 
+           bExp_reg_1388 =   (  ( b >> 52 )  & 2047 ) ;
            bExp_cast_reg_1393 =   (  ( bExp_cast_reg_1393__temp  & 2048 )  |  (  (  ( b >> 52 )  & 2047 )  & 2047 )  ) ;
-           aSig_1_cast_reg_1366 =   (  ( aSig_1_cast_reg_1366__temp  & 18442240474082181120 )  |  (  ( a & 4503599627370495 )  & 4503599627370495 )  ) ;  //(aSig | LIT64 (0x0010000000000000)) << 10
+           aSig_1_cast_reg_1366 =   (  ( aSig_1_cast_reg_1366__temp  & 18442240474082181120 )  |  (  ( a & 4503599627370495 )  & 4503599627370495 )  ) ; 
        }
        if((((((tmp_19_fu_379_p2 == 1) && (grp_fu_241_p2 == 0)) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
@@ -1170,18 +1149,15 @@ unsigned long long int b=*b__1;
        }
        if(((tmp_fu_367_p2 == 0) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           tmp_15_reg_1408 =   (  (  ( b >> 52 )  & 2047 )  == 2047 ? 1 :  0 ) ;
-	   printf("tmp_15_reg_1408\n");
+           tmp_15_reg_1408 =   (  (  ( b >> 52 )  & 2047 )  == 2047 ? 1 :  0 ) ;	   
        }
        if((((tmp_15_fu_373_p2 == 0) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           tmp_19_reg_1412 =   (  (  ( a >> 52 )  & 2047 )  == 0 ? 1 :  0 ) ;
-	   printf("tmp_19_reg_1412\n");
+           tmp_19_reg_1412 =   (  (  ( a >> 52 )  & 2047 )  == 0 ? 1 :  0 ) ;	   
        }
        if(((((tmp_19_fu_379_p2 == 1) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-           tmp_25_reg_1416 =   (  ( a & 4503599627370495 )  == 0 ? 1 :  0 ) ;
-	   printf("tmp_25_reg_1416\n");
+           tmp_25_reg_1416 =   (  ( a & 4503599627370495 )  == 0 ? 1 :  0 ) ;	   
        }
        if((1 == ap_CS_fsm_state13) || ((ap_start == 0) && (1 == ap_CS_fsm_state1)))
        {
@@ -1195,8 +1171,7 @@ unsigned long long int b=*b__1;
        }
        if((((grp_fu_241_p2 == 1) && (tmp_fu_367_p2 == 1)) && (1 == ap_CS_fsm_state1)) || (((tmp_15_fu_373_p2 == 1) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)))
        {
-           grp_fu_246_p0 =   ( b & 4503599627370495 ) ;
-	   printf("grp_fu_246_p0 \n");
+           grp_fu_246_p0 =   ( b & 4503599627370495 ) ;	   
        }
        if(ap_done==1){
        	goto end;
@@ -1206,8 +1181,7 @@ unsigned long long int b=*b__1;
    if(((((((tmp_19_fu_379_p2 == 1) && (grp_fu_241_p2 == 0)) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1)) == 1){
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-               aExp2_reg_179 =   (  ( a >> 52 )  & 2047 ) ;
-		 printf("aExp2_reg_179 %d\n",aExp2_reg_179);
+               aExp2_reg_179 =   (  ( a >> 52 )  & 2047 ) ;		 
        }
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
@@ -1243,8 +1217,7 @@ unsigned long long int b=*b__1;
        }
        if((1 == ap_CS_fsm_state1) && (ap_start == 1))
        {
-               zSign_reg_1398 =   (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  ) ;
-		//printf("zSign_reg_1398 %d\n",zSign_reg_1398);
+               zSign_reg_1398 =   (  (  ( b >> 63 )  & 1 )  ^  (  ( a >> 63 )  & 1 )  ) ;		
                tmp_reg_1404 =   (  (  ( a >> 52 )  & 2047 )  == 2047 ? 1 :  0 ) ;
                bSig_reg_1377 =   ( b & 4503599627370495 ) ;
                bSig_1_cast_reg_1382 =   (  ( bSig_1_cast_reg_1382__temp  & 18442240474082181120 )  |  (  ( b & 4503599627370495 )  & 4503599627370495 )  ) ;
@@ -1291,8 +1264,7 @@ unsigned long long int b=*b__1;
    if((((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1)) == 1){
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
-               aExp2_reg_179 =   (  ( a >> 52 )  & 2047 ) ;
-		printf("aExp2_reg_179 %d\n",aExp2_reg_179);
+               aExp2_reg_179 =   (  ( a >> 52 )  & 2047 ) ;		
        }
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
@@ -1371,12 +1343,11 @@ unsigned long long int b=*b__1;
                grp_fu_246_p0 =   ( b & 4503599627370495 ) ;
        }
 	if(((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))==0)
-       {								// need to put in every state must 
-           ap_phi_mux_aExp2_phi_fu_182_p4 = aExp2_reg_179;
-	   printf("ap_phi_mux_aExp2_phi_fu_182_p4 %d\n",ap_phi_mux_aExp2_phi_fu_182_p4);
+       {
+           ap_phi_mux_aExp2_phi_fu_182_p4 = aExp2_reg_179;	   
        }
        goto ap_ST_fsm_state4;
-   }
+    }
        if(((((tmp_19_fu_379_p2 == 0) && (tmp_15_fu_373_p2 == 0)) && (tmp_fu_367_p2 == 0)) && (1 == ap_CS_fsm_state1)) && (ap_start == 1))
        {
            aExp2_reg_179 =   (  ( a >> 52 )  & 2047 ) ;
@@ -1460,8 +1431,6 @@ unsigned long long int b=*b__1;
        goto ap_ST_fsm_state1;
 
    ap_ST_fsm_state2:
-	printf("state 2\n");
-
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 1;
 	ap_CS_fsm_state3 = 0;
@@ -1835,8 +1804,7 @@ unsigned long long int b=*b__1;
        }
        goto ap_ST_fsm_state3;
 
-   ap_ST_fsm_state3:
-	printf("state3\n");
+   ap_ST_fsm_state3:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
@@ -2199,8 +2167,7 @@ unsigned long long int b=*b__1;
        }
        goto ap_ST_fsm_state4;
 
-   ap_ST_fsm_state4:
-	printf("state4\n");
+   ap_ST_fsm_state4:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2556,28 +2523,25 @@ unsigned long long int b=*b__1;
        z1_reg_1588 = z1_reg_1588 & 18446744073709549568 ;
        zMiddleA_2_reg_1619 = zMiddleA_2_reg_1619 & 18446744069414584320 ;
        z1_2_reg_1624 = z1_2_reg_1624 & 18446744073709549568 ;
-       countLeadingZerosHig_ce0 = 0;
-               //grp_fu_246_p2 =   ( grp_fu_246_p0__temp  == 0 ? 1 :  0 ) ;
+       countLeadingZerosHig_ce0 = 0;               
 		if(1 == ap_CS_fsm_state4)
        		{
            		grp_fu_246_p0 =  bSig_reg_1377__temp ;
        		}
-	       grp_fu_246_p2 =   ( grp_fu_246_p0  == 0 ? 1 :  0 ) ;
-	       printf("grp_fu_246_p2 %d\n",grp_fu_246_p2);
+			   grp_fu_246_p2 =   ( grp_fu_246_p0  == 0 ? 1 :  0 ) ;	       
                tmp_19_reg_1412 =  tmp_19_reg_1412__temp ;
                tmp_28_reg_1513 =  tmp_28_reg_1513__temp ;
                tmp_25_reg_1416 =  tmp_25_reg_1416__temp ;
                tmp_15_reg_1408 =  tmp_15_reg_1408__temp ;
-               tmp_28_fu_898_p2 =   ( bExp_reg_1388__temp  == 0 ? 1 :  0 ) ;
-		printf("tmp_28_fu_898_p2 %d\n",tmp_28_fu_898_p2);
+               tmp_28_fu_898_p2 =   ( bExp_reg_1388__temp  == 0 ? 1 :  0 ) ;		
                tmp_15_fu_373_p2 =   (  (  ( b >> 52 )  & 2047 )  == 2047 ? 1 :  0 ) ;
                tmp_fu_367_p2 =   (  (  ( a >> 52 )  & 2047 )  == 2047 ? 1 :  0 ) ;
                tmp_29_reg_1517 =  tmp_29_reg_1517__temp ;
                tmp_19_fu_379_p2 =   (  (  ( a >> 52 )  & 2047 )  == 0 ? 1 :  0 ) ;
                tmp_reg_1404 =  tmp_reg_1404__temp ;
 
-   if((((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 1)) && (1 == ap_CS_fsm_state4)) == 1)
-{	printf("hello1\n");
+    if((((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 1)) && (1 == ap_CS_fsm_state4)) == 1)
+	{
        if((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))
        {
            aExp2_reg_179 =   ( 12 - shiftCount_1_reg_1502__temp  ) ;
@@ -2596,12 +2560,8 @@ unsigned long long int b=*b__1;
        }
        if(((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 1)) && (1 == ap_CS_fsm_state4))
        {
-	   abc=zSign_reg_1398__temp;
-           p_0_reg_206 =   ( abc  << 63 ) ;   //because of explicit declaration
-	   printf("hello\n");
-	   printf("%llu\n",abc<<63);		
-	   printf("zSign_reg_1398__temp %d\n",zSign_reg_1398__temp);
-	   printf("p_0_reg_206 %llu\n",p_0_reg_206);
+	       abc=zSign_reg_1398__temp;
+           p_0_reg_206 =   ( abc  << 63 ) ;   
        }
        if(1 == ap_CS_fsm_state4)
        {
@@ -2633,9 +2593,9 @@ unsigned long long int b=*b__1;
            grp_fu_246_p0 =  bSig_reg_1377__temp ;
        }
        goto ap_ST_fsm_state13;
-   }
-   if((((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 0)) && (1 == ap_CS_fsm_state4)) == 1)
-{	printf("hello2\n");
+    }
+    if((((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 0)) && (1 == ap_CS_fsm_state4)) == 1)
+	{
        if((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))
        {
                aExp2_reg_179 =   ( 12 - shiftCount_1_reg_1502__temp  ) ;
@@ -2687,16 +2647,14 @@ unsigned long long int b=*b__1;
                grp_fu_246_p0 =  bSig_reg_1377__temp ;
        }
        goto ap_ST_fsm_state5;
-   }
-	printf("tmp_19_reg_1412 %d\n",tmp_19_reg_1412);
+   }	
        if((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))
        {
            aExp2_reg_179 =   ( 12 - shiftCount_1_reg_1502__temp  ) ;
        }
 	if(((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))==0)
-       {								// need to put in every state must 
-           ap_phi_mux_aExp2_phi_fu_182_p4 = aExp2_reg_179;
-	   printf("ap_phi_mux_aExp2_phi_fu_182_p4 %d\n",ap_phi_mux_aExp2_phi_fu_182_p4);
+       {				
+           ap_phi_mux_aExp2_phi_fu_182_p4 = aExp2_reg_179;	   
        }
        if((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))
        {
@@ -2704,27 +2662,21 @@ unsigned long long int b=*b__1;
        }
        if((tmp_28_fu_898_p2 == 0) && (1 == ap_CS_fsm_state4))
        {
-           bExp2_reg_197 =  bExp_cast_reg_1393__temp ;
-	   printf("bExp2_reg_197 %lld\n",bExp2_reg_197);
+           bExp2_reg_197 =  bExp_cast_reg_1393__temp ;	   
        }
        if((tmp_28_fu_898_p2 == 0) && (1 == ap_CS_fsm_state4))
        {
            bSig2_reg_188 =  bSig_1_cast_reg_1382__temp ;
-	   printf("bSig2_reg_188 %lld\n",bSig2_reg_188);
-	   printf("tmp_28_fu_898_p2 %d\n",tmp_28_fu_898_p2);
-       }
+	   }
        if(((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 1)) && (1 == ap_CS_fsm_state4))
        {
-	   printf("hii\n");
-           p_0_reg_206 =   ( zSign_reg_1398__temp  << 63 ) ;
+	       p_0_reg_206 =   ( zSign_reg_1398__temp  << 63 ) ;
        }
        if(1 == ap_CS_fsm_state4)
        {
            tmp_28_reg_1513 =   ( bExp_reg_1388__temp  == 0 ? 1 :  0 ) ;
-	   printf("tmp_28_reg_1513 %d\n",tmp_28_reg_1513);
-           aExp2_cast_reg_1508 =  ap_phi_mux_aExp2_phi_fu_182_p4__temp ;
-	   printf("aExp2_cast_reg_1508 %lld\n",aExp2_cast_reg_1508);
-       }
+	       aExp2_cast_reg_1508 =  ap_phi_mux_aExp2_phi_fu_182_p4__temp ;
+	   }
        if(((tmp_28_fu_898_p2 == 1) && (grp_fu_246_p2 == 0)) && (1 == ap_CS_fsm_state4))
        {
            tmp_64_reg_1532 =   (  (  (  (  (  (  (  (  (  (  (  ( b >> 32 )  & 1048575 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  ( b & 4294967295 )  :   (  ( b >> 32 )  & 1048575 )  )  >> 16 )  & 65535 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  (  (  (  (  (  ( b >> 32 )  & 1048575 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  ( b & 4294967295 )  :   (  ( b >> 32 )  & 1048575 )  )  << 16 )  :   (  (  (  (  ( b >> 32 )  & 1048575 )  == 0 ? 1 :  0 )  & 1 )  == 1 ?  ( b & 4294967295 )  :   (  ( b >> 32 )  & 1048575 )  )  )  >> 24 )  & 255 ) ;
@@ -2739,14 +2691,12 @@ unsigned long long int b=*b__1;
        }
        if((tmp_19_reg_1412 == 1) && (1 == ap_CS_fsm_state4))
        {
-           ap_phi_mux_aExp2_phi_fu_182_p4 =   ( 12 - shiftCount_1_reg_1502__temp  ) ;
-	   printf("ap_phi_mux_aExp2_phi_fu_182_p4 %lld\n",ap_phi_mux_aExp2_phi_fu_182_p4);
+           ap_phi_mux_aExp2_phi_fu_182_p4 =   ( 12 - shiftCount_1_reg_1502__temp  ) ;	   
        }
        if(1 == ap_CS_fsm_state4)
        {
            grp_fu_246_p0 =  bSig_reg_1377__temp ;
-       }
-	printf("go to state 7\n");
+       }	
        goto ap_ST_fsm_state7;
 
    ap_ST_fsm_state5:
@@ -3488,8 +3438,7 @@ unsigned long long int b=*b__1;
        }
        goto ap_ST_fsm_state7;
 
-   ap_ST_fsm_state7:
-        printf("state 7\n");
+   ap_ST_fsm_state7:        
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -3864,8 +3813,7 @@ unsigned long long int b=*b__1;
        }
        goto ap_ST_fsm_state8;
 
-   ap_ST_fsm_state8:
-	printf("state 8\n");
+   ap_ST_fsm_state8:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -4228,16 +4176,10 @@ unsigned long long int b=*b__1;
            zMiddleA_reg_1593 =   (  ( tmp_65_reg_1578__temp  << 10 )  *  (  (  ( bSig2_reg_188__temp  >> 21 )  & 4294967295 )  | 2147483648 )  ) ;
            z1_reg_1588 =   (  ( z1_reg_1588__temp  & 2047 )  |  (  (  ( tmp_65_reg_1578__temp  << 10 )  *  (  ( bSig2_reg_188__temp  & 2097151 )  << 11 )  )  & 18446744073709549568 )  ) ;
            z0_reg_1604 =   (  ( tmp_4_reg_1583__temp  | 1073741824 )  *  (  (  ( bSig2_reg_188__temp  >> 21 )  & 4294967295 )  | 2147483648 )  ) ;
-	
-	printf(" zMiddleB_reg_1598 %llu\n", zMiddleB_reg_1598);
-	printf(" zMiddleA_reg_1593 %llu\n",zMiddleA_reg_1593);
-	printf(" z1_reg_1588 %llu\n",z1_reg_1588);
-	printf(" z0_reg_1604 %llu\n",z0_reg_1604);
        }
        goto ap_ST_fsm_state9;
 
-   ap_ST_fsm_state9:
-	printf("state 9\n");
+   ap_ST_fsm_state9:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -4602,14 +4544,10 @@ unsigned long long int b=*b__1;
            tmp_54_reg_1614 =   (  (  ( zMiddleB_reg_1598__temp  + zMiddleA_reg_1593__temp  )  >> 32 )  & 4294967295 ) ;
 
            tmp_39_i_reg_1609 =   (  ( zMiddleB_reg_1598__temp  + zMiddleA_reg_1593__temp  )  < zMiddleB_reg_1598__temp  ? 1 : 0 ) ;
-	printf("zMiddleA_2_reg_1619 %llu\n",zMiddleA_2_reg_1619);
-	printf("z1_2_reg_1624 %llu\n",z1_2_reg_1624);
-	printf("tmp_39_i_reg_1609 %d\n",tmp_39_i_reg_1609);
-       }
+	   }
        goto ap_ST_fsm_state10;
 
-   ap_ST_fsm_state10:
-	printf("state 10\n");
+   ap_ST_fsm_state10:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -4968,16 +4906,13 @@ unsigned long long int b=*b__1;
        countLeadingZerosHig_ce0 = 0;
        if(1 == ap_CS_fsm_state10)
        {
-           zSig0_3_reg_1635 =   (  (  (  (  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 9223372036854775807 )  +  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  >> 62 )  & 1 )  & 1 )  == 1 ?  (  (  (  (  (  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  +  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  )  >> 1 )  & 9223372036854775807 )  << 1 )  |  (  ( z1_2_reg_1624__temp  != 0 ? 1 :  0 )  |  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 1 )  ^  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  )  )  :   (  (  (  (  (  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  +  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  )  & 4611686018427387903 )  << 1 )  |  (  ( z1_2_reg_1624__temp  != 0 ? 1 :  0 )  |  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 1 )  ^  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  )  )  << 1 )  ) ; // this number is signed 
-
-	   zSig0_3_reg_1635=zSig0_3_reg_1635>>1;// that we need add may be some logic or type casting error
-	   printf("zSig0_3_reg_1635 %llu\n",zSig0_3_reg_1635);
+           zSig0_3_reg_1635 =   (  (  (  (  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 9223372036854775807 )  +  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  >> 62 )  & 1 )  & 1 )  == 1 ?  (  (  (  (  (  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  +  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  )  >> 1 )  & 9223372036854775807 )  << 1 )  |  (  ( z1_2_reg_1624__temp  != 0 ? 1 :  0 )  |  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 1 )  ^  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  )  )  :   (  (  (  (  (  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  +  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  )  & 4611686018427387903 )  << 1 )  |  (  ( z1_2_reg_1624__temp  != 0 ? 1 :  0 )  |  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 1 )  ^  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  )  )  << 1 )  ) ;
+		   zSig0_3_reg_1635=zSig0_3_reg_1635>>1;
            tmp_70_reg_1630 =   (  (  (  (  ( z0_reg_1604__temp  +  (  ( tmp_39_i_reg_1609__temp  << 32 )  | tmp_54_reg_1614__temp  )  )  & 9223372036854775807 )  +  ( z1_2_reg_1624__temp  < zMiddleA_2_reg_1619__temp  ? 1 : 0 )  )  >> 62 )  & 1 ) ;
        }
        goto ap_ST_fsm_state11;
 
-   ap_ST_fsm_state11:
-	printf("state 11\n");
+   ap_ST_fsm_state11:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -5339,9 +5274,7 @@ unsigned long long int b=*b__1;
            grp_roundAndPackFloat64_fu_232_ap_start_reg =  1;
        }
        if(1 == ap_CS_fsm_state11)
-       {
-          // zExp_reg_1640 =   ( aExp2_cast_reg_1508__temp  +  (  (  ( tmp_70_reg_1630__temp  & 1 )  == 1 ? 3073 :  3072 )  + bExp2_reg_197__temp  )  ) ;
-	
+       {          	
 		if(tmp_70_reg_1630__temp  & 1)
 		{
 			zExp_reg_1640=aExp2_cast_reg_1508__temp+bExp2_reg_197__temp-1023;
@@ -5349,13 +5282,7 @@ unsigned long long int b=*b__1;
 		else
 		{
 			zExp_reg_1640=aExp2_cast_reg_1508__temp+bExp2_reg_197__temp-1023-1;
-		}
-	printf("aExp2_cast_reg_1508__temp %d\n",aExp2_cast_reg_1508__temp);
-	printf("bExp2_reg_197__temp %d\n",bExp2_reg_197__temp);
-
-	printf("zExp_reg_1640 %d\n",zExp_reg_1640);
-	printf("zSign_reg_1398 %d\n",zSign_reg_1398);
-	printf("zSig0_3_reg_1635 %llu\n",zSig0_3_reg_1635);
+		}	
        }
 if (grp_roundAndPackFloat64_fu_232_ap_start_reg==1){
 grp_roundAndPackFloat64_fu_232_ap_start=1;
@@ -5754,8 +5681,7 @@ grp_roundAndPackFloat64_fu_232_ap_done=1;
        goto ap_ST_fsm_state12;
    }
 
-   ap_ST_fsm_state13:
-	printf("state 13\n");
+   ap_ST_fsm_state13:	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -6146,14 +6072,10 @@ grp_roundAndPackFloat64_fu_232_ap_done=1;
        }
        if(1 == ap_CS_fsm_state13)
        {
-           ap_return =  ap_phi_mux_p_0_phi_fu_210_p18;
-	   printf("ap_return %llu\n",ap_return);
+           ap_return =  ap_phi_mux_p_0_phi_fu_210_p18;	   
        }
        if(ap_done==1){
-	printf("end\n");
-	printf("\n");
-	printf("\n");
-       	goto end;
+	   	goto end;
        }
        goto ap_ST_fsm_state1;
    end:
