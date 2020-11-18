@@ -8,6 +8,7 @@ int main(){
 	  t = clock();
 	  FILE *fp;
 	  fp=fopen("input_data.txt","r");
+	 
 	  char line [ 1000 ];
 	
 	  int index=0;
@@ -48,8 +49,10 @@ int main(){
 			    
 				int ans=hls_macc(input[0],input[1],input[2],input[3],input[4],input[5],input[6],input[7],input[8],input[9], o11,o21,o31);
 				printf("Test Case:%d/%d \t  Output: %d\n",i1++,INPUT_SIZE,ans);
+				
 			}
 		}
+		
 	  t = clock() - t;
 	  double time_taken = ((double)t)/CLOCKS_PER_SEC;
 	  printf("Time taken: %f seconds \n", time_taken);
