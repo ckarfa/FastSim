@@ -16,22 +16,16 @@ const int Rcon0[30] = {
 	KeySchedule (int type, int key[32])
 	{
 		
-	  int nk, nb, round_val;
-	  int i, j, temp[4];
-			/*for(i=0;i<4;i++){
-			for(j=0;j<120;j++){
-				printf("%d ",word[i][j]);
-			}
-			printf("\n");*/
-		//}
-	  switch (type)
+		int nk, nb, round_val;
+		int i, j, temp[4];
+		switch (type)
 		{
 		case 128128:		  
 		  nk = 4;
 		  nb = 4;
 		  round_val = 10;
 		  break;
-	   case 128192:		
+		case 128192:		
 		  nk = 4;
 		  nb = 6;
 		  round_val = 12;
@@ -74,13 +68,12 @@ const int Rcon0[30] = {
 		default:		
 		  return -1;
 		}
-	  for (j = 0; j < nk; ++j)
-		for (i = 0; i < 4; ++i)
-	
-		  word[i][j] = key[i + j * 4];
+		for (j = 0; j < nk; ++j)
+			for (i = 0; i < 4; ++i)	
+				word[i][j] = key[i + j * 4];
 
 	
-	  for (j = nk; j < nb * (round_val + 1); ++j)
+		for (j = nk; j < nb * (round_val + 1); ++j)
 		{
 
 	
@@ -107,11 +100,5 @@ const int Rcon0[30] = {
 		
 		}
 		
-		/*for(i=0;i<4;i++){
-			for(j=0;j<120;j++){
-				printf("%d ",word[i][j]);
-			}
-			printf("\n");
-		}*/
-	  return 0;
+		return 0;
 	}

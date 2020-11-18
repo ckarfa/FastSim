@@ -1,14 +1,10 @@
 
 #include <stdio.h>
 #include "aes.h"
-//#include "aes_enc.c"
-//#include "aes_dec.c"
-//#include "aes_key.c"
-//#include "aes_func.c"
 
 /* ***************** main **************************** */
 int
-aes_main (void)
+aes_main (int statemt[32])
 {
 /*
 +--------------------------------------------------------------------------+
@@ -16,23 +12,6 @@ aes_main (void)
 |     statemt, key : input data                                            |
 +--------------------------------------------------------------------------+
 */
-  statemt[0] = 50;
-  statemt[1] = 67;
-  statemt[2] = 246;
-  statemt[3] = 168;
-  statemt[4] = 136;
-  statemt[5] = 90;
-  statemt[6] = 48;
-  statemt[7] = 141;
-  statemt[8] = 49;
-  statemt[9] = 49;
-  statemt[10] = 152;
-  statemt[11] = 162;
-  statemt[12] = 224;
-  statemt[13] = 55;
-  statemt[14] = 7;
-  statemt[15] = 52;
-
   key[0] = 43;
   key[1] = 126;
   key[2] = 21;
@@ -50,15 +29,11 @@ aes_main (void)
   key[14] = 79;
   key[15] = 60;
 
-  encrypt (statemt, key, 128128);
-  int i;
-  printf("\n");
-  for(i=0;i<32;i++){
-		printf("%d ",statemt[i]);
-  }
-  printf("\n");
-  //int statemt1[]={57,37,132,29,2,220,9,251,220,17,133,151,25,106,11,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	
+  //encrypt (statemt, key, 128128);
+ 
   decrypt (statemt, key, 128128);
+ 
   return 0;
 }
 

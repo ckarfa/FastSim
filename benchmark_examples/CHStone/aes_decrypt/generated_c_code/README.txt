@@ -1,0 +1,3 @@
+USAGE:
+Compile: gcc testbench_aes_decrypt.c ccode_aes_decrypt_call.c ccode_AddRoundKey.c ccode_AddRoundKey_InversMi.c ccode_InversShiftRow_ByteS.c -w
+Run: 	 ./a.out

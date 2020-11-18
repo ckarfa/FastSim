@@ -6,13 +6,6 @@
 #define Sbox_AWIDTH 8
 #define Sbox_MEM_SIZE 256
 void ByteSub_ShiftRow(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *statemt_address0__1,unsigned long long int *statemt_address1__1,unsigned long long int *statemt_ce0__1,unsigned long long int *statemt_ce1__1,unsigned long long int *statemt_d0__1,unsigned long long int *statemt_d1__1,unsigned long long int *statemt_q0__1,unsigned long long int *statemt_q1__1,unsigned long long int *statemt_we0__1,unsigned long long int *statemt_we1__1,int dummy,unsigned long long int statemt_ram[32]){
-      printf("ByteSub_ShiftRow in\n");   
-	 int i;
-	for( i=0;i<32;i++){
-      printf("%d ",statemt_ram[i]);
-    }
-    printf("\n");
-      
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -1667,19 +1660,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state10;
 
    ap_ST_fsm_state10:
@@ -1830,19 +1819,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state11;
 
    ap_ST_fsm_state11:
@@ -1952,11 +1937,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        Sbox_ce1 = 0;
        if(1 == ap_CS_fsm_state11)
        {
-           statemt_address0 =   ( 2 ) /*& 64*/;
+           statemt_address0 =   ( 2 ) ;
        }
        if(1 == ap_CS_fsm_state11)
        {
-           statemt_address1 =   ( 10 ) /*& 64*/;
+           statemt_address1 =   ( 10 ) ;
        }
        if((((((((((((((((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state4)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state3)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11)) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state6)) || (1 == ap_CS_fsm_state5)) || ((ap_start == 1) && (1 == ap_CS_fsm_state1)))
        {
@@ -1985,19 +1970,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state12;
 
    ap_ST_fsm_state12:
@@ -2107,11 +2088,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        Sbox_ce1 = 0;
        if(1 == ap_CS_fsm_state12)
        {
-           statemt_address0 =   ( 6 ) /*& 64*/;
+           statemt_address0 =   ( 6 ) ;
        }
        if(1 == ap_CS_fsm_state12)
        {
-           statemt_address1 =   ( 14 ) /*& 64*/;
+           statemt_address1 =   ( 14 ) ;
        }
        if((((((((((((((((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state4)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state3)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11)) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state6)) || (1 == ap_CS_fsm_state5)) || ((ap_start == 1) && (1 == ap_CS_fsm_state1)))
        {
@@ -2140,19 +2121,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state13;
 
    ap_ST_fsm_state13:
@@ -2262,11 +2239,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        Sbox_ce1 = 0;
        if(1 == ap_CS_fsm_state13)
        {
-           statemt_address0 =   ( 3 ) /*& 64*/;
+           statemt_address0 =   ( 3 ) ;
        }
        if(1 == ap_CS_fsm_state13)
        {
-           statemt_address1 =   ( 15 ) /*& 64*/;
+           statemt_address1 =   ( 15 ) ;
        }
        if((((((((((((((((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state4)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state3)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11)) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state6)) || (1 == ap_CS_fsm_state5)) || ((ap_start == 1) && (1 == ap_CS_fsm_state1)))
        {
@@ -2295,19 +2272,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state14;
 
    ap_ST_fsm_state14:
@@ -2417,11 +2390,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        Sbox_ce1 = 0;
        if(1 == ap_CS_fsm_state14)
        {
-           statemt_address0 =   ( 11 ) /*& 64*/;
+           statemt_address0 =   ( 11 ) ;
        }
        if(1 == ap_CS_fsm_state14)
        {
-           statemt_address1 =   ( 7 )/* & 64*/;
+           statemt_address1 =   ( 7 ) ;
        }
        if((((((((((((((((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state4)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state3)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11)) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state6)) || (1 == ap_CS_fsm_state5)) || ((ap_start == 1) && (1 == ap_CS_fsm_state1)))
        {
@@ -2450,19 +2423,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state15;
 
    ap_ST_fsm_state15:
@@ -2572,11 +2541,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        Sbox_ce1 = 0;
        if(1 == ap_CS_fsm_state15)
        {
-           statemt_address0 =   ( 0 ) /*& 64*/;
+           statemt_address0 =   ( 0 ) ;
        }
        if(1 == ap_CS_fsm_state15)
        {
-           statemt_address1 =   ( 4 ) /*& 64*/;
+           statemt_address1 =   ( 4 ) ;
        }
        if((((((((((((((((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state4)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state3)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11)) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state6)) || (1 == ap_CS_fsm_state5)) || ((ap_start == 1) && (1 == ap_CS_fsm_state1)))
        {
@@ -2589,14 +2558,10 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state15)
        {
            statemt_d0 =  (reg_330 & 4294967295 ) ;
-	   //printf("reg_330 %d",reg_330);
-	   //printf("statemt_d0 %d
        }
        if(1 == ap_CS_fsm_state15)
        {
            statemt_d1 =  (reg_335 & 4294967295 ) ;
-	   //printf("reg_335 %d\n",reg_335);
-	  // printf("statemt_d1 %d\n",statemt_d1);
        }
        if((((((((1 == ap_CS_fsm_state9) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11))
        {
@@ -2609,19 +2574,15 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-            
-            
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){
+		      statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
        goto ap_ST_fsm_state16;
 
    ap_ST_fsm_state16:
@@ -2741,11 +2702,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
        if(1 == ap_CS_fsm_state16)
        {
-           statemt_address0 =   ( 8 ) /*& 64*/;
+           statemt_address0 =   ( 8 ) ;
        }
        if(1 == ap_CS_fsm_state16)
        {
-           statemt_address1 =   ( 12 ) /*& 64*/;
+           statemt_address1 =   ( 12 ) ;
        }
        if((((((((((((((((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state4)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state10)) || (1 == ap_CS_fsm_state3)) || (1 == ap_CS_fsm_state16)) || (1 == ap_CS_fsm_state15)) || (1 == ap_CS_fsm_state14)) || (1 == ap_CS_fsm_state13)) || (1 == ap_CS_fsm_state12)) || (1 == ap_CS_fsm_state11)) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state6)) || (1 == ap_CS_fsm_state5)) || ((ap_start == 1) && (1 == ap_CS_fsm_state1)))
        {
@@ -2771,33 +2732,23 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        {
            statemt_we1 =  1;
        }
-      /* if(ap_done==1){	//this comes after array update
-       	goto end;
-       }*/
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
-          if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){            
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-          }
+       if(statemt_ce1){
+		  statemt_q1=statemt_ram[statemt_address1];
+		   if(statemt_we1){            
+			  statemt_ram[statemt_address1]=statemt_d1;
+		   }
+		  }
 	 if(ap_done==1){	
        	goto end;
        }
        goto ap_ST_fsm_state1;
    end:   
-   printf("Byte shift out ");
-   for(i=0;i<32;i++){
-      printf("%d ",statemt_ram[i]);
-    }
-    printf("\n");
-   
 	*ap_clk__1=ap_clk;
 	*ap_done__1=ap_done;
 	*ap_idle__1=ap_idle;

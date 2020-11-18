@@ -31,7 +31,7 @@ void aes_decrypt_call(int statemt1[32]){
 int
 decrypt (int statemt[32], int key[32], int type)
 {
-  int i;
+  
 /*
 +--------------------------------------------------------------------------+
 | * Test Vector (added for CHStone)                                        |
@@ -80,15 +80,8 @@ decrypt (int statemt[32], int key[32], int type)
 
 	aes_decrypt_call(statemt);
 
-  printf ("\ndecrypto message\t");
-  for (i = 0; i < ((type % 1000) / 8); ++i)
-    {
-      if (statemt[i] < 16)
-	printf ("0");
-      printf ("%x", statemt[i]);
-    }
-	printf("\n");
   int main_result=0;
+  int i;
   for (i = 0; i < 16; i++)
     main_result += (statemt[i] != out_dec_statemt[i]);
 

@@ -429,12 +429,7 @@ int word[4][120]={43,40,171,9,160,136,35,42,242,122,89,115,61,71,30,109,239,168,
 	statemt[1 + j * 4] ^ statemt[2 + j * 4] ^ word[3][j + nb * n];
     }
   int i;
-  printf("RETT:\n");
-  for(i=0;i<32;i++){
-	printf("%d ",ret[i]);
-  }
-	printf("\n");
-
+  
   for (j = 0; j < nb; ++j)
     {
       statemt[j * 4] = ret[j * 4];
@@ -550,7 +545,7 @@ AddRoundKey (int statemt[32], int type, int n,int word[4][120])
     }
   for (j = 0; j < nb; ++j)
     {
-	printf("statemt:%d  word:%d\n",statemt[j * 4],word[0][j + nb * n]);
+	
       statemt[j * 4] ^= word[0][j + nb * n];
       statemt[1 + j * 4] ^= word[1][j + nb * n];
       statemt[2 + j * 4] ^= word[2][j + nb * n];

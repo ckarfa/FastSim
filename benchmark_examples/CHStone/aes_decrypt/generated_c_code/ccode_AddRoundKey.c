@@ -1,15 +1,5 @@
 #include<stdio.h>
 void AddRoundKey(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *n__1,unsigned long long int *statemt_address0__1,unsigned long long int *statemt_address1__1,unsigned long long int *statemt_ce0__1,unsigned long long int *statemt_ce1__1,unsigned long long int *statemt_d0__1,unsigned long long int *statemt_d1__1,unsigned long long int *statemt_q0__1,unsigned long long int *statemt_q1__1,unsigned long long int *statemt_we0__1,unsigned long long int *statemt_we1__1,unsigned long long int *word_address0__1,unsigned long long int *word_address1__1,unsigned long long int *word_ce0__1,unsigned long long int *word_ce1__1,unsigned long long int *word_q0__1,unsigned long long int *word_q1__1,int dummy,unsigned long long int statemt_ram[32],unsigned long long int word_rom[480]){
-int i,j;
-printf("Add round key\n");
-
-
-	/*for(j=0;j<480;j++){
-		printf("%d ",word_rom[j]);
-	}
-printf("\n");*/
-
-
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -17,7 +7,6 @@ unsigned long long int ap_ready=*ap_ready__1;
 unsigned long long int ap_rst=*ap_rst__1;
 unsigned long long int ap_start=*ap_start__1;
 unsigned long long int n=*n__1;
-//printf("n:%d\n",n);
 unsigned long long int statemt_address0=*statemt_address0__1;
 unsigned long long int statemt_address1=*statemt_address1__1;
 unsigned long long int statemt_ce0=*statemt_ce0__1;
@@ -505,7 +494,6 @@ unsigned long long int word_q1=*word_q1__1;
        {
                word_ce1 =  1;
        }
-	//printf("wadd0:%d wadd1:%d\n",word_rom[word_address0],word_rom[word_address1]);
        if(word_ce0){
           word_q0=word_rom[word_address0];
        }
@@ -518,7 +506,6 @@ unsigned long long int word_q1=*word_q1__1;
        if(statemt_ce1){
           statemt_q1=statemt_ram[statemt_address1];
        }
-	//printf("add0:%d add1:%d \n",statemt_q0,statemt_q1);
        goto ap_ST_fsm_state3;
    }
 
@@ -634,7 +621,6 @@ unsigned long long int word_q1=*word_q1__1;
        {
            word_address1 =  (( ( do_twos_complement( 360,511 )  + do_twos_complement( (tmp_s_reg_298 & 511 ) ,9 )  ) & 511 )  & 18446744073709551615 ) ;
        }
-	//printf("wadd0:%d wadd1:%d\n",word_rom[word_address0],word_rom[word_address1]);
        if((1 == ap_CS_fsm_state2) || (1 == ap_CS_fsm_state3))
        {
            word_ce0 =  1;
@@ -657,7 +643,6 @@ statemt_d1 = reg_154__temp;
        if(statemt_ce1){
           statemt_q1=statemt_ram[statemt_address1];
        }
-	//printf("add0:%d add1:%d\n",statemt_q0,statemt_q1);
        goto ap_ST_fsm_state4;
 
    ap_ST_fsm_state4:
@@ -766,22 +751,21 @@ statemt_d1 = reg_154__temp;
        {
            statemt_we1 =  1;
        }
-statemt_d0 = reg_149__temp;
-statemt_d1 = reg_154__temp;
-//	printf("add0:%d add1:%d\n",statemt_address0,statemt_address1);
-	if(statemt_ce0){
-          statemt_q0=statemt_ram[statemt_address0];
-           if(statemt_we0){
-              statemt_ram[statemt_address0]=statemt_d0;
-           }
-       }
+		statemt_d0 = reg_149__temp;
+		statemt_d1 = reg_154__temp;
+		if(statemt_ce0){
+			  statemt_q0=statemt_ram[statemt_address0];
+			   if(statemt_we0){
+				  statemt_ram[statemt_address0]=statemt_d0;
+			   }
+		   }
 
-	if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-       }
+		if(statemt_ce1){
+			  statemt_q1=statemt_ram[statemt_address1];
+			   if(statemt_we1){
+				  statemt_ram[statemt_address1]=statemt_d1;
+			   }
+		   }
        goto ap_ST_fsm_state5;
 
    ap_ST_fsm_state5:
@@ -889,28 +873,24 @@ statemt_d1 = reg_154__temp;
        {
            statemt_we1 =  1;
        }
-statemt_d0 = reg_149;
-statemt_d1 = reg_154;
-//	printf("add0:%d add1:%d\n",statemt_address0,statemt_address1);
-	if(statemt_ce0){
-          statemt_q0=statemt_ram[statemt_address0];
-           if(statemt_we0){
-              statemt_ram[statemt_address0]=statemt_d0;
-           }
-       }
+		statemt_d0 = reg_149;
+		statemt_d1 = reg_154;
+		if(statemt_ce0){
+		      statemt_q0=statemt_ram[statemt_address0];
+		       if(statemt_we0){
+		          statemt_ram[statemt_address0]=statemt_d0;
+		       }
+		   }
 
-	if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];
-           if(statemt_we1){
-              statemt_ram[statemt_address1]=statemt_d1;
-           }
-       }
+		if(statemt_ce1){
+		      statemt_q1=statemt_ram[statemt_address1];
+		       if(statemt_we1){
+		          statemt_ram[statemt_address1]=statemt_d1;
+		       }
+		   }
 
        goto ap_ST_fsm_state2;
    end:
-for(i=0;i<32;i++)
-	printf("%d ",statemt_ram[i]);
-printf("\n");
 
 	*ap_clk__1=ap_clk;
 	*ap_done__1=ap_done;

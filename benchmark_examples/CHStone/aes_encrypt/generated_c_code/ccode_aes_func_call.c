@@ -44,7 +44,7 @@ long long int do_twos_complement( unsigned long long int a ,int width){
 void MixColumn_AddRoundKe(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int dummy,unsigned long long int statemt_ram[32]);
 void ByteSub_ShiftRow(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int dummy,unsigned long long int statemt_ram[32]);
 void AddRoundKey(unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,unsigned long long int * ,int dummy,unsigned long long int statemt_ram[32]);
-void aes_func_call(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *statemt1_address0__1,unsigned long long int *statemt1_ce0__1,unsigned long long int *statemt1_d0__1,unsigned long long int *statemt1_q0__1,unsigned long long int *statemt1_we0__1,int dummy){
+void aes_func_call(unsigned long long int statemt_ram[statemt_MEM_SIZE],unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *statemt1_address0__1,unsigned long long int *statemt1_ce0__1,unsigned long long int *statemt1_d0__1,unsigned long long int *statemt1_q0__1,unsigned long long int *statemt1_we0__1,int dummy){
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -211,8 +211,7 @@ unsigned long long int statemt1_we0=*statemt1_we0__1;
    unsigned long long int tmp_reg_202__temp=0;
 	ap_done=0;
 	ap_start=1;
-      unsigned long long int statemt_ram[statemt_MEM_SIZE]={50,67,246,168,136,90,48,141,49,49,152,162,224,55,7,52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-
+    
    ap_ST_fsm_state1:
 
 	ap_CS_fsm_state1 = 1;
@@ -1616,7 +1615,7 @@ grp_MixColumn_AddRoundKe_fu_122_ap_done=1;
        }
 if (grp_AddRoundKey_fu_138_ap_start_reg==1){
 grp_AddRoundKey_fu_138_ap_start=1;
-grp_AddRoundKey_fu_138_n=10;	// this value not set to 10 
+grp_AddRoundKey_fu_138_n=10;
 AddRoundKey(&ap_clk,&grp_AddRoundKey_fu_138_ap_done,&grp_AddRoundKey_fu_138_ap_idle,&grp_AddRoundKey_fu_138_ap_ready,&ap_rst,&grp_AddRoundKey_fu_138_ap_start,&grp_AddRoundKey_fu_138_n,&grp_AddRoundKey_fu_138_statemt_address0,&grp_AddRoundKey_fu_138_statemt_address1,&grp_AddRoundKey_fu_138_statemt_ce0,&grp_AddRoundKey_fu_138_statemt_ce1,&grp_AddRoundKey_fu_138_statemt_d0,&grp_AddRoundKey_fu_138_statemt_d1,&statemt_q0,&statemt_q1,&grp_AddRoundKey_fu_138_statemt_we0,&grp_AddRoundKey_fu_138_statemt_we1,dummy,statemt_ram);
 grp_AddRoundKey_fu_138_ap_done=1;
 }
@@ -2094,13 +2093,15 @@ grp_AddRoundKey_fu_138_ap_done=1;
 	*statemt1_q0__1=statemt1_q0;
 	*statemt1_we0__1=statemt1_we0;
 	int i;
-	printf("Final Encrypted Message: ");
+	printf("Encrypted Message:  ");
 	 for ( i = 0; i < 4 * 4; ++i)
     {
       if (statemt_ram[i] < 16)
 	printf ("0");
       printf ("%x", statemt_ram[i]);
     }
-	printf("\n");
+    
+    
+	
        return;
 }

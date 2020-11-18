@@ -12,13 +12,6 @@
 #define word3_AWIDTH 9
 #define word3_MEM_SIZE 480
 void MixColumn_AddRoundKe(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *n__1,unsigned long long int *statemt_address0__1,unsigned long long int *statemt_address1__1,unsigned long long int *statemt_ce0__1,unsigned long long int *statemt_ce1__1,unsigned long long int *statemt_d0__1,unsigned long long int *statemt_d1__1,unsigned long long int *statemt_q0__1,unsigned long long int *statemt_q1__1,unsigned long long int *statemt_we0__1,unsigned long long int *statemt_we1__1,int dummy,unsigned long long int statemt_ram[32]){
-   int i;
-   printf("MixColumn_AddRoundKe In\n");
-   for(i=0;i<32;i++)
-   {
-	printf("%d ",statemt_ram[i]);
-   }
-   printf("\n");
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -356,7 +349,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
 43,40,171,9,160,136,35,42,242,122,89,115,61,71,30,109,239,168,182,219,212,124,202,17,109,17,219,202,78,95,132,78,234,181,49,127,172,25,40,87,208,201,225,182,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,174,247,207,250,84,163,108,194,150,53,89,128,22,35,122,68,82,113,11,209,131,242,249,136,11,249,0,84,95,166,166,210,141,43,141,119,250,209,92,20,238,63,99,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,210,21,79,254,44,57,118,149,185,128,246,71,254,126,136,165,91,37,173,198,157,184,21,163,62,134,147,247,201,79,220,115,186,245,41,102,220,41,0,249,37,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,166,136,60,23,177,57,5,242,67,122,127,125,62,68,59,65,127,59,0,248,135,188,188,122,253,65,253,14,243,178,79,33,210,96,47,243,33,65,110,168,137,200,166,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
    ap_ST_fsm_state1:
-	//printf("state1\n");
+   
 	ap_CS_fsm_state1 = 1;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -595,7 +588,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
    }
 
    ap_ST_fsm_state2:
-	//printf("state2\n");
+	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 1;
 	ap_CS_fsm_state3 = 0;
@@ -795,27 +788,18 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if((exitcond1_fu_309_p2 == 0) && (1 == ap_CS_fsm_state2))
        {
            tmp_s_reg_900 =  ( ( ( ( (( ( ( ( j_reg_255__temp  & 3 ) & 3 )  << 2 )  & 18446744073709551615 )  & 15 )  & 12 ) & 18446744073709551615 )  | ( ( tmp_s_reg_900__temp  & 3 ) & 18446744073709551615 )  ) & 18446744073709551615 ) ;
-
            tmp_9_reg_916 =  ( ( ( ( (( ( (( ( ( ( j_reg_255__temp  & 3 ) & 3 )  << 2 )  & 18446744073709551615 )  & 15 )  | 1 ) & 15 )  & 18446744073709551615 )  & 12 ) & 18446744073709551615 )  | ( ( tmp_9_reg_916__temp  & 18446744073709551603 ) & 18446744073709551615 )  ) & 18446744073709551615 ) ;
-
            tmp_4_reg_906 =  ( ( ( ( ((( ( ( ( j_reg_255__temp  & 3 ) & 3 )  << 2 )  & 18446744073709551615 )  & 15 )  & 18446744073709551615 )  & 12 ) & 18446744073709551615 )  | ( ( tmp_4_reg_906__temp  & 18446744073709551603 ) & 18446744073709551615 )  ) & 18446744073709551615 ) ;
-
            tmp_22_reg_926 =  ( ( tmp_reg_887__temp  + (j_reg_255 & 63 )  ) & 63 ) ;
        }
        if(1 == ap_CS_fsm_state2)
        {
            statemt_address0 =  ((( ( ( ( j_reg_255__temp  & 3 ) & 3 )  << 2 )  & 18446744073709551615 )  & 15 )  & 18446744073709551615 ) ;
-
-	  // printf("statemt_address0 %d\n",statemt_address0);
        }
        if(1 == ap_CS_fsm_state2)
        {
            statemt_address1 =  (( ( (( ( ( ( j_reg_255__temp  & 3 ) & 3 )  << 2 )  & 18446744073709551615 )  & 15 )  | 1 ) & 15 )  & 18446744073709551615 );
-
-	  // printf("statemt_address1 %d\n",statemt_address1);
-	   
        }
-
        if((((1 == ap_CS_fsm_state3) || (1 == ap_CS_fsm_state2)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state8))
        {
            statemt_ce0 =  1;
@@ -878,7 +862,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
    }
 
    ap_ST_fsm_state3:
-	//printf("state3\n");
+	
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 1;
@@ -1069,30 +1053,21 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        {
            x_reg_946 =  (statemt_q1 & 4294967295 ) ;
            x_6_reg_933 =  (statemt_q0 & 4294967295 ) ;
-	  // printf("x_reg_946 %d\n",x_reg_946);
-	  // printf("x_6_reg_933 %d\n",x_6_reg_933);
-
            x_1_reg_958 =  ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q1 & 4294967295 )  ) & 4294967295 ) ;
-	   // printf("x_1_reg_958 %d\n",x_1_reg_958);
-
            tmp_6_reg_941 =   ( (( ( (( ( ( ( (statemt_q0 & 4294967295 )  >> 7 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 ) ;
            tmp_33_reg_952 =  ( ( ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  & 4294967294 ) & 18446744073709551615 )  | ( ( tmp_33_reg_952__temp  & 1 ) & 18446744073709551615 )  ) & 18446744073709551615 ) ;
            tmp_2_reg_964 =   ( (( ( (( ( ( ( ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q1 & 4294967295 )  ) & 4294967295 )  >> 8 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 ) ;
-
            tmp_25_reg_1004 =   ( (( ( (( ( ( ( (statemt_q1 & 4294967295 )  >> 7 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 ) ;
            tmp_21_reg_979 =  ( ( ( ( (( ( tmp_s_reg_900__temp  | 3 ) & 15 )  & 18446744073709551615 )  & 12 ) & 18446744073709551615 )  | ( ( tmp_21_reg_979__temp  & 18446744073709551603 ) & 18446744073709551615 )  ) & 18446744073709551615 ) ;
-
            tmp_19_reg_969 =  ( ( ( ( (( ( tmp_s_reg_900__temp  | 2 ) & 15 )  & 18446744073709551615 )  & 12 ) & 18446744073709551615 )  | ( ( tmp_19_reg_969__temp  & 18446744073709551603 ) & 18446744073709551615 )  ) & 18446744073709551615 ) ;
        }
        if(1 == ap_CS_fsm_state3)
        {
            statemt_address0 =  (( ( tmp_s_reg_900__temp  | 2 ) & 15 )  & 18446744073709551615 );
-	    //printf("statemt_address0 %d\n",statemt_address0);
        }
        if(1 == ap_CS_fsm_state3)
        {
            statemt_address1 =  (( ( tmp_s_reg_900__temp  | 3 ) & 15 )  & 18446744073709551615 );
-	    //printf("statemt_address1 %d\n",statemt_address1);
        }       
        if((((1 == ap_CS_fsm_state3) || (1 == ap_CS_fsm_state2)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state8))
        {
@@ -1105,7 +1080,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state3)
        {
            word3_address0 =  (tmp_22_reg_926 & 18446744073709551615 ) ;
- 	  // printf("word3_address0 %d\n",word3_address0);
        }
        if((1 == ap_CS_fsm_state3) || (1 == ap_CS_fsm_state4))
        {
@@ -1139,7 +1113,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        goto ap_ST_fsm_state4;
 
    ap_ST_fsm_state4:
-	//printf("state4\n");
+
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -1327,23 +1301,16 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        word3_ce1 = 0;
        word3_ce2 = 0;
        if(1 == ap_CS_fsm_state4)
-       {   //printf("statemt_q1 %d\n",statemt_q1);
+       {  
            x_4_reg_1009 =  (statemt_q1 & 4294967295 ) ;
-	   //printf("x_4_reg_1009 %d\n",x_4_reg_1009);
-
            word3_load_2_reg_1024 =  word3_q1__temp ;
-
            tmp_41_reg_1034 =  ( ( ( ( (word3_q2 & 4294967295 )  ^ ( (  ( ( (  ( (( ( (( ( ( ( (statemt_q1 & 4294967295 )  >> 7 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 )  & 1 ) & 18446744073709551615 )  == 1 ? ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  ^ 283 ) & 4294967295 )  :  ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  )  ^  ( ( (  ( (( ( (( ( ( ( ( ( x_6_reg_933__temp  ^ ( ( x_6_reg_933__temp  << 1 )  & 4294967295 )  ) & 4294967295 )  >> 8 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 )  & 1 ) & 18446744073709551615 )  == 1 ? ( ( ( ( x_6_reg_933__temp  ^ ( ( x_6_reg_933__temp  << 1 )  & 4294967295 )  ) & 4294967295 )  ^ 283 ) & 4294967295 )  :  ( ( x_6_reg_933__temp  ^ ( ( x_6_reg_933__temp  << 1 )  & 4294967295 )  ) & 4294967295 )  )  ) & 4294967295 )  ) & 4294967295 )  ^ ( ( x_reg_946__temp  ^ (statemt_q0 & 4294967295 )  ) & 4294967295 )  ) & 4294967295 ) ;
-
            tmp9_reg_1029 =  ( (  ( ( (  ( (( ( (( ( ( ( (statemt_q0 & 4294967295 )  >> 7 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 )  & 1 ) & 18446744073709551615 )  == 1 ? ( ( ( ( (statemt_q0 & 4294967295 )  << 1 )  & 4294967295 )  ^ 283 ) & 4294967295 )  :  ( ( (statemt_q0 & 4294967295 )  << 1 )  & 4294967295 )  )  ^  ( ( (  ( (( ( (( ( ( ( ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q1 & 4294967295 )  ) & 4294967295 )  >> 8 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 )  & 1 ) & 18446744073709551615 )  == 1 ? ( ( ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q1 & 4294967295 )  ) & 4294967295 )  ^ 283 ) & 4294967295 )  :  ( ( ( ( (statemt_q1 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q1 & 4294967295 )  ) & 4294967295 )  )  ) & 4294967295 ) ;
-
            tmp6_reg_1019 =  ( (  ( ( ( tmp_25_reg_1004__temp  & 1 ) & 18446744073709551615 )  == 1 ? ( ( tmp_33_reg_952__temp  ^ 283 ) & 4294967295 )  :  tmp_33_reg_952__temp  )  ^  ( ( (  ( (( ( (( ( ( ( ( ( ( ( (statemt_q0 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q0 & 4294967295 )  ) & 4294967295 )  >> 8 )  & 18446744073709551615 )  & 16777215 ) & 18446744073709551615 )  & 16777215 )  << 8 )  & 18446744073709551615 )  & 4294967295 )  == 256 ? 1 :  0 )  & 1 ) & 18446744073709551615 )  == 1 ? ( ( ( ( ( ( (statemt_q0 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q0 & 4294967295 )  ) & 4294967295 )  ^ 283 ) & 4294967295 )  :  ( ( ( ( (statemt_q0 & 4294967295 )  << 1 )  & 4294967295 )  ^ (statemt_q0 & 4294967295 )  ) & 4294967295 )  )  ) & 4294967295 ) ;
-
        }
        if(1 == ap_CS_fsm_state4)
        {
            ret_address0 =  tmp_4_reg_906__temp ;
-	   //printf("ret_address0 %d\n",ret_address0);
        }
        if((((1 == ap_CS_fsm_state5) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state4))
        {
@@ -1351,15 +1318,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
        if(1 == ap_CS_fsm_state4)
        {
-	  // printf("word3_q0 %d\n",word3_q0);
-	   //printf("statemt_q0 %d\n",statemt_q0);
-	   //printf("statemt_q1 %d\n",statemt_q1);
-          /* ret_d0 =  ( ( ( ( (word3_q0 /*& 4294967295*/ //)  //^ ( (  ( ( ( tmp_2_reg_964__temp  & 1 ) /*& 18446744073709551615*/ )  == 1 ? ( ( x_1_reg_958__temp  ^ 283 ) /*& 4294967295*/ )  :  x_1_reg_958__temp  )  ^  ( ( ( tmp_6_reg_941__temp  & 1 ) /*& 18446744073709551615*/ )  == 1 ? ( ( ( ( x_6_reg_933__temp  << 1 )  & 4294967295 )  ^ 283 ) /*& 4294967295*/ )  :  ( ( x_6_reg_933__temp  << 1 )  /*& 4294967295*/ )  )  ) /*& 4294967295*/ )  ) /*& 4294967295*/ )  ^ ( ( (statemt_q1 /*& 4294967295*/ )  ^ (statemt_q0 /*& 4294967295*/ )  ) /*& 4294967295*/ )  ) /*& 4294967295*/ ) ;//
-
 	   ret_d0 =  ( ( ( ( (word3_q0 & 4294967295 )  ^ ( (  ( ( ( tmp_2_reg_964__temp  & 1 ) & 18446744073709551615 )  == 1 ? ( ( x_1_reg_958__temp  ^ 283 ) & 4294967295 )  :  x_1_reg_958__temp  )  ^  ( ( ( tmp_6_reg_941__temp  & 1 ) & 18446744073709551615 )  == 1 ? ( ( ( ( x_6_reg_933__temp  << 1 )  & 4294967295 )  ^ 283 ) & 4294967295 )  :  ( ( x_6_reg_933__temp  << 1 )  & 4294967295 )  )  ) & 4294967295 )  ) & 4294967295 )  ^ ( ( (statemt_q1 & 4294967295 )  ^ (statemt_q0 & 4294967295 )  ) & 4294967295 )  ) & 4294967295 ) ;
-
-	//printf("ret_d0 %d\n",ret_d0);
-
        }
        if((1 == ap_CS_fsm_state5) || (1 == ap_CS_fsm_state4))
        {
@@ -1387,7 +1346,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        goto ap_ST_fsm_state5;
 
    ap_ST_fsm_state5:
-	//printf("state5\n");
+
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -1553,15 +1512,13 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        tmp_4_reg_906 = tmp_4_reg_906 & 15 ;
        tmp_9_reg_916 = tmp_9_reg_916 & 18446744073709551613 ;
        tmp_9_reg_916 = tmp_9_reg_916 & 15 ;
-       tmp_9_reg_916 = tmp_9_reg_916|1;   //added
-	tmp_9_reg_916__temp=tmp_9_reg_916; //added
-	
+       tmp_9_reg_916 = tmp_9_reg_916|1;
+	   tmp_9_reg_916__temp=tmp_9_reg_916;
        tmp_33_reg_952 = tmp_33_reg_952 & 4294967294 ;
        tmp_19_reg_969 = tmp_19_reg_969 & 18446744073709551614 ;
        tmp_19_reg_969 = tmp_19_reg_969 & 15 ;
-	 tmp_19_reg_969 =  tmp_19_reg_969 |2; //added
-	 tmp_19_reg_969__temp=tmp_19_reg_969; //added
-	
+	   tmp_19_reg_969 =  tmp_19_reg_969 |2;
+	   tmp_19_reg_969__temp=tmp_19_reg_969;
        tmp_21_reg_979 = tmp_21_reg_979 & 18446744073709551615 ;
        tmp_21_reg_979 = tmp_21_reg_979 & 15 ;
        tmp_3_reg_1047 = tmp_3_reg_1047 & 12 ;
@@ -1583,13 +1540,10 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state5)
        {
            ret_address0 =  tmp_9_reg_916__temp ;
-	  // printf("ret_address0 %d\n",ret_address0);
        }
        if(1 == ap_CS_fsm_state5)
        {
            ret_address1 =  tmp_19_reg_969__temp ;
-	 // printf("ret_address1 %d\n",ret_address1);
-	  
        }
        if((((1 == ap_CS_fsm_state5) || (1 == ap_CS_fsm_state8)) || (1 == ap_CS_fsm_state7)) || (1 == ap_CS_fsm_state4))
        {
@@ -1602,13 +1556,10 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state5)
        {
            ret_d0 =  ( ( ( ( (word3_q0 & 4294967295 )  ^ tmp6_reg_1019__temp  ) & 4294967295 )  ^ ( ( x_6_reg_933__temp  ^ x_4_reg_1009__temp  ) & 4294967295 )  ) & 4294967295 ) ;
-
-	   //printf("ret_d0 %d\n",ret_d0);
        }
        if(1 == ap_CS_fsm_state5)
        {
            ret_d1 =  ( ( ( ( (word3_load_2_reg_1024 & 4294967295 )  ^ tmp9_reg_1029__temp  ) & 4294967295 )  ^ ( ( x_reg_946__temp  ^ x_6_reg_933__temp  ) & 4294967295 )  ) & 4294967295 ) ;
-	 //printf("ret_d1 %d\n",ret_d1);
        }
        if((1 == ap_CS_fsm_state5) || (1 == ap_CS_fsm_state4))
        {
@@ -1635,7 +1586,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        goto ap_ST_fsm_state6;
 
    ap_ST_fsm_state6:
-	//printf("state6\n");
+
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -1806,8 +1757,8 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        tmp_19_reg_969 = tmp_19_reg_969 & 15 ;
        tmp_21_reg_979 = tmp_21_reg_979 & 18446744073709551615 ;
        tmp_21_reg_979 = tmp_21_reg_979 & 15 ;
-	tmp_21_reg_979=tmp_21_reg_979|3;
-	tmp_21_reg_979__temp=tmp_21_reg_979;
+	   tmp_21_reg_979=tmp_21_reg_979|3;
+	   tmp_21_reg_979__temp=tmp_21_reg_979;
        tmp_3_reg_1047 = tmp_3_reg_1047 & 12 ;
        tmp_10_reg_1053 = tmp_10_reg_1053 & 18446744073709551612 ;
        tmp_10_reg_1053 = tmp_10_reg_1053 & 15 ;
@@ -1839,7 +1790,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state6)
        {
            ret_d1 =  tmp_41_reg_1034__temp ;
-	   //printf("ret_d1  %d\n",ret_d1 );
        }
        if((1 == ap_CS_fsm_state5) || (1 == ap_CS_fsm_state6))
        {
@@ -1853,18 +1803,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
           word3_address1 =  (( ( 240 + (tmp_22_reg_926 & 511 )  ) & 511 )  & 18446744073709551615 ) ;
           word3_address2 =  (( ( do_twos_complement( 360,9 )  + do_twos_complement( (tmp_22_reg_926 & 511 ) ,9 )  ) & 511 )  & 18446744073709551615 ) ;
-	/*for(int z=0;z<24;z++)
-	{
-		printf("ret %d:%d ",z,ret_ram[z]);
-	}*/
+
        goto ap_ST_fsm_state2;
 
    ap_ST_fsm_state7:
-	/*for(int z=0;z<24;z++)
-	{
-		printf("ret %d:%d ",z,ret_ram[z]);
-	}*/
-	//printf("state7\n");
+
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2147,14 +2090,12 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
        if(ret_ce0){
           ret_q0=ret_ram[ret_address0];
-	  //printf("ret_q0 %d\n",ret_q0);
            if(ret_we0){
               ret_ram[ret_address0]=ret_d0;
            }
        }
        if(ret_ce1){
           ret_q1=ret_ram[ret_address1];
-	    //printf("ret_q1 %d\n",ret_q1);
            if(ret_we1){
               ret_ram[ret_address1]=ret_d1;
            }
@@ -2165,7 +2106,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
    }
 
    ap_ST_fsm_state8:
-	//printf("state8\n");
+
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2376,14 +2317,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state8)
        {
            statemt_address0 =  tmp_10_reg_1053__temp ;
-	  //printf("statemt_address0 %d\n",statemt_address0);
        }
        if(1 == ap_CS_fsm_state8)
        {
            statemt_address1 =  tmp_12_reg_1063__temp +1;
-	   //printf("statemt_address1 %d\n",statemt_address1);
        }
-       //printf("add0:%d add1:%d\n",statemt_address0,statemt_address1);
        if((((1 == ap_CS_fsm_state3) || (1 == ap_CS_fsm_state2)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state8))
        {
            statemt_ce0 =  1;
@@ -2402,14 +2340,12 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
        if(ret_ce0){
           ret_q0=ret_ram[ret_address0];
-	  //printf("ret_q0 %d\n",ret_q0);
            if(ret_we0){
               ret_ram[ret_address0]=ret_d0;
            }
        }
        if(ret_ce1){
           ret_q1=ret_ram[ret_address1];
-	  //printf("ret_q1 %d\n",ret_q1);
            if(ret_we1){
               ret_ram[ret_address1]=ret_d1;
            }
@@ -2417,13 +2353,13 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){              
-              statemt_ram[statemt_address0]=ret_q0__temp/*statemt_d0 ret_q0__temp*/ ;
+              statemt_ram[statemt_address0]=ret_q0__temp ;
            }
        }
        if(statemt_ce1){
           statemt_q1=statemt_ram[statemt_address1];
            if(statemt_we1){
-              statemt_ram[statemt_address1]=ret_q1__temp/*statemt_d1 ret_q1__tempstatemt_d1*/;
+              statemt_ram[statemt_address1]=ret_q1__temp ;
            }
        }
           word3_address1 =  (( ( 240 + (tmp_22_reg_926 & 511 )  ) & 511 )  & 18446744073709551615 ) ;
@@ -2431,7 +2367,7 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        goto ap_ST_fsm_state9;
 
    ap_ST_fsm_state9:
-	//printf("state9\n");
+
 	ap_CS_fsm_state1 = 0;
 	ap_CS_fsm_state2 = 0;
 	ap_CS_fsm_state3 = 0;
@@ -2626,14 +2562,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state9)
        {
            statemt_address0 =  tmp_14_reg_1073__temp +2;
-	   //printf("statemt_address0 %d\n",statemt_address0 );
        }
        if(1 == ap_CS_fsm_state9)
        {
            statemt_address1 =  tmp_16_reg_1083__temp +3;
-	   //printf("statemt_address1 %d\n",statemt_address1 );
        }
-       //printf("add0:%d add1:%d\n",statemt_address0,statemt_address1);
        if((((1 == ap_CS_fsm_state3) || (1 == ap_CS_fsm_state2)) || (1 == ap_CS_fsm_state9)) || (1 == ap_CS_fsm_state8))
        {
            statemt_ce0 =  1;
@@ -2653,24 +2586,20 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              statemt_ram[statemt_address0]= ret_q0__temp/*statemt_d0 ret_q0__temp statemt_d0*/;
+              statemt_ram[statemt_address0]= ret_q0__temp ;
            }
        }
        if(statemt_ce1){
           statemt_q1=statemt_ram[statemt_address1];
            if(statemt_we1){
-              statemt_ram[statemt_address1]= ret_q1__temp/*statemt_d1 ret_q1__temp statemt_d1*/;
+              statemt_ram[statemt_address1]= ret_q1__temp ;
            }
        }
           word3_address1 =  (( ( 240 + (tmp_22_reg_926 & 511 )  ) & 511 )  & 18446744073709551615 ) ;
           word3_address2 =  (( ( do_twos_complement( 360,9 )  + do_twos_complement( (tmp_22_reg_926 & 511 ) ,9 )  ) & 511 )  & 18446744073709551615 ) ;
        goto ap_ST_fsm_state7;
    end:
-  printf("MixColumn_AddRoundKe out\n");
-   for(i=0;i<32;i++){
-      printf("%d ",statemt_ram[i]);
-    }
-    printf("\n");
+ 
 	*ap_clk__1=ap_clk;
 	*ap_done__1=ap_done;
 	*ap_idle__1=ap_idle;

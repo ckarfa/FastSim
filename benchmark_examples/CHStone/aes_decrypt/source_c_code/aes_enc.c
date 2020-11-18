@@ -7,7 +7,7 @@ void aes_func_call(int statemt1[32]){
 	int type=128128;
 	int nb=4;
 	int i1,i,j;
-	int statemt[32];//={50,67,246,168,136,90,48,141,49,49,152,162,224,55,7,52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	int statemt[32];
 
 	for(i=0;i<32;i++)
 		statemt[i]=statemt1[i];
@@ -32,7 +32,7 @@ void aes_func_call(int statemt1[32]){
 int
 encrypt (int statemt[32], int key[32], int type)
 {
-  int i;
+ 
 /*
 +--------------------------------------------------------------------------+
 | * Test Vector (added for CHStone)                                        |
@@ -80,15 +80,9 @@ encrypt (int statemt[32], int key[32], int type)
   aes_func_call(statemt);
 	
   
-  printf ("encrypted message \t");
-  for (i = 0; i < nb * 4; ++i)
-    {
-      if (statemt[i] < 16)
-	printf ("0");
-      printf ("%x", statemt[i]);
-    }
-		
+  
  int main_result;
+  int i;
   for (i = 0; i < 16; i++)
     main_result += (statemt[i] != out_enc_statemt[i]);
 

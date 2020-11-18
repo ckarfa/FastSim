@@ -110,7 +110,6 @@ ByteSub_ShiftRow (int statemt[32], int nb)
       statemt[5] = Sbox[statemt[9] >> 4][statemt[9] & 0xf];
       statemt[9] = Sbox[statemt[13] >> 4][statemt[13] & 0xf];
       statemt[13] = temp;
-//	printf("st[1]:%d st[5]:%d st[9]:%d st[13]:%d\n",statemt[1],statemt[5],statemt[9],statemt[13]);
 
       temp = Sbox[statemt[2] >> 4][statemt[2] & 0xf];
       statemt[2] = Sbox[statemt[10] >> 4][statemt[10] & 0xf];
@@ -363,11 +362,6 @@ InversShiftRow_ByteSub (int statemt[32], int nb)
       statemt[28] = invSbox[statemt[28] >> 4][statemt[28] & 0xf];
       break;
     }
-int j;
-printf("InverseShiftRow\n");
-for(j=0;j<32;j++)
-	printf("%d ",statemt[j]);
-	printf("\n");
 }
 
 /* ******** MixColumn ********** */
@@ -534,14 +528,7 @@ AddRoundKey_InversMixColumn (int statemt[32], int nb, int n,int word[4][120])
       statemt[2 + i * 4] = ret[2 + i * 4];
       statemt[3 + i * 4] = ret[3 + i * 4];
     }
-printf("ADDRound_INverse\n");
-for(j=0;j<32;j++)
-	printf("%d ",statemt[j]);
-	printf("\n");
-
-  return 0;
 }
-
 /* ******** AddRoundKey ********** */
 int
 
@@ -566,21 +553,14 @@ AddRoundKey (int statemt[32], int type, int n,int word[4][120])
       nb = 8;
       break;
     }
-	printf("ADDRound\n");
   for (j = 0; j < nb; ++j)
     {
-	
-	//printf("%d %d %d %d\n",statemt[j * 4],statemt[1 + j * 4],statemt[2 + j * 4],statemt[3 + j * 4]);
-	//printf("%d %d %d %d\n",word[0][j + nb * n],word[1][j + nb * n],word[2][j + nb * n],word[3][j + nb * n]);
-
       statemt[j * 4] ^= word[0][j + nb * n];
       statemt[1 + j * 4] ^= word[1][j + nb * n];
       statemt[2 + j * 4] ^= word[2][j + nb * n];
       statemt[3 + j * 4] ^= word[3][j + nb * n];
     }
-
-	for(j=0;j<32;j++)
-	printf("%d ",statemt[j]);
-	printf("\n");
   return 0;
 }
+
+

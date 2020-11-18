@@ -6,12 +6,6 @@
 #define word1_AWIDTH 9
 #define word1_MEM_SIZE 480
 void AddRoundKey(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *n__1,unsigned long long int *statemt_address0__1,unsigned long long int *statemt_address1__1,unsigned long long int *statemt_ce0__1,unsigned long long int *statemt_ce1__1,unsigned long long int *statemt_d0__1,unsigned long long int *statemt_d1__1,unsigned long long int *statemt_q0__1,unsigned long long int *statemt_q1__1,unsigned long long int *statemt_we0__1,unsigned long long int *statemt_we1__1,int dummy,unsigned long long int statemt_ram[32]){
-    printf("ADD round key in\n");
-    int i;
-    for(i=0;i<32;i++){
-      printf("%d ",statemt_ram[i]);
-    }
-    printf("\n");
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -404,12 +398,10 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(1 == ap_CS_fsm_state2)
        {
            statemt_address0 =  ((( ( ( ( j_reg_134__temp  & 3 ) & 3 )  << 2 )  & 36893488147419103231 )  & 15 )  & 18446744073709551615 ) ;
-	  // printf("statemt_address0 %d\n",statemt_address0);
        }
        if(1 == ap_CS_fsm_state2)
        {
            statemt_address1 =  (( ( (( ( ( ( j_reg_134__temp  & 3 ) & 3 )  << 2 )  & 36893488147419103231 )  & 15 )  | 1 ) & 15 )  & 18446744073709551615 ) ;
-	   //printf("statemt_address1 %d\n",statemt_address1);
        }
        if((((1 == ap_CS_fsm_state3) || (1 == ap_CS_fsm_state2)) || (1 == ap_CS_fsm_state5)) || (1 == ap_CS_fsm_state4))
        {
@@ -426,12 +418,10 @@ unsigned long long int statemt_we1=*statemt_we1__1;
 	  
 
           if(statemt_ce0){
-          statemt_q0=statemt_ram[statemt_address0]; 
-	 // printf("statemt_q0 %d\n",statemt_q0);         
+          statemt_q0=statemt_ram[statemt_address0];        
           }
           if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1]; 
-	   //printf("statemt_q1 %d\n",statemt_q1);               
+          statemt_q1=statemt_ram[statemt_address1];               
           }
        if(ap_done==1){
        	goto end;
@@ -480,15 +470,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
           word1_address1 =  (( ( 120 + (tmp_s_reg_316 & 255 )  ) & 255 )  & 18446744073709551615 ) ;
           word1_address2 =  (( ( 240 + (tmp_s_reg_316 & 511 )  ) & 511 )  & 18446744073709551615 ) ;
           word1_address3 =  (( ( do_twos_complement( 360,9 )  + do_twos_complement( (tmp_s_reg_316 & 511 ) ,9 )  ) & 511 )  & 18446744073709551615 ) ;
-         // printf("statemt_address0:%d\n",statemt_address0);
-         // printf("statemt_address1:%d\n",statemt_address1);
         if(statemt_ce0){
-          statemt_q0=statemt_ram[statemt_address0];  
-	     // printf("statemt_q0 %d\n",statemt_q0);     
+          statemt_q0=statemt_ram[statemt_address0];    
           }
           if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1]; 
-	  // printf("statemt_q1 %d\n",statemt_q1);           
+          statemt_q1=statemt_ram[statemt_address1];          
           }
        goto ap_ST_fsm_state3;
    }
@@ -631,15 +617,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(word1_ce3){
           word1_q3=word1_rom[word1_address3];
        }
-       //printf("statemt_address0:%d\n",statemt_address0);
-       //printf("statemt_address1:%d\n",statemt_address1);
        if(statemt_ce0){
-          statemt_q0=statemt_ram[statemt_address0];   
-	   //printf("statemt_q0 %d\n",statemt_q0);         
+          statemt_q0=statemt_ram[statemt_address0];           
           }
           if(statemt_ce1){
-          statemt_q1=statemt_ram[statemt_address1];  
-	  // printf("statemt_q1 %d\n",statemt_q1);          
+          statemt_q1=statemt_ram[statemt_address1];         
           }
        goto ap_ST_fsm_state4;
 
@@ -746,16 +728,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
        if(1 == ap_CS_fsm_state4)
        {
-           //printf("stat:%d word:%d\n",statemt_load_reg_359__temp,word1_q0);
            statemt_d0 =  ( ( (word1_q0 & 4294967295 )  ^ statemt_load_reg_359__temp  ) & 4294967295 ) ;
-	  // printf("word1_q0 %d\n",word1_q0);
-	   //printf("statemt_load_reg_359__temp %d\n",statemt_load_reg_359__temp);
-	   //printf("statemt_d0 %d\n",statemt_d0);
        }
        if(1 == ap_CS_fsm_state4)
        {
            statemt_d1 =  ( ( (word1_q1 & 4294967295 )  ^ statemt_load_19_reg_364__temp  ) & 4294967295 ) ;
-	  // printf("statemt_d1 %d\n",statemt_d1);
        }
        if((1 == ap_CS_fsm_state5) || (1 == ap_CS_fsm_state4))
        {
@@ -772,7 +749,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
         if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
            if(statemt_we0){
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
@@ -781,7 +757,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
            if(statemt_we1){
             
               statemt_address1 = statemt_address1 + 1;
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
               statemt_ram[statemt_address1]=statemt_d1;
            }
           }
@@ -912,7 +887,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
            if(statemt_we0){
               
               statemt_address0=statemt_address0+2;
-              //printf("statem[%d]:%d\n",statemt_address0,statemt_d0);
               statemt_ram[statemt_address0]=statemt_d0;
            }
           }
@@ -920,17 +894,11 @@ unsigned long long int statemt_we1=*statemt_we1__1;
           statemt_q1=statemt_ram[statemt_address1];
            if(statemt_we1){
               statemt_address1=statemt_address1+3;
-              //printf("statem[%d]:%d\n",statemt_address1,statemt_d1);
               statemt_ram[statemt_address1]=statemt_d1;
            }
           }
        goto ap_ST_fsm_state2;
    end:
-printf("Add round key out \n");
-for(i=0;i<32;i++){
-      printf("%d ",statemt_ram[i]);
-    }
-    printf("\n");
 	*ap_clk__1=ap_clk;
 	*ap_done__1=ap_done;
 	*ap_idle__1=ap_idle;

@@ -17,48 +17,17 @@ void aes_func_call(int statemt1[32]){
 	,21,210,21,79,254,44,57,118,149,185,128,246,71,254,126,136,165,91,37,173,198,157,184,21,163,62,134,147,247,201,79,220,115,186,245,41,102,220,41,0,249,37,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	22,166,136,60,23,177,57,5,242,67,122,127,125,62,68,59,65,127,59,0,248,135,188,188,122,253,65,253,14,243,178,79,33,210,96,47,243,33,65,110,168,137,200,166,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
-	AddRoundKey (statemt, type, 0,word1);
+	AddRoundKey (statemt, type, 0,word1);  
   
-	printf("\nAddRoundKey:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",statemt[i1]);
-	printf("\n");
-  
-  
-  for (i = 1; i <= round_val + 9; ++i)
-    {
-		printf("\nRound:%d\n",i);
-      ByteSub_ShiftRow (statemt, nb);
-	  printf("ByteSub_ShiftRow:\n");
-	for(i1=0;i1<32;i1++)
-		printf("%d ",statemt[i1]);
-	printf("\n");
-	  
-	  
-      MixColumn_AddRoundKey (statemt, nb, i);
-	  
-	  printf("\nMixColumn_AddRoundKey:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",statemt[i1]);
-	printf("\n");
-	  
+	for (i = 1; i <= round_val + 9; ++i)
+    {		
+		ByteSub_ShiftRow (statemt, nb);	  	 
+		MixColumn_AddRoundKey (statemt, nb, i);	  	 
     }
 	
 	
-  ByteSub_ShiftRow (statemt, nb);
-  
-  printf("\nByteSub_ShiftRow:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",statemt[i1]);
-	printf("\n");
-  
-  AddRoundKey (statemt, type, i,word1);
-  
-  printf("\nAddRoundKey:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",statemt[i1]);
-	printf("\n");
-	
+	ByteSub_ShiftRow (statemt, nb);  
+	AddRoundKey (statemt, type, i,word1);
 	for(i=0;i<32;i++)
 		statemt1[i]=statemt[i];
 }
@@ -79,19 +48,8 @@ encrypt (int statemt[32], int key[32], int type)
   };
 
 	int i1;
-	printf("\nInitial:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",key[i1]);
-	printf("\n");
-
-
-  KeySchedule (type, key);
-  
-  	printf("\nInitial1:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",key[i1]);
-	printf("\n");
-  switch (type)
+	KeySchedule (type, key);
+	switch (type)
     {
     case 128128:
       round_val = 0;
@@ -121,29 +79,21 @@ encrypt (int statemt[32], int key[32], int type)
       nb = 8;
       break;
     }
-   
-   
-   
-   printf("\nKey Schedule:\n");
-	for(i1=0;i1<16;i1++)
-		printf("%d ",statemt[i1]);
-	printf("\n");
-	
-  aes_func_call(statemt);
+	aes_func_call(statemt);
 	
   
-  printf ("encrypted message \t");
-  for (i = 0; i < nb * 4; ++i)
+	printf ("Encrypted message:  ");
+	for (i = 0; i < nb * 4; ++i)
     {
       if (statemt[i] < 16)
 		printf ("0");
       printf ("%x", statemt[i]);
     }
-		
 	
- int main_result;
-  for (i = 0; i < 16; i++)
-    main_result += (statemt[i] != out_enc_statemt[i]);
+    	
+	int main_result;
+	for (i = 0; i < 16; i++)
+		main_result += (statemt[i] != out_enc_statemt[i]);
 
   return 0;
 }

@@ -6,14 +6,6 @@
 #define invSbox1_AWIDTH 8
 #define invSbox1_MEM_SIZE 256
 void InversShiftRow_ByteS(unsigned long long int *ap_clk__1,unsigned long long int *ap_done__1,unsigned long long int *ap_idle__1,unsigned long long int *ap_ready__1,unsigned long long int *ap_rst__1,unsigned long long int *ap_start__1,unsigned long long int *statemt_address0__1,unsigned long long int *statemt_address1__1,unsigned long long int *statemt_ce0__1,unsigned long long int *statemt_ce1__1,unsigned long long int *statemt_d0__1,unsigned long long int *statemt_d1__1,unsigned long long int *statemt_q0__1,unsigned long long int *statemt_q1__1,unsigned long long int *statemt_we0__1,unsigned long long int *statemt_we1__1,int dummy,unsigned long long int statemt_ram[32]){
-int i,j;
-
-/*printf("InverseShiftRow In\n");
-for(j=0;j<32;j++){
-	printf("%d ",statemt_ram[j]);
-}
-printf("\n");*/
-
 unsigned long long int ap_clk=*ap_clk__1;
 unsigned long long int ap_done=*ap_done__1;
 unsigned long long int ap_idle=*ap_idle__1;
@@ -547,7 +539,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        if(invSbox1_ce1){
           invSbox1_q1=invSbox1_rom[invSbox1_address1];
        }
-	//printf("invSbox1_address0:%d invSbox1_address1:%d\n",invSbox1_address0,invSbox1_address1);
 	if(statemt_ce0){
           statemt_q0=statemt_ram[statemt_address0];
        }
@@ -1800,7 +1791,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        {
            reg_340 =  invSbox1_q1__temp ;
        }
-	//printf("reg_326:%d reg_340:%d\n",reg_326,reg_340);
        if(1 == ap_CS_fsm_state10)
        {
            statemt_address0 =   ( 5 ) & 18446744073709551615;
@@ -2782,12 +2772,6 @@ unsigned long long int statemt_we1=*statemt_we1__1;
        }
        goto ap_ST_fsm_state1;
    end:
-	printf("Inverse byte shift out\n");
-	for(j=0;j<32;j++)
-	{
-		printf("%d ",statemt_ram[j]);
-	}
-	printf("\n");
 	*ap_clk__1=ap_clk;
 	*ap_done__1=ap_done;
 	*ap_idle__1=ap_idle;
