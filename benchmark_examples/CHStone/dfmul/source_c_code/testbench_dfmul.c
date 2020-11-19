@@ -60,7 +60,7 @@ int main(){
 		int i11;
 		for(i11=0;i11<INPUT;i11++){
 			result=top_main(a_input_rom[i11],b_input_rom[i11],z_output_rom[i11]);
-			printf("Test Case:%d/%d \t  Output: ",i11+1,INPUT);		
+			printf("Test Case:%d/%d \t  Output:%d \n",i11+1,INPUT,result);		
 		}
 
 
