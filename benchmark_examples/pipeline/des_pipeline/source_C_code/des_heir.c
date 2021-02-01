@@ -34,7 +34,7 @@ uint64_t initial_permuatation(uint64_t input,uint32_t L,uint32_t R,uint32_t C,ui
     uint32_t R1;
     for (i = 0; i < 64; i++) 
     {
-		#pragma HLS pipeline II=1
+	#pragma HLS pipeline II=1
         init_perm_res <<= 1;
         init_perm_res |= (input >> (64-IP[i])) & LB64_MASK;        
     }

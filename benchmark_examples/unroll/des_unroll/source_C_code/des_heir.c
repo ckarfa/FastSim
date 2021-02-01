@@ -34,7 +34,6 @@ uint64_t initial_permuatation(uint64_t input,uint32_t L,uint32_t R,uint32_t C,ui
     uint32_t R1;
     for (i = 0; i < 64; i++) 
     {
-		#pragma HLS pipeline II=1
         init_perm_res <<= 1;
         init_perm_res |= (input >> (64-IP[i])) & LB64_MASK;        
     }
@@ -65,7 +64,6 @@ uint64_t schedule_calculation(uint64_t key,uint32_t C, uint32_t D,uint32_t L,uin
     uint64_t D1;
     for (i = 0; i < 56; i++) 
     {
-	#pragma HLS pipeline II=1
         permuted_choice_1<<= 1;
         permuted_choice_1 |= (key >> (64-PC1[i])) & LB64_MASK;
     }
@@ -104,7 +102,7 @@ uint64_t shiftingcidi(uint32_t C, uint32_t D,uint32_t L,uint32_t R,char mode)
 
 	 for (i = 0; i< 16; i++) 
    	{
-			
+#pragma HLS unroll			
         	for (j = 0; j < iteration_shift[i]; j++) 
         	{
             
