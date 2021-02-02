@@ -1407,7 +1407,7 @@ grp_InversShiftRow_ByteS_fu_132_ap_done=1;
        {
            i_4_reg_218 =  ( ( do_twos_complement(i_1_reg_99,4) + do_twos_complement(15,15) ) & 15 ) ;
        }
-
+			//since both functions are executes in mutually exclusive manner so there is no need of _old variables.
 if (grp_AddRoundKey_InversMi_fu_122_ap_start_reg==1){
 grp_AddRoundKey_InversMi_fu_122_ap_start=1;
 AddRoundKey_InversMi(&ap_clk,&grp_AddRoundKey_InversMi_fu_122_ap_done,&grp_AddRoundKey_InversMi_fu_122_ap_idle,&grp_AddRoundKey_InversMi_fu_122_ap_ready,&ap_rst,&grp_AddRoundKey_InversMi_fu_122_ap_start,&i_1_reg_99,&grp_AddRoundKey_InversMi_fu_122_statemt_address0,&grp_AddRoundKey_InversMi_fu_122_statemt_address1,&grp_AddRoundKey_InversMi_fu_122_statemt_ce0,&grp_AddRoundKey_InversMi_fu_122_statemt_ce1,&grp_AddRoundKey_InversMi_fu_122_statemt_d0,&grp_AddRoundKey_InversMi_fu_122_statemt_d1,&statemt_q0,&statemt_q1,&grp_AddRoundKey_InversMi_fu_122_statemt_we0,&grp_AddRoundKey_InversMi_fu_122_statemt_we1,&grp_AddRoundKey_InversMi_fu_122_word_address0,&grp_AddRoundKey_InversMi_fu_122_word_address1,&grp_AddRoundKey_InversMi_fu_122_word_ce0,&grp_AddRoundKey_InversMi_fu_122_word_ce1,&word_q0,&word_q1,dummy,statemt_ram,word_rom);
@@ -1433,6 +1433,7 @@ grp_AddRoundKey_fu_140_ap_done=1;
        {
                i_4_reg_218 =  ( ( do_twos_complement(i_1_reg_99,4) + do_twos_complement(15,15) ) & 15 ) ;
        }
+       				//since both functions are executes in mutually exclusive manner so there is no need of _old variables.
 if (grp_AddRoundKey_InversMi_fu_122_ap_start_reg==1){
 grp_AddRoundKey_InversMi_fu_122_ap_start=1;
 AddRoundKey_InversMi(&ap_clk,&grp_AddRoundKey_InversMi_fu_122_ap_done,&grp_AddRoundKey_InversMi_fu_122_ap_idle,&grp_AddRoundKey_InversMi_fu_122_ap_ready,&ap_rst,&grp_AddRoundKey_InversMi_fu_122_ap_start,&i_1_reg_99,&grp_AddRoundKey_InversMi_fu_122_statemt_address0,&grp_AddRoundKey_InversMi_fu_122_statemt_address1,&grp_AddRoundKey_InversMi_fu_122_statemt_ce0,&grp_AddRoundKey_InversMi_fu_122_statemt_ce1,&grp_AddRoundKey_InversMi_fu_122_statemt_d0,&grp_AddRoundKey_InversMi_fu_122_statemt_d1,&statemt_q0,&statemt_q1,&grp_AddRoundKey_InversMi_fu_122_statemt_we0,&grp_AddRoundKey_InversMi_fu_122_statemt_we1,&grp_AddRoundKey_InversMi_fu_122_word_address0,&grp_AddRoundKey_InversMi_fu_122_word_address1,&grp_AddRoundKey_InversMi_fu_122_word_ce0,&grp_AddRoundKey_InversMi_fu_122_word_ce1,&word_q0,&word_q1,dummy,statemt_ram,word_rom);

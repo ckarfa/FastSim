@@ -3386,6 +3386,7 @@ word_ce1 = 0 ;
        {
            i_2_reg_627 =   ( ( do_twos_complement( i_1_reg_536__temp  , 4 )  + do_twos_complement( 15 , 4 )  ) & 15 ) ;
        }
+       			//since both functions are executes in mutually exclusive manner so there is no need of _old variables.
 if (grp_AddRoundKey_InversMi_fu_548_ap_start_reg==1){
 grp_AddRoundKey_InversMi_fu_548_ap_start=1;
 AddRoundKey_InversMi_clk = clock;
@@ -3414,6 +3415,7 @@ grp_AddRoundKey_fu_558_ap_done=1;
        {
                i_2_reg_627 =   ( ( do_twos_complement( i_1_reg_536__temp  , 4 )  + do_twos_complement( 15 , 4 )  ) & 15 ) ;
        }
+       			//since both functions are executes in mutually exclusive manner so there is no need of _old variables.
 if (grp_AddRoundKey_InversMi_fu_548_ap_start_reg==1){
 grp_AddRoundKey_InversMi_fu_548_ap_start=1;
 AddRoundKey_InversMi_clk = clock;

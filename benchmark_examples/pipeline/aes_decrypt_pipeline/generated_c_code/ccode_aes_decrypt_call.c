@@ -2365,6 +2365,7 @@ zext_ln29_reg_231 =  ( ( zext_ln29_reg_231 & 63 ) & 18446744073709551615 )  ;
        {
            i_3_reg_218 =   ( ( do_twos_complement( i_1_reg_99__temp  , 4 )  + do_twos_complement( 15 , 4 )  ) & 15 ) ;
        }
+       			//since both functions are executes in mutually exclusive manner so there is no need of _old variables.
 if (grp_AddRoundKey_InversMi_fu_122_ap_start_reg==1){
 grp_AddRoundKey_InversMi_fu_122_ap_start=1;
 AddRoundKey_InversMi_clk = clock;
@@ -2393,6 +2394,7 @@ grp_AddRoundKey_fu_140_ap_done=1;
        {
                i_3_reg_218 =   ( ( do_twos_complement( i_1_reg_99__temp  , 4 )  + do_twos_complement( 15 , 4 )  ) & 15 ) ;
        }
+       			//since both functions are executes in mutually exclusive manner so there is no need of _old variables.
 if (grp_AddRoundKey_InversMi_fu_122_ap_start_reg==1){
 grp_AddRoundKey_InversMi_fu_122_ap_start=1;
 AddRoundKey_InversMi_clk = clock;
