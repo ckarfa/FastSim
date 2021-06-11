@@ -1,6 +1,6 @@
 
 
-# RTL to C Parser: Version 1.0
+# FastSim: Version 1.0
 
 #### This tool is used to parse RTL Verilog generated using Xilinx Vivado into an equivalent C Code.
 
